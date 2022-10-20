@@ -18,7 +18,7 @@ const Datatable = () => {
   const [phone, setPhone] = useState([])
 
   const  getDate  =async()=>{
-    let res = await axios.get("http://localhost:8080/api/v1/getAllUsers");
+    let res = await axios.get("https://gymapibackend.herokuapp.com/api/v1/getAllUsers");
     console.log("responce->", res?.data?.getAllUsers?.map((x) => x?.profilePicture?.url))
     setUser(res.data.getAllUsers)
     const modifiedData = res.data.getAllUsers
@@ -47,7 +47,7 @@ const Datatable = () => {
 
     var config = {
       method: "delete",
-      url: "http://localhost:8080/api/v1/deleteUser",
+      url: "https://gymapibackend.herokuapp.com/api/v1/deleteUser",
       headers: {
         "Content-Type": "application/json",
       },

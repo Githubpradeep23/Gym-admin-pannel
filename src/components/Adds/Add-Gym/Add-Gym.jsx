@@ -51,7 +51,7 @@ const AddGym = () => {
 
         var config = {
             method: 'post',
-            url: 'http://localhost:8080/api/v1/addGYM',
+            url: 'https://gymapibackend.herokuapp.com/api/v1/addGYM',
             headers: {
                 'Content-Type': 'application/json'
             },

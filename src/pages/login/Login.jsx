@@ -45,7 +45,7 @@ const Login = () => {
     var config = {
       method: 'post',
       // https://candidateapp.herokuapp.com/ old live domain url
-      url: 'http://localhost:8080/api/v1/adminLogin',
+      url: 'https://gymapibackend.herokuapp.com/api/v1/adminLogin',
       headers: { 
         'Content-Type': 'application/json'
       },
@@ -64,7 +64,7 @@ const Login = () => {
       window.alert("Login Fail")
       
     });
-    // const userLogin = await axios.post("http://localhost:8080/api/v1/adminLogin", {
+    // const userLogin = await axios.post("https://gymapibackend.herokuapp.com/api/v1/adminLogin", {
     //   email,
     //   password,
     // }

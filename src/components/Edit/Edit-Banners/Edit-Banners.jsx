@@ -66,7 +66,7 @@ const EditBanners = ({ route }) => {
 
     var config = {
       method: "put",
-      url: "http://localhost:8080/api/v1/updateBanner",
+      url: "https://gymapibackend.herokuapp.com/api/v1/updateBanner",
       headers: { "Content-Type": "multipart/form-data" },
 
       data: data,

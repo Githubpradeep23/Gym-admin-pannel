@@ -92,7 +92,7 @@ const EditGymBranch = ({ route }) => {
         });
         var config = {
             method: 'put',
-            url: 'http://localhost:8080/api/v1/updateGymBranch',
+            url: 'https://gymapibackend.herokuapp.com/api/v1/updateGymBranch',
             headers: {
                 'Content-Type': 'application/json'
             },

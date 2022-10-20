@@ -111,7 +111,7 @@ const EditTestimonial = ({ route }) => {
 
         var config = {
             method: 'put',
-            url: 'http://localhost:8080/api/v1/updateTestimonial',
+            url: 'https://gymapibackend.herokuapp.com/api/v1/updateTestimonial',
             headers: { "Content-Type": "multipart/form-data" },
 
             data: data

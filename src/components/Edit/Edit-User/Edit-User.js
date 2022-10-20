@@ -105,7 +105,7 @@ const EditUser = ({ route }) => {
     console.log("data dek loo =>", data)
 
     const res = await axios.put(
-      "http://localhost:8080/api/v1/editUser",
+      "https://gymapibackend.herokuapp.com/api/v1/editUser",
       data
     );
     console.log("responce",res);

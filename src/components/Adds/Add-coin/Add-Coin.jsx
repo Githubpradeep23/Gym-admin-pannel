@@ -56,7 +56,7 @@ data.append( "coin", coin);
 
           var config = {
             method: 'post',
-            url: 'http://localhost:8080/api/v1/addCoin',
+            url: 'https://gymapibackend.herokuapp.com/api/v1/addCoin',
             headers: { 
               'Content-Type': 'application/json'
             },

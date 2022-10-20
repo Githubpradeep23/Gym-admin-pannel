@@ -74,7 +74,7 @@ const EditServices = ({ route }) => {
 
         var config = {
             method: 'put',
-            url: 'http://localhost:8080/api/v1/updateGymSevice',
+            url: 'https://gymapibackend.herokuapp.com/api/v1/updateGymSevice',
             headers: { "Content-Type": "multipart/form-data" },
 
             data: data

@@ -252,7 +252,7 @@ const AddGymBranchService = () => {
 
       let config = {
         method: "post",
-        url: "http://localhost:8080/api/v1/addGymSevice",
+        url: "https://gymapibackend.herokuapp.com/api/v1/addGymSevice",
         data: data,
       };
       axios(config)
@@ -308,7 +308,7 @@ const AddGymBranchService = () => {
 
       let config = {
         method: "post",
-        url: "http://localhost:8080/api/v1/addGymSevice",
+        url: "https://gymapibackend.herokuapp.com/api/v1/addGymSevice",
         data: data,
       };
       axios(config)
@@ -396,7 +396,7 @@ const AddGymBranchService = () => {
 
       let config = {
         method: "post",
-        url: "http://localhost:8080/api/v1/addGymSevice",
+        url: "https://gymapibackend.herokuapp.com/api/v1/addGymSevice",
         data: data,
       };
       axios(config)
@@ -448,7 +448,7 @@ const AddGymBranchService = () => {
 
       let config = {
         method: "post",
-        url: "http://localhost:8080/api/v1/addGymSevice",
+        url: "https://gymapibackend.herokuapp.com/api/v1/addGymSevice",
         data: data,
       };
       axios(config)
@@ -560,7 +560,7 @@ const AddGymBranchService = () => {
 
       let config = {
         method: "post",
-        url: "http://localhost:8080/api/v1/addGymSevice",
+        url: "https://gymapibackend.herokuapp.com/api/v1/addGymSevice",
         data: data,
       };
       axios(config)
@@ -635,7 +635,7 @@ const AddGymBranchService = () => {
 
       let config = {
         method: "post",
-        url: "http://localhost:8080/api/v1/addGymSevice",
+        url: "https://gymapibackend.herokuapp.com/api/v1/addGymSevice",
         data: data,
       };
       axios(config)
@@ -705,7 +705,7 @@ const AddGymBranchService = () => {
 
   const getBranches = async () => {
     let res = await axios.get(
-      "http://localhost:8080/api/v1/getAllGymBranch"
+      "https://gymapibackend.herokuapp.com/api/v1/getAllGymBranch"
     );
 
     console.log("responce=============->", res.data.getAllGymBranch);

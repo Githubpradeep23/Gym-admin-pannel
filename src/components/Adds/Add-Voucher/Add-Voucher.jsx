@@ -67,7 +67,7 @@ const AddVoucher = () => {
           
           var config = {
             method: 'post',
-            url: 'http://localhost:8080/api/v1/addCopuan',
+            url: 'https://gymapibackend.herokuapp.com/api/v1/addCopuan',
             headers: { 
               'Content-Type': 'application/json'
             },

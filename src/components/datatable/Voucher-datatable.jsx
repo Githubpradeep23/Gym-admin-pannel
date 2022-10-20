@@ -15,7 +15,7 @@ const VoucherDataTable = () => {
   const [allPayments, setAllPayments] = useState()
 
   const getdata = async () => {
-    const res = await axios.get("http://localhost:8080/api/v1/getAllPaymentsRecords")
+    const res = await axios.get("https://gymapibackend.herokuapp.com/api/v1/getAllPaymentsRecords")
     setAllPayments(res.data.getAllPaymentsRecords)
   }
 
