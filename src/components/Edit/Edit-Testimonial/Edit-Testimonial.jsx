@@ -30,6 +30,8 @@ const EditTestimonial = ({ route }) => {
     const [category, setcategory] = useState("");
     const [description, setdescription] = useState("");
     const [customerName, setcustomerName] = useState("");
+    const [youtubeLink, setyoutubeLink] = useState(null);
+
     const [rating, setrating] = useState("");
     const [testimonialImage, settestimonialImage] = useState(null);
     const [Id, setIds] = useState("")
@@ -83,6 +85,7 @@ const EditTestimonial = ({ route }) => {
         setrating(routeLocation.state.gym.rating)
         settitle(routeLocation.state.gym.title)
         setcategory(routeLocation.state.gym.category)
+        setyoutubeLink(routeLocation.state.gym.youtube_link)
         // settestimonialImage(routeLocation.state.gym.testimonialImage)
     }, [])
 
@@ -103,11 +106,12 @@ const EditTestimonial = ({ route }) => {
         data.append('description', description);
         data.append('customerName', customerName);
         data.append('rating', rating);
+        data.append("youtube_link", youtubeLink);
 
 
         var config = {
             method: 'put',
-            url: 'https://gymapibackend.herokuapp.com/api/v1/updateTestimonial',
+            url: 'http://localhost:8080/api/v1/updateTestimonial',
             headers: { "Content-Type": "multipart/form-data" },
 
             data: data
@@ -116,8 +120,13 @@ const EditTestimonial = ({ route }) => {
         axios(config)
             .then(function (response) {
                 console.log(JSON.stringify(response.data));
-                window.alert("success")
-                navigate('/testimonials')
+
+                if (response.status === 200) {
+                    alert('Testimoneal Updated Successfully')
+                    navigate('/testimonials')
+                } else {
+                    alert('something went wrong')
+                }
             })
             .catch(function (error) {
                 window.alert("error")
@@ -172,8 +181,9 @@ const EditTestimonial = ({ route }) => {
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
                                     <select
-                                        {...register("category", { required: true })}
+                                        {...register("category")}
                                         id="category"
+                                        required
                                         className="form-select"
                                         value={category}
                                         onChange={(e) => setcategory(e.target.value)}
@@ -196,30 +206,18 @@ const EditTestimonial = ({ route }) => {
                                         value={category}
                                         onChange={(e) => setcategory(e.target.value)}
                                     /> */}
-                                    {errors.category && <p style={{ color: "red" }}> category Name is required</p>}
+                                    {/* {errors.category && <p style={{ color: "red" }}> category Name is required</p>} */}
 
                                 </Grid>
-                                <Grid item xs={12} sm={6}>
-                                    <TextField
-                                        {...register("description", { required: true })}
+                                <Grid item xs={12} sm={15}>
 
-                                        id="outlined-multiline-static"
-                                        multiline
-                                        rows={6}
-                                        required
-                                        label="description"
-                                        name="description"
-                                        autoComplete="description"
-                                        value={description}
-                                        onChange={(e) => setdescription(e.target.value)}
-                                    // value={student.category}
-                                    />
                                     {/* {errors.description && <p style={{ color: "red" }}> description is required</p>} */}
-
+                                    <textarea name="Text1" cols="60" rows="5" value={description}
+                                        onChange={(e) => setdescription(e.target.value)} required>{description}</textarea>
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
                                     <TextField
-                                        {...register("customerName", { required: true })}
+                                        {...register("customerName")}
 
                                         fullWidth
                                         id="customerName"
@@ -236,7 +234,21 @@ const EditTestimonial = ({ route }) => {
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
                                     <TextField
-                                        {...register("rating", { required: true })}
+                                        {...register("youtubeLink", { required: false })}
+                                        fullWidth
+                                        id="youtubeLink"
+                                        label="youtubeLink"
+                                        name="youtubeLink"
+                                        autoComplete="youtubeLink"
+                                        value={youtubeLink}
+                                        onChange={(e) => setyoutubeLink(e.target.value)}
+                                    // value={student.category}
+                                    />
+
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        {...register("rating")}
                                         inputProps={{
                                             inputMode: 'numeric', pattern: '[1-5]*',
                                             maxLength: 5,
@@ -276,7 +288,7 @@ const EditTestimonial = ({ route }) => {
                                 <div className="App-container" style={{ border: "1px solid lightgray", width: "70", marginLeft: "4%", marginTop: "5%" }}>
                                     <div className="card">
                                         <div className="card-header">
-                                            <h4 className="title">File Size Validation</h4>
+                                        <label>Image</label>
                                         </div>
 
                                         <div className="card-body">
@@ -284,13 +296,11 @@ const EditTestimonial = ({ route }) => {
                                             <input
                                                 type="file"
                                                 name='file'
+                                                
                                                 onChange={handleFileChange}
                                             />
 
-                                            <div className="space-between">
-                                                <p className="info-message">Min size: 1MB</p>
-                                                <p className="info-message">Max size: 5MB</p>
-                                            </div>
+                                           
                                             {isSuccess ? <p className="success-message">Validation successful</p> : null}
                                             <p className="error-message">{errorMsg}</p>
 

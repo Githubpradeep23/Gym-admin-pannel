@@ -21,7 +21,7 @@ const Coupan = () => {
 const  getdata = async()=>{
 
 
-   let res = await axios.get("https://gymapibackend.herokuapp.com/api/v1/getAllCopuan");
+   let res = await axios.get("http://localhost:8080/api/v1/getAllCopuan");
     console.log("responce->",res.data.getAllCopuan)
     setUser(res.data.getAllCopuan)  
     const modifiedData = res.data.getAllCopuan
@@ -51,7 +51,7 @@ const  getdata = async()=>{
     
     var config = {
       method: 'delete',
-      url: 'https://gymapibackend.herokuapp.com/api/v1/deleteGYM',
+      url: 'http://localhost:8080/api/v1/deleteGYM',
       headers: { 
         'Content-Type': 'application/json'
       },

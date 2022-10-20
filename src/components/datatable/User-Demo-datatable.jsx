@@ -22,7 +22,7 @@ const UserDemo = () => {
 
   const getdata = async ()=>{
 
-    let res = await axios.get("https://gymapibackend.herokuapp.com/api/v1/getAllDemosBookings");
+    let res = await axios.get("http://localhost:8080/api/v1/getAllDemosBookings");
      console.log("responce->",res.data.getAllDemos)
      setUser(res.data.getAllDemos)  
      const modifiedData = res.data.getAllDemos
@@ -59,7 +59,7 @@ const UserDemo = () => {
     
     var config = {
       method: 'delete',
-      url: 'https://gymapibackend.herokuapp.com/api/v1//deleteDemo',
+      url: 'http://localhost:8080/api/v1//deleteDemo',
       headers: { 
         'Content-Type': 'application/json'
       },

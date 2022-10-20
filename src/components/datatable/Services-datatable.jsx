@@ -20,7 +20,7 @@ const ServiceDatatable = () => {
 
    
   const getdata = async ()=>{
-    let res = await axios.get("https://gymapibackend.herokuapp.com/api/v1/getAllGymService");
+    let res = await axios.get("http://localhost:8080/api/v1/getAllGymService");
     //  console.log("responce->",res.data.Services)
     //  setUser(res.data.Services)  
     //  const modifiedData = res.data.Services
@@ -70,7 +70,7 @@ const ServiceDatatable = () => {
     
     var config = {
       method: 'delete',
-      url: 'https://gymapibackend.herokuapp.com/api/v1/deleteGymSevice',
+      url: 'http://localhost:8080/api/v1/deleteGymSevice',
       headers: { 
         'Content-Type': 'application/json'
       },

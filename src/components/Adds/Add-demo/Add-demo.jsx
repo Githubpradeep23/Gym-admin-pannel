@@ -66,7 +66,7 @@ const AddDemo = () => {
           
           var config = {
             method: 'post',
-            url: 'https://gymapibackend.herokuapp.com/api/v1/addDemo',
+            url: 'http://localhost:8080/api/v1/addDemo',
             headers: { 
               'Content-Type': 'application/json'
             },

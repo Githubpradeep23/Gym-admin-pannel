@@ -17,7 +17,7 @@ const WeightDatatable = () => {
   const [coin, setCoin] = useState([])
   const [phone, setPhone] = useState([])
   useEffect(async () => {
-    let res = await axios.get("https://gymapibackend.herokuapp.com/api/v1/getAllWeight");
+    let res = await axios.get("http://localhost:8080/api/v1/getAllWeight");
     console.log("responce->", res.data.getAllRecords)
     setUser(res.data.getAllRecords)
     const modifiedData = res.data.getAllRecords

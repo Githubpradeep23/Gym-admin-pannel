@@ -52,7 +52,7 @@ const AddBanners = () => {
 
     var config = {
       method: "post",
-      url: "https://gymapibackend.herokuapp.com/api/v1/addBanner",
+      url: "http://localhost:8080/api/v1/addBanner",
       data: data,
     };
 

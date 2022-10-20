@@ -74,7 +74,7 @@ const EditGym = ({ route }) => {
         });
         var config = {
             method: 'put',
-            url: 'https://gymapibackend.herokuapp.com/api/v1/updateGYM',
+            url: 'http://localhost:8080/api/v1/updateGYM',
             headers: {
                 'Content-Type': 'application/json'
             },

@@ -15,7 +15,7 @@ const PackageDataTable = () => {
     const [allPayments, setAllPayments] = useState()
 
     const getdata = async () => {
-        const res = await axios.get("https://gymapibackend.herokuapp.com/api/v1/getAllPackageByUser")
+        const res = await axios.get("http://localhost:8080/api/v1/getAllPackageByUser")
         console.log(res.data.allPackages)
         setAllPayments(res.data.allPackages)
     }

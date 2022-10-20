@@ -81,7 +81,7 @@ const AddGymBranch = () => {
         });
         var config = {
             method: 'post',
-            url: 'https://gymapibackend.herokuapp.com/api/v1/addGymBranch',
+            url: 'http://localhost:8080/api/v1/addGymBranch',
             headers: {
                 'Content-Type': 'application/json'
             },

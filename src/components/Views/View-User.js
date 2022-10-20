@@ -89,7 +89,7 @@ const ViewUser = ({ route }) => {
 
     //     var config = {
     //         method: 'get',
-    //         url: 'https://gymapibackend.herokuapp.com/api/v1/getAllUsers',
+    //         url: 'http://localhost:8080/api/v1/getAllUsers',
     //         headers: { "Content-Type": "multipart/form-data" },
 
     //         data: data

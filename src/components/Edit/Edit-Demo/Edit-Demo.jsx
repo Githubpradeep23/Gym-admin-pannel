@@ -70,7 +70,7 @@ const EditDemo = () => {
           
           var config = {
             method: 'put',
-            url: 'https://gymapibackend.herokuapp.com/api/v1/editDemo',
+            url: 'http://localhost:8080/api/v1/editDemo',
             headers: { 
               'Content-Type': 'application/json'
             },

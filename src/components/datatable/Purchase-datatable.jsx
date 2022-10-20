@@ -20,7 +20,7 @@ const GymDatatable = () => {
 
   const getdata = async ()=>{
 
-    let res = await axios.get("https://gymapibackend.herokuapp.com/api/v1/getAllPaymentsRecords");
+    let res = await axios.get("http://localhost:8080/api/v1/getAllPaymentsRecords");
          let data = res.data.getAllPaymentsRecords.map((doc,index)=>{
         return ( {
           
@@ -65,7 +65,7 @@ const GymDatatable = () => {
     
     var config = {
       method: 'delete',
-      url: 'https://gymapibackend.herokuapp.com/api/v1/deleteGymBranch',
+      url: 'http://localhost:8080/api/v1/deleteGymBranch',
       headers: { 
         'Content-Type': 'application/json'
       },

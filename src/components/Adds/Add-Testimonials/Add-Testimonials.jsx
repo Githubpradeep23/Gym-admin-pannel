@@ -38,7 +38,7 @@ const AddTestimonial = ({ route }) => {
   const [rating, setrating] = useState("");
   const [testimonialImage, settestimonialImage] = useState(null);
   const [youtubeLink, setyoutubeLink] = useState(null);
-  const [Id, setIds] = useState("");
+  // const [Id, setIds] = useState("");
   const [selectedFile, setSelectedFile] = useState();
   const [errorMsg, setErrorMsg] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -102,7 +102,7 @@ const AddTestimonial = ({ route }) => {
 
     // console.log("youtube_link", youtube_link)
     var data = new FormData();
-    data.append("id", Id);
+    // data.append("id", Id);
     data.append("image", selectedFile);
     data.append("title", title);
     data.append("category", category);
@@ -113,7 +113,7 @@ const AddTestimonial = ({ route }) => {
 
     var config = {
       method: "post",
-      url: "https://gymapibackend.herokuapp.com/api/v1/testimonial",
+      url: "http://localhost:8080/api/v1/testimonial",
       headers: { "Content-Type": "multipart/form-data" },
 
       data: data,
@@ -121,9 +121,18 @@ const AddTestimonial = ({ route }) => {
 
     axios(config)
       .then(function(response) {
-        console.log(JSON.stringify(response.data));
-        window.alert("success");
-        navigate("/testimonials");
+        console.log('response',response)
+        if(response.status===201){
+          alert('Testimoneal Created Successfully')
+          navigate("/testimonials");
+        }else if(response.status===202){
+          alert('Testimonial Already Exists with this title!!!')
+        }else{
+          alert('something went wrong')
+        }
+        // console.log(JSON.stringify(response.data));
+        // window.alert("success");
+        // navigate("/testimonials");
       })
       .catch(function(error) {
         window.alert("error");
@@ -165,7 +174,7 @@ const AddTestimonial = ({ route }) => {
                     {...register("title", { required: true })}
                     fullWidth
                     id="title"
-                    label="User Name"
+                    label="Title"
                     autoFocus
                     required
                     value={title}
@@ -176,8 +185,9 @@ const AddTestimonial = ({ route }) => {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <select
-                    {...register("category", { required: true })}
+                    {...register("category", )}
                     id="category"
+                    required
                     className="form-select"
                     value={category}
                     onChange={(e) => setcategory(e.target.value)}
@@ -206,15 +216,19 @@ const AddTestimonial = ({ route }) => {
                 </Grid>
                 <Grid item xs={12} sm={15}>
                   
-                  <h4>description</h4>
+                  <label>description *</label>
 
-               <ReactQuill 
+                  <textarea name="Text1" cols="60" rows="5" value={description}
+                    onChange={(e) => setdescription(e.target.value)} required></textarea>
+
+
+               {/* <ReactQuill 
                placeholder="Write some thing amazing ..."
                modules={AddTestimonial.modules}
                formats={AddTestimonial.formats}
                onChange={handleBody}
                value={body}
-               />
+               /> */}
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -233,8 +247,7 @@ const AddTestimonial = ({ route }) => {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
-                    {...register("youtubeLink", { required: true })}
-                    required
+                    {...register("youtubeLink", { required: false })}
                     fullWidth
                     id="youtubeLink"
                     label="youtubeLink"
@@ -244,9 +257,7 @@ const AddTestimonial = ({ route }) => {
                     onChange={(e) => setyoutubeLink(e.target.value)}
                     // value={student.category}
                   />
-                  {/* {errors.youtubeLink && (
-                    <p style={{ color: "red" }}> youtube Link is required</p>
-                  )} */}
+                
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -299,7 +310,7 @@ required
                 >
                   <div className="card">
                     <div className="card-header">
-                      <h4 className="title">File Size Validation</h4>
+                      <label>Image *</label>
                     </div>
 
                     <div className="card-body">
@@ -307,13 +318,14 @@ required
                       <input
                         type="file"
                         name="file"
+                        required
                         onChange={handleFileChange}
                       />
 
-                      <div className="space-between">
+                      {/* <div className="space-between">
                         <p className="info-message">Min size: 1MB</p>
                         <p className="info-message">Max size: 5MB</p>
-                      </div>
+                      </div> */}
                       {isSuccess ? (
                         <p className="success-message">Validation successful</p>
                       ) : null}
