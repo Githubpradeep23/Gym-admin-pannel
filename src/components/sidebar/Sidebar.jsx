@@ -30,7 +30,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="top">
         <Link to="/home" style={{ textDecoration: "none" }}>
-          <span className="logo">Gym Admin Panel</span>
+          <span className="logo">Beats Admin</span>
         </Link>
       </div>
       <hr />
@@ -59,12 +59,12 @@ const Sidebar = () => {
               <span>Demo</span>
             </li>
           </Link>
-          <Link to="/userdemolist" style={{ textDecoration: "none" }}>
+          {/* <Link to="/userdemolist" style={{ textDecoration: "none" }}>
             <li>
               <OndemandVideoIcon className="icon" />
               <span>User Demo</span>
             </li>
-          </Link>
+          </Link> */}
           <Link to="/voucher" style={{ textDecoration: "none" }}>
             <li>
               <OndemandVideoIcon className="icon" />
@@ -77,12 +77,12 @@ const Sidebar = () => {
               <span>Coupan</span>
             </li>
           </Link>
-          <Link to="/package" style={{ textDecoration: "none" }}>
+          {/* <Link to="/package" style={{ textDecoration: "none" }}>
             <li>
               <OndemandVideoIcon className="icon" />
               <span> Package </span>
             </li>
-          </Link>
+          </Link> */}
           <p className="title">TRACK & TRANCE SECTION</p>
           <Link to="/weight" style={{ textDecoration: "none" }}>
             <li>
