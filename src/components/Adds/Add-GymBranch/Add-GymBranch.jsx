@@ -29,17 +29,17 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 const theme = createTheme();
 const AddGymBranch = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const [opening_branchTiming, setopening_branchTiming] = useState(dayjs())
-    const [closing_branchTiming, setclosing_branchTiming] = useState(dayjs())
+    // const [opening_branchTiming, setopening_branchTiming] = useState(dayjs())
+    // const [closing_branchTiming, setclosing_branchTiming] = useState(dayjs())
 
     // const [value, setValue] = useState(dayjs('2014-08-18T21:11:54'));
 
-    const open = (newValue) => {
-        setopening_branchTiming(newValue);
-    };
-    const close = (newValue) => {
-        setclosing_branchTiming(newValue);
-    };
+    // const open = (newValue) => {
+    //     setopening_branchTiming(newValue);
+    // };
+    // const close = (newValue) => {
+    //     setclosing_branchTiming(newValue);
+    // };
     let navigate = useNavigate();
 
     const [name, setname] = useState("");
@@ -73,8 +73,8 @@ const AddGymBranch = () => {
             "city": city,
             "phoneNumber": phoneNumber,
             "branchCode": branchCode,
-            "opening_branchTiming": opening_branchTiming,
-            "closing_branchTiming": closing_branchTiming,
+            // "opening_branchTiming": opening_branchTiming,
+            // "closing_branchTiming": closing_branchTiming,
             "location": location,
             "managerName": managerName,
             "manager_Phone_Number": manager_Phone_Number
@@ -227,7 +227,7 @@ const AddGymBranch = () => {
                                     {/* {errors.branchCode && <p style={{ color: "red" }}> branchCode is required</p>} */}
 
                                 </Grid>
-                                <Grid item xs={12} sm={6}>
+                                {/* <Grid item xs={12} sm={6}>
                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                                     <Stack spacing={3}>
 
@@ -240,8 +240,8 @@ const AddGymBranch = () => {
 
                                     </Stack>
                                 </LocalizationProvider>
-                                </Grid>
-                                <Grid item xs={12} sm={6}>
+                                </Grid> */}
+                                {/* <Grid item xs={12} sm={6}>
                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                                     <Stack spacing={3}>
 
@@ -255,7 +255,7 @@ const AddGymBranch = () => {
                                     </Stack>
                                 </LocalizationProvider>
                              
-                            </Grid>
+                            </Grid> */}
                                 {/* <Grid item xs={12} sm={6}>
                                     <TextField
 

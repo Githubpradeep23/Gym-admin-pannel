@@ -53,21 +53,21 @@ export const userColumns = [
       width: 150,
     },
    
-    {
-      field: "opening_branchTiming",
-      headerName: "opening_branchTiming",
-      width: 120,
-    },
-    {
-      field: "closing_branchTiming",
-      headerName: "closing_branchTiming",
-      width: 120,
-    },
-   {
-    field: "leaving_time",
-    headerName:"leaving_Timing",
-    width: "120",
-   }
+    // {
+    //   field: "opening_branchTiming",
+    //   headerName: "opening_branchTiming",
+    //   width: 120,
+    // },
+    // {
+    //   field: "closing_branchTiming",
+    //   headerName: "closing_branchTiming",
+    //   width: 120,
+    // },
+  //  {
+  //   field: "leaving_time",
+  //   headerName:"leaving_Timing",
+  //   width: "120",
+  //  }
   ];
   
   //temporary data

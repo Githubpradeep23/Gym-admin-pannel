@@ -13,6 +13,8 @@ const Complains = () => {
   const [data, setData] = useState();
   const [ids, setIds] = useState([])
   const [username, setUsername] = useState([])
+  const [isdelete, setIsDelete] = useState(false);
+
 
   useEffect(async () => {
     let res = await axios.get("https://gymapibackend.herokuapp.com/api/v1/getAllComplains");
@@ -24,36 +26,62 @@ const Complains = () => {
           {
             ...current,
             name: `${current.branchName}`,
-            id: current._id
+            id: current._id,
+
+            username:current.user_id.length>0 ?current.user_id[0].firstName+' '+ current.user_id[0].lastName:'',
+            createdAt: new Date(current.createdAt).toLocaleString()
+
 
           }
         ], []
       )
     setUsername(modifiedData)
-  }, [])
+  }, [isdelete])
 
 
   const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+    // setData(data.filter((item) => item.id !== id));
+
+    var data = JSON.stringify({
+      "id": id
+    });
+    
+    var config = {
+      method: 'delete',
+      url: 'https://gymapibackend.herokuapp.com/api/v1/deleteComplain',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data : data
+    };
+    
+    axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+      setIsDelete(true)
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   };
 
   const actionColumn = [
     {
-      // field: "action",
-      // headerName: "Action",
-      // width: 200,
+      field: "action",
+      headerName: "Action",
+      width: 200,
       renderCell: (params) => {
         return (
           <div className="cellAction">
             {/* <Link to="/users/test" style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
             </Link> */}
-            {/* <div
+            <div
               className="deleteButton"
               onClick={() => handleDelete(params.row.id)}
             >
               Delete
-            </div> */}
+            </div>
           </div>
         );
       },
@@ -83,7 +111,7 @@ const Complains = () => {
     <div className="datatable">
       <div className="datatableTitle">
 
-        Add New Complain
+        {/* Add New Complain */}
   
          {/* <Link to="/weight/new" className="link">
           Add New
@@ -96,7 +124,7 @@ const Complains = () => {
         columns={userColumns.concat(actionColumn)}
         pageSize={9}
         rowsPerPageOptions={[9]}
-        checkboxSelection
+        // checkboxSelection
       />
     </div>
   );

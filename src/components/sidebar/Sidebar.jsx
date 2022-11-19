@@ -65,12 +65,12 @@ const Sidebar = () => {
               <span>User Demo</span>
             </li>
           </Link> */}
-          <Link to="/voucher" style={{ textDecoration: "none" }}>
+          {/* <Link to="/voucher" style={{ textDecoration: "none" }}>
             <li>
               <OndemandVideoIcon className="icon" />
               <span>Voucher</span>
             </li>
-          </Link>
+          </Link> */}
           <Link to="/coupan" style={{ textDecoration: "none" }}>
             <li>
               <OndemandVideoIcon className="icon" />

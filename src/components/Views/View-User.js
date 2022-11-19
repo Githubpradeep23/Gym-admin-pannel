@@ -25,100 +25,100 @@ const theme = createTheme();
 
 
 const ViewUser = ({ route }) => {
-    const { register, formState: { errors }, handleSubmit } = useForm();
+  const { register, formState: { errors }, handleSubmit } = useForm();
 
-    let navigate = useNavigate();
-    const [username, setusername] = useState("");
-    const [Username, setUsername] = useState("");
-    const [email, setemail] = useState("");
-    const [number, setnumber] = useState("");
-    const [coin, setcoin] = useState("");
-    const [branch, setbranch] = useState("");
-    const [Image, setImage] = useState(null);
-    const [Id, setIds] = useState("")
-    const params = new URLSearchParams(window.location.search)
-    for (const param of params) {
-        console.log(param)
-        // setIds(param)
-    }
-    const routeLocation = useLocation();
-    useEffect(() => {
-        console.log(routeLocation.state.gym)
-        let Result =[routeLocation.state.gym]
-        // setIds(routeLocation.state.gym.id)
-        // setnumber(routeLocation.state.gym.number)
-        // setcoin(routeLocation.state.gym.coin)
-        // setusername(routeLocation.state.gym.username)
-        const modifiedData = Result
-        .reduce(
-          (prev, current) => [
-            ...prev,
-            {
-              ...current,
-              name: `${current.username}`,
-             id: current._id,
-             Date: new Date(current.Date).toLocaleDateString(),
+  let navigate = useNavigate();
+  const [username, setusername] = useState("");
+  const [Username, setUsername] = useState("");
+  const [email, setemail] = useState("");
+  const [number, setnumber] = useState("");
+  const [coin, setcoin] = useState("");
+  const [branch, setbranch] = useState("");
+  const [Image, setImage] = useState(null);
+  const [Id, setIds] = useState("")
+  const params = new URLSearchParams(window.location.search)
+  for (const param of params) {
+    console.log(param)
+    // setIds(param)
+  }
+  const routeLocation = useLocation();
+  useEffect(() => {
+    console.log(routeLocation.state.gym)
+    let Result = [routeLocation.state.gym]
+    // setIds(routeLocation.state.gym.id)
+    // setnumber(routeLocation.state.gym.number)
+    // setcoin(routeLocation.state.gym.coin)
+    // setusername(routeLocation.state.gym.username)
+    const modifiedData = Result
+      .reduce(
+        (prev, current) => [
+          ...prev,
+          {
+            ...current,
+            name: `${current.username}`,
+            id: current._id,
+            Date: new Date(current.Date).toLocaleDateString(),
 
-            }
-           ],[]   
-           )
-           setUsername(modifiedData)
-           console.log("username dek oo bhai ==>",Username)
-        // setemail(routeLocation.state.gym.email)
-        // setImage(routeLocation.state.gym.Image)
-    }, [])
-
-
-    // const onSubmit = async (data) => {
-
-    //     // console.log("Login submit click");
-    //     console.log("Ids of user =>", Id)
-    //     console.log("User =>", username)
-    //     console.log("email =>", email)
-
-    //     console.log("Image", Image)
-    //     var data = new FormData();
-    //     data.append('id', Id);
-    //     // data.append('image', Image);
-    //     data.append('username', username);
-    //     // data.append('email', email);
-    //     data.append('number', number);
-    //     data.append('coin', coin);
-    //     // data.append('branch', branch);
+          }
+        ], []
+      )
+    setUsername(modifiedData)
+    console.log("username dek oo bhai ==>", Username)
+    // setemail(routeLocation.state.gym.email)
+    // setImage(routeLocation.state.gym.Image)
+  }, [])
 
 
-    //     var config = {
-    //         method: 'get',
-    //         url: 'https://gymapibackend.herokuapp.com/api/v1/getAllUsers',
-    //         headers: { "Content-Type": "multipart/form-data" },
+  // const onSubmit = async (data) => {
 
-    //         data: data
-    //     };
+  //     // console.log("Login submit click");
+  //     console.log("Ids of user =>", Id)
+  //     console.log("User =>", username)
+  //     console.log("email =>", email)
 
-    //     axios(config)
-    //         .then(function (response) {
-               
-    //             console.log(JSON.stringify(response.data));
-    //             navigate('/users')
-    //         })
-    //         .catch(function (error) {
-    //             console.log(error);
-    //         });
-    // }
+  //     console.log("Image", Image)
+  //     var data = new FormData();
+  //     data.append('id', Id);
+  //     // data.append('image', Image);
+  //     data.append('username', username);
+  //     // data.append('email', email);
+  //     data.append('number', number);
+  //     data.append('coin', coin);
+  //     // data.append('branch', branch);
 
 
-    const actionColumn = [
-        {
-        //   field: "action",
-        //   headerName: "Action",
-        //   width: 200,
-          renderCell: (params) => {
-            return (
-              <div className="cellAction">
-                 {/* <div onClick={() => {
+  //     var config = {
+  //         method: 'get',
+  //         url: 'https://gymapibackend.herokuapp.com/api/v1/getAllUsers',
+  //         headers: { "Content-Type": "multipart/form-data" },
+
+  //         data: data
+  //     };
+
+  //     axios(config)
+  //         .then(function (response) {
+
+  //             console.log(JSON.stringify(response.data));
+  //             navigate('/users')
+  //         })
+  //         .catch(function (error) {
+  //             console.log(error);
+  //         });
+  // }
+
+
+  const actionColumn = [
+    {
+      //   field: "action",
+      //   headerName: "Action",
+      //   width: 200,
+      renderCell: (params) => {
+        return (
+          <div className="cellAction">
+            {/* <div onClick={() => {
                 navigate("/add-coin", {state: {gym:params.row}})
               }} className="viewButton">Edit</div> */}
-              {/* <div onClick={() => {
+            {/* <div onClick={() => {
                 navigate("/edit-user", {state: {gym:params.row}})
               }} className="viewButton">Edit</div>
               <div onClick={() => {
@@ -127,37 +127,42 @@ const ViewUser = ({ route }) => {
               <div onClick={() => {
                 navigate("/add-user-coin", {state: {gym:params.row}})
               }} className="viewButton">add-coin</div> */}
-                {/* <div
+            {/* <div
                   className="deleteButton"
                   onClick={() => handleDelete(params.row.id)}
                 >
                   Delete
                 </div> */}
-              </div>
-            );
-          },
-        },
-      ];
-    return (
-      
-            <div className="datatable">
-              <div className="datatableTitle">
-        
-                View  User
-                {/* <Link to="/users/new" className="link">
+          </div>
+        );
+      },
+    },
+  ];
+  return (
+
+    <div className="datatable">
+      <div className="datatableTitle">
+
+        View  User
+        {/* <Link to="/users/new" className="link">
                   Add New
                 </Link>
                  */}
-              </div>
-              <DataGrid
-                className="datagrid"
-                rows={Username}
-                columns={userColumns.concat(actionColumn)}
-                pageSize={9}
-                rowsPerPageOptions={[9]}
-              />
-            </div>
-          );
+      </div>
+      <Grid container justifyContent="flex-end">
+        <Link href="/users" variant="body2">
+          Back to all Users
+        </Link>
+      </Grid>
+      <DataGrid
+        className="datagrid"
+        rows={Username}
+        columns={userColumns.concat(actionColumn)}
+        pageSize={9}
+        rowsPerPageOptions={[9]}
+      />
+    </div>
+  );
 };
 
 export default ViewUser;

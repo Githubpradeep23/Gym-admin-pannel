@@ -171,7 +171,7 @@ const DemoDatatable = () => {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-      <select
+      {/* <select
           id="category"
           className="form-select"
           value={category}
@@ -183,7 +183,7 @@ const DemoDatatable = () => {
           <option value="fitness">Fitness</option>
           <option value="wellness">Wellness</option>
           <option value="academy">Academy</option>
-        </select>
+        </select> */}
       All Demos
         {/* <Link to="/add-gymbranch" className="link">
           Add New

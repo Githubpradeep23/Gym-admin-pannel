@@ -1,16 +1,30 @@
 export const userColumns = [
     { field: "id", headerName: "Id", width: 100 },
+
     {
-      field: "complainMessage",
+      field: "username",
+      headerName: "User Name",
+      width: 180,
+     
+    },
+    {
+      field: "complain",
       headerName: "complainMessage",
+      width: 230,
+     
+    },
+
+    {
+      field: "answer",
+      headerName: "Answer",
       width: 230,
      
     },
   
     {
-      field: "date",
+      field: "createdAt",
       headerName: "Date",
-      width: 150,
+      width: 200,
     },
    
   ];

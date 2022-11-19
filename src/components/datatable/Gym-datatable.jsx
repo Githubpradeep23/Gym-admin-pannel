@@ -29,8 +29,8 @@ const GymDatatable = () => {
            ...current,
            name: `${current.branchName}`,
           id: current._id,
-          opening_branchTiming: new Date(current.opening_branchTiming).toLocaleTimeString(),
-          closing_branchTiming: new Date(current.closing_branchTiming).toLocaleTimeString(),
+          // opening_branchTiming: new Date(current.opening_branchTiming).toLocaleTimeString(),
+          // closing_branchTiming: new Date(current.closing_branchTiming).toLocaleTimeString(),
           image:current.image
          }
         ],[]
