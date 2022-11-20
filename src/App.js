@@ -49,6 +49,9 @@ import { DarkModeContext } from "./context/darkModeContext";
 import CoupanList from "./pages/list/Coupan/Coupan";
 import PackageList from "./pages/list/Package/Package";
 
+
+import EditCoupan from "./components/Edit/Edit-Coupan/EditCoupan";
+import AddCoupan from "./components/Adds/Add-Coupan/AddCoupan";
 function App() {
   const { darkMode } = useContext(DarkModeContext);
 
@@ -113,6 +116,10 @@ function App() {
             <Route path="add-coin" element={<AddCoin />} />
 
             <Route path="coupan" element={<CoupanList />} />
+
+            <Route path="add-coupan" element={<AddCoupan />} />
+
+            <Route path="edit-coupan" element={<EditCoupan />} />
             
             <Route path="package" element={<PackageList />} />
 
