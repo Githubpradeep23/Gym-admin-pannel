@@ -1,60 +1,118 @@
+import axios from 'axios';
+import { useEffect,useState } from 'react';
+import './profile.css';
+
 const Profile = () => {
 
-    const submitHandle=(e)=>{
-        e.preventDefault();
-        alert(true);
-    }
-    return (
-        
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [password, setPassword] = useState("");
 
-        <div className="container">
-            <div className="row gutters">
-                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div className="card h-100">
-                        <div className="card-body">
-                            <form onSubmit={submitHandle}>
-                                <div className="row gutters">
-                                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <h6 className="mb-2 text-primary">Profile Details</h6>
-                                    </div>
-                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div className="form-group">
-                                            <label for="fullName">Full Name</label>
-                                            <input type="text" className="form-control" id="fullName" placeholder="Enter full name" required />
-                                        </div>
-                                    </div>
-                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div className="form-group">
-                                            <label for="eMail">Email</label>
-                                            <input type="email" className="form-control" id="eMail" placeholder="Enter email ID" required />
-                                        </div>
-                                    </div>
-                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div className="form-group">
-                                            <label for="phone">Phone</label>
-                                            <input type="text" className="form-control" id="phone" placeholder="Enter phone number" required />
-                                        </div>
-                                    </div>
-                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div className="form-group">
-                                            <label for="website">Password</label>
-                                            <input type="text" className="form-control" id="website" placeholder="Password" required />
-                                        </div>
-                                    </div>
+    useEffect(() => {
+        // console.log(routeLocation.state.gym);
+        getProfile();
+     
+    }, []);
+
+    const getProfile=async()=>{
+        const res=await axios.get('https://gymapibackend.herokuapp.com/api/v1/getAdminUserProfile');
+        console.log('data',res)
+        setEmail(res.data.AdminData[0].email);
+        setName(res.data.AdminData[0].name);
+        setPassword(res.data.AdminData[0].password);
+        setPhone(res.data.AdminData[0].phoneNumber);
+    }
+
+    const handleForm = async (data) => {
+        event.preventDefault();
+        var data = new FormData();
+        data.append("name", name);
+        data.append("email", email);
+        data.append("phoneNumber", phone);
+        data.append("password", password);
+        // data.append("expireAt", expireAt);
+    
+        var config = {
+          method: "post",
+          url: "https://gymapibackend.herokuapp.com/api/v1/adminUpdateProfile",
+          headers: { "Content-Type": "multipart/form-data" },
+          data: data,
+        };
+    
+        axios(config)
+          .then(function (response) {
+            console.log(JSON.stringify(response.data));
+            window.alert("Profile Updated Successfully")
+            // navigate('/coupan')
+          })
+          .catch(function (error) {
+            window.alert("error")
+            // console.log(error);
+          });
+      };
+
+
+
+    // const submitHandle = (e) => {
+    //     e.preventDefault();
+    //     alert(true);
+    // }
+    return (
+        <>
+
+            <div className="wrapper">
+                <div className="profiless">
+                    <div className="content">
+                        <h1>Edit Profile</h1>
+                        <form onSubmit={handleForm} >
+
+                            <fieldset>
+                                <div className="grid-35">
+                                    <label htmlFor="fname">Name</label>
                                 </div>
-                                <div className="row gutters">
-                                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <div className="text-right">
-                                            <button type="submit" id="submit" name="submit" className="btn btn-primary">Update Profile</button>
-                                        </div>
-                                    </div>
+                                <div className="grid-65">
+                                    <input type="text" className='input' id="fname" tabIndex="1" value={name} required onChange={(e) => setName(e.target.value)} />
                                 </div>
-                            </form>
-                        </div>
+                            </fieldset>
+                            <fieldset>
+                                <div className="grid-35">
+                                    <label htmlFor="lname">Email</label>
+                                </div>
+                                <div className="grid-65">
+                                    <input type="email" className='input' id="lname" tabIndex="2" value={email} required onChange={(e) => setEmail(e.target.value)} />
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <div className="grid-35">
+                                    <label htmlFor="lname">Phone</label>
+                                </div>
+                                <div className="grid-65">
+                                    <input type="number" className='input' id="lname" tabIndex="2" value={phone} required onChange={(e) => setPhone(e.target.value)} />
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <div className="grid-35">
+                                    <label htmlFor="lname">Password</label>
+                                </div>
+                                <div className="grid-65">
+                                    <input type="text" className='input' id="lname" tabIndex="2" value={password} required onChange={(e) => setPassword(e.target.value)} />
+                                </div>
+                            </fieldset>
+
+
+
+                            {/* <fieldset> */}
+                            <input type="button"  className="Btn cancel input" value="Cancel" />
+                            <input type="submit" className="Btn input" value="Update Profile" />
+                            {/* </fieldset> */}
+
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

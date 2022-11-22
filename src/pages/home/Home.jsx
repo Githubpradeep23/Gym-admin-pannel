@@ -28,7 +28,7 @@ const Home = () => {
           <Table />
         </div> */}
 
-        {/* <Profile/> */}
+        <Profile/>
 
         
       </div>
