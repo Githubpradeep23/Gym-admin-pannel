@@ -88,6 +88,12 @@ const AddGymBranchService = () => {
   const [packageDuration, setPackageDuration] = React.useState("");
 
   const [slotDuration, setSlotDuration] = React.useState("");
+  const [priceOneMonth, setpriceOneMonth] = React.useState("");
+  const [priceThreeMonth, setpriceThreeMonth] = React.useState("");
+  const [priceSixMonth, setpriceSixMonth] = React.useState("");
+  const [priceTwelveMonth, setpriceTwelveMonth] = React.useState("");
+
+
 
 
   const [managerNumber, setManagerNumber] = useState("");
@@ -95,7 +101,21 @@ const AddGymBranchService = () => {
   const [managertime2, setManagerTime2] = React.useState("");
 
 
-
+//   <Grid item xs={12} sm={6}>
+//   Package Details<br></br>
+//   <label>01 month</label>
+//   <input type="text" placeholder='price' value={priceOneMonth}
+//       onChange={(e) => setpriceOneMonth(e.target.value)}/>
+//   <label>03 month</label>
+//   <input type="text" placeholder='price' value={priceThreeMonth}
+//       onChange={(e) => setpriceThreeMonth(e.target.value)}/>
+//   <label>06 month</label>
+//   <input type="text" placeholder='price' value={priceSixMonth}
+//       onChange={(e) => setpriceSixMonth(e.target.value)}/>
+//   <label>12 month</label>
+//   <input type="text" placeholder='price' value={priceTwelveMonth}
+//       onChange={(e) => setpriceTwelveMonth(e.target.value)}/>
+// </Grid>
 
   const TimeChange11 = (newValue) => {
     setManagerTime1(newValue);
@@ -217,38 +237,28 @@ const AddGymBranchService = () => {
       title != "" &&
       image != "" &&
       body != "" &&
-      bodyD != "" &&
-      // wellnessdate != "" &&
-      // booktime != "" &&
-      // wellnessbookdate != "" &&
-      // wellnessbooktime != "" &&
-      wellnessbookprice != ""
-      // packageDuration != ""
+      bodyD != "" 
     ) {
       console.log("You ran Wellness api");
       console.log("title-->", title);
       console.log("image-->", image);
       console.log("description-->", body);
       console.log("deliverables -->", bodyD);
-      // console.log("consultation date-->", wellnessdate);
       console.log("consultation time-->", booktime);
       console.log("price-->", wellnessbookprice);
-      // console.log("booking date-->", wellnessbookdate);
-      // console.log("booking time-->", wellnessbooktime);
-      // console.log("package duration-->", packageDuration);
-
+    
       let data = new FormData();
       data.append("title", title);
       data.append("description", body);
-      data.append("price", wellnessbookprice);
       data.append("category", category);
       data.append("image", image);
       data.append("delievrables", bodyD);
-      // data.append("packageDate", wellnessbookdate);
-      // data.append("packageTime", wellnessbooktime);
-      // data.append("packageDuration", packageDuration);
-      // data.append("consultationDate", wellnessdate);
-      // data.append("consultationTime", booktime);
+      data.append("slotTime",slotDuration);
+      data.append("priceOneMonth", priceOneMonth);
+      data.append("priceThreeMonth", priceThreeMonth);
+      data.append("priceSixMonth", priceSixMonth);
+      data.append("priceTwelveMonth", priceTwelveMonth);
+
 
       let config = {
         method: "post",
@@ -266,45 +276,36 @@ const AddGymBranchService = () => {
           window.alert("error");
         });
     }
-    //  else window.alert("Please input all required fields!");
+     else window.alert("Please input all required fields!");
   };
   const runWellnessApiPart2 = async () => {
     if (
       title != "" &&
       image != "" &&
       body != "" &&
-      bodyD != "" &&
-      // wellnessdate != "" &&
-      // booktime != "" &&
-      // wellnessbookdate != "" &&
-      // wellnessbooktime != "" &&
-      wellnessbookprice != ""
-      // packageDuration != ""
+      bodyD != "" 
     ) {
       console.log("You ran Wellness api");
       console.log("title-->", title);
       console.log("image-->", image);
       console.log("description-->", body);
       console.log("deliverables -->", bodyD);
-      // console.log("consultation date-->", wellnessdate);
-      // console.log("consultation time-->", booktime);
+   
       console.log("price-->", wellnessbookprice);
-      // console.log("booking date-->", wellnessbookdate);
-      // console.log("booking time-->", wellnessbooktime);
+     
       console.log("package duration-->", packageDuration);
 
       let data = new FormData();
       data.append("title", title);
-      data.append("description", bodyD);
-      data.append("price", wellnessbookprice);
+      data.append("description", body);
       data.append("category", category);
       data.append("image", image);
-      data.append("delievrables", body);
-      // data.append("packageDate", wellnessbookdate);
-      // data.append("packageTime", wellnessbooktime);
-      // data.append("packageDuration", packageDuration);
-      // data.append("consultationDate", wellnessdate);
-      // data.append("consultationTime", booktime);
+      data.append("delievrables", bodyD);
+      data.append("slotTime",slotDuration);
+      data.append("priceOneMonth", priceOneMonth);
+      data.append("priceThreeMonth", priceThreeMonth);
+      data.append("priceSixMonth", priceSixMonth);
+      data.append("priceTwelveMonth", priceTwelveMonth);
 
       let config = {
         method: "post",
@@ -360,17 +361,16 @@ const AddGymBranchService = () => {
     console.log("coach name-->", coachName);
     console.log("coach number-->", coachNumber);
 
+    
+
 
     if (
       title != "" &&
       image != "" &&
       bodyacademy != "" &&
       bodyacademyy != "" &&
-      academyprice != "" &&
       coachName != "" &&
-      coachNumber != "" &&
-      academydate != "" &&
-      academytime != ""
+      coachNumber != ""
     ) {
       console.log("You ran Academy api");
       console.log("title-->", title);
@@ -388,11 +388,14 @@ const AddGymBranchService = () => {
       data.append("description", bodyacademy);
       data.append("category", category);
       data.append("image", image);
-      data.append("price", academyprice);
       data.append("delievrables", bodyacademyy);
       data.append("coachName", coachName);
       data.append("contact_no", coachNumber);
-      data.append("packageDate", academydate);
+      data.append("slotTime",slotDuration);
+      data.append("priceOneMonth", priceOneMonth);
+      data.append("priceThreeMonth", priceThreeMonth);
+      data.append("priceSixMonth", priceSixMonth);
+      data.append("priceTwelveMonth", priceTwelveMonth);
 
       let config = {
         method: "post",
@@ -410,7 +413,7 @@ const AddGymBranchService = () => {
           window.alert("error");
         });
     }
-    // else window.alert("Please input all required fields!");
+    else window.alert("Please input all required fields!");
   };
   const runAcademyApiPart2 = async () => {
     if (
@@ -418,11 +421,8 @@ const AddGymBranchService = () => {
       image != "" &&
       bodyacademy != "" &&
       bodyacademyy != "" &&
-      academyprice != "" &&
       coachName != "" &&
-      coachNumber != "" &&
-      academydate != "" &&
-      academytime != ""
+      coachNumber != ""
     ) {
       console.log("You ran Academy api");
       console.log("title-->", title);
@@ -431,20 +431,26 @@ const AddGymBranchService = () => {
       console.log("deliverables -->", bodyacademyy);
       console.log("package date-->", academydate);
       console.log("package time-->", academytime);
-      console.log("price-->", academyprice);
+      // console.log("price-->", academyprice);
       console.log("coach name-->", coachName);
       console.log("coach number-->", coachNumber);
+      // data.append("slotTime",slotDuration);
 
+
+     
       let data = new FormData();
       data.append("title", title);
-      data.append("description", bodyacademyy);
+      data.append("description", bodyacademy);
       data.append("category", category);
       data.append("image", image);
-      data.append("price", academyprice);
-      data.append("delievrables", bodyacademy);
+      data.append("delievrables", bodyacademyy);
       data.append("coachName", coachName);
       data.append("contact_no", coachNumber);
-      data.append("packageDate", academydate);
+      data.append("slotTime",slotDuration);
+      data.append("priceOneMonth", priceOneMonth);
+      data.append("priceThreeMonth", priceThreeMonth);
+      data.append("priceSixMonth", priceSixMonth);
+      data.append("priceTwelveMonth", priceTwelveMonth);
 
       let config = {
         method: "post",
@@ -501,15 +507,9 @@ const AddGymBranchService = () => {
       title != "" &&
       image != "" &&
       bodyfitness != "" &&
-      price != "" &&
       branch != "" &&
-      // packageDate != "" &&
-      // packageTime != "" &&
-      packageDuration != "" &&
       managerNumber != "" &&
       slotDuration!=""
-      // managertime1 != "" &&
-      // managertime2 != ""
     ) {
       console.log("You ran Fitness api");
       console.log("title =>", title);
@@ -525,6 +525,8 @@ const AddGymBranchService = () => {
       console.log("branch id=>", branch);
       console.log("branch price=>", choosePrice);
       console.log("slot Times",slotDuration);
+
+     
 
       // let x = formatAMPM(managertime1.$d);
       // let y = formatAMPM(managertime2.$d);
@@ -542,20 +544,18 @@ const AddGymBranchService = () => {
       data.append("description", bodyfitness);
       data.append("category", category);
       data.append("branchesID_Array", JSON.stringify([branch]));
-
       if (demoDate != "" && demoTime != "") {
         data.append("demoDate", demoDate);
         data.append("demoTime", demoTime);
       }
-
-      // data.append("packageDate", packageDate);
-      // data.append("packageTime", packageTime);
       data.append("packageDuration", packageDuration);
       data.append("manager_contact_no", managerNumber);
-      // data.append("working_hours", x + " - " + y);
       data.append("slotTime",slotDuration);
-      console.log('datasss',data)
-      // return false;
+      data.append("priceOneMonth", priceOneMonth);
+      data.append("priceThreeMonth", priceThreeMonth);
+      data.append("priceSixMonth", priceSixMonth);
+      data.append("priceTwelveMonth", priceTwelveMonth);
+    
 
 
       let config = {
@@ -576,19 +576,16 @@ const AddGymBranchService = () => {
     } else window.alert("Please input all required fields!");
   };
   const runFitnessApiPart2 = async () => {
+
+    
     if (
       title != "" &&
       image != "" &&
       bodyfitness != "" &&
-      price != "" &&
       branch != "" &&
-      // packageDate != "" &&
-      // packageTime != "" &&
-      packageDuration != "" &&
       managerNumber != "" &&
       slotDuration!=""
-      // managertime1 != "" &&
-      // managertime2 != ""
+
     ) {
       console.log("You ran Fitness api");
       console.log("title =>", title);
@@ -619,18 +616,17 @@ const AddGymBranchService = () => {
       data.append("description", bodyfitness);
       data.append("category", category);
       data.append("branchesID_Array", JSON.stringify([branch]));
-
       if (demoDate != "" && demoTime != "") {
         data.append("demoDate", demoDate);
         data.append("demoTime", demoTime);
       }
-
-      // data.append("packageDate", packageDate);
-      // data.append("packageTime", packageTime);
       data.append("packageDuration", packageDuration);
       data.append("manager_contact_no", managerNumber);
-      // data.append("working_hours", x + " - " + y);
       data.append("slotTime",slotDuration);
+      data.append("priceOneMonth", priceOneMonth);
+      data.append("priceThreeMonth", priceThreeMonth);
+      data.append("priceSixMonth", priceSixMonth);
+      data.append("priceTwelveMonth", priceTwelveMonth);
 
 
       let config = {
@@ -939,13 +935,30 @@ const AddGymBranchService = () => {
                       )}
                     </Grid>
 
+                    <Grid item xs={12} sm={6}>
+                      Package Details<br></br>
+                      <label>01 month</label>
+                      <input type="text" placeholder='price' value={priceOneMonth}
+                          onChange={(e) => setpriceOneMonth(e.target.value)}/>
+                      <label>03 month</label>
+                      <input type="text" placeholder='price' value={priceThreeMonth}
+                          onChange={(e) => setpriceThreeMonth(e.target.value)}/>
+                      <label>06 month</label>
+                      <input type="text" placeholder='price' value={priceSixMonth}
+                          onChange={(e) => setpriceSixMonth(e.target.value)}/>
+                      <label>12 month</label>
+                      <input type="text" placeholder='price' value={priceTwelveMonth}
+                          onChange={(e) => setpriceTwelveMonth(e.target.value)}/>
+                    </Grid>
+
+
                     {chooseBranch ? (
                       <>
                         <Grid item xs={12} sm={6} mt={-2.5}>
-                          Package Details
+                          {/* Package Details */}
                           <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <Stack spacing={3}>
-                              <select
+                              {/* <select
                                 {...register("packageDuration", {
                                   required: true,
                                 })}
@@ -969,7 +982,7 @@ const AddGymBranchService = () => {
                                 <p style={{ color: "red" }}>
                                   Package duration is required
                                 </p>
-                              )}
+                              )} */}
 
                               {/* <DesktopDatePicker
                                 label="Date"
@@ -1023,7 +1036,7 @@ const AddGymBranchService = () => {
                                 })}
                               </select> */}
 
-                              <TextField
+                              {/* <TextField
                                 inputProps={{
                                   inputMode: "numeric",
                                   pattern: "[0-9]*",
@@ -1041,7 +1054,7 @@ const AddGymBranchService = () => {
                                 <p style={{ color: "red" }}>
                                   price is required
                                 </p>
-                              )}
+                              )} */}
 
                               {/* <TextField
                                 disabled
@@ -1084,8 +1097,59 @@ const AddGymBranchService = () => {
                                 </p>
                               )} */}
                             </Stack>
+
+                            <Stack spacing={3}>
+                                Manager Details
+                                <TextField
+                                  inputProps={{
+                                    inputMode: "numeric",
+                                    pattern: "[0-9]*",
+                                    maxLength: 10,
+                                    minLength: 10,
+                                  }}
+                                  autoComplete="managerNumber"
+                                  name="managerNumber"
+                                  {...register("manager_Phone_number", {
+                                    required: true,
+                                  })}
+                                  fullWidth
+                                  id="managerNumber"
+                                  label="manager number"
+                                  autoFocus
+                                  value={managerNumber}
+                                  onChange={(e) =>
+                                    setManagerNumber(e.target.value)
+                                  }
+                                />
+                                {errors.managerNumber && (
+                                  <p style={{ color: "red" }}>
+                                    manager number is required
+                                  </p>
+                                )}
+                                
+                         
+                         <ReactQuill 
+                 placeholder="Write some thing amazing ..."
+                 modules={AddGymBranchService.modules}
+                 formats={AddGymBranchService.formats}
+                 onChange={handleBodefitness}
+                 value={bodyfitness}
+                 />
+                                <LocalizationProvider
+                                  dateAdapter={AdapterDayjs}
+                                >
+
+
+                                 
+                                </LocalizationProvider>
+                              </Stack>
                           </LocalizationProvider>
                         </Grid>
+
+
+                        {/* <Grid item xs={12} sm={6} style={{marginTop: "-136px"}}>
+                              
+                            </Grid> */}
 
                         {chooseDuration ? (
                           <>
@@ -1125,86 +1189,8 @@ const AddGymBranchService = () => {
                               </LocalizationProvider>
                             </Grid> */}
 
-                            <Grid item xs={12} sm={6} style={{marginTop: "-136px"}}>
-                              <Stack spacing={3}>
-                                Manager Details
-                                <TextField
-                                  inputProps={{
-                                    inputMode: "numeric",
-                                    pattern: "[0-9]*",
-                                    maxLength: 10,
-                                    minLength: 10,
-                                  }}
-                                  autoComplete="managerNumber"
-                                  name="managerNumber"
-                                  {...register("manager_Phone_number", {
-                                    required: true,
-                                  })}
-                                  fullWidth
-                                  id="managerNumber"
-                                  label="manager number"
-                                  autoFocus
-                                  value={managerNumber}
-                                  onChange={(e) =>
-                                    setManagerNumber(e.target.value)
-                                  }
-                                />
-                                {errors.managerNumber && (
-                                  <p style={{ color: "red" }}>
-                                    manager number is required
-                                  </p>
-                                )}
-                                <LocalizationProvider
-                                  dateAdapter={AdapterDayjs}
-                                >
-                                  {/* <Stack spacing={3}>
-                                    <TimePicker
-                                      label="Starting working hour"
-                                      value={managertime1}
-                                      onChange={TimeChange11}
-                                      renderInput={(params) => (
-                                        <TextField {...params} />
-                                      )}
-                                    />
+                           
 
-                                    <TimePicker
-                                      label="Ending working hour"
-                                      value={managertime2}
-                                      onChange={TimeChange22}
-                                      renderInput={(params) => (
-                                        <TextField {...params} />
-                                      )}
-                                    />
-                                  </Stack> */}
-                                </LocalizationProvider>
-                              </Stack>
-                            </Grid>
-
-                            <Grid item xs={12} sm={16}>
-                              {/* <TextField
-                                {...register("description", { required: true })}
-                                id="outlined-multiline-static"
-                                multiline
-                                rows={6}
-                                label="Description"
-                                name="description"
-                                autoComplete="escription"
-                                value={description}
-                                onChange={(e) => setdescription(e.target.value)}
-                              />
-                              {errors.description && (
-                                <p style={{ color: "red" }}>
-                                  description is required
-                                </p>
-                              )} */}
-                              <ReactQuill 
-                      placeholder="Write some thing amazing ..."
-                      modules={AddGymBranchService.modules}
-                      formats={AddGymBranchService.formats}
-                      onChange={handleBodefitness}
-                      value={bodyfitness}
-                      />
-                            </Grid>
                           </>
                         ) : null}
                         <Grid item xs={12} sm={6}>
@@ -1223,7 +1209,27 @@ const AddGymBranchService = () => {
                 ) : category === "academy" ? (
                   ////////////////////////////////////////////////////////////////////////Academy code///////////////////////////////////////////////////////////////
                   <>
+
                     <Grid item xs={12} sm={6}>
+                      Package Details<br></br>
+                      <label>01 month</label>
+                      <input type="text" placeholder='price' value={priceOneMonth}
+                          onChange={(e) => setpriceOneMonth(e.target.value)}/>
+                      <label>03 month</label>
+                      <input type="text" placeholder='price' value={priceThreeMonth}
+                          onChange={(e) => setpriceThreeMonth(e.target.value)}/>
+                      <label>06 month</label>
+                      <input type="text" placeholder='price' value={priceSixMonth}
+                          onChange={(e) => setpriceSixMonth(e.target.value)}/>
+                      <label>12 month</label>
+                      <input type="text" placeholder='price' value={priceTwelveMonth}
+                          onChange={(e) => setpriceTwelveMonth(e.target.value)}/>
+                    </Grid>
+                     <Multiselect  
+                            onSelect={handleSlot} 
+                            value={slotDuration}
+                                 showArrow options={slotArray} isObject={false} />
+                    {/* <Grid item xs={12} sm={6}>
                       Book Package
                       <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <Stack spacing={3}>
@@ -1240,26 +1246,10 @@ const AddGymBranchService = () => {
                             onChange={AcedemyTimeChange}
                             renderInput={(params) => <TextField {...params} />}
                           />
-                          {/* <TextField
-                            inputProps={{
-                              inputMode: "numeric",
-                              pattern: "[0-9]*",
-                            }}
-                            {...register("academyprice", { required: true })}
-                            fullWidth
-                            id="academyprice"
-                            label="price"
-                            name="academyprice"
-                            autoComplete="academyprice"
-                            value={academyprice}
-                            onChange={(e) => setacademyprice(e.target.value)}
-                          />
-                          {errors.academyprice && (
-                            <p style={{ color: "red" }}>price is required</p>
-                          )} */}
+                          
                         </Stack>
                       </LocalizationProvider>
-                    </Grid>
+                    </Grid> */}
 
                     <Grid item xs={12} sm={7}>
                       <Stack spacing={3}>
@@ -1328,7 +1318,7 @@ const AddGymBranchService = () => {
                           )}
                         </Grid>
                           {chooseDuration?(<> */}
-                    <Grid item mt={1}>
+                    {/* <Grid item mt={1}>
                       <TextField
                         inputProps={{
                           inputMode: "numeric",
@@ -1346,7 +1336,7 @@ const AddGymBranchService = () => {
                       {errors.academyprice && (
                         <p style={{ color: "red" }}> academyprice is required</p>
                       )}
-                    </Grid>
+                    </Grid> */}
 
                     {/* <Grid item xs={12} sm={8}>
                               <TextField
@@ -1362,6 +1352,7 @@ const AddGymBranchService = () => {
                     </Grid> */}
 
                     <Grid item xs={12} sm={15}>
+                    
                    <h5>Deliveriables</h5>
                       {/* <TextField
                         {...register("Deliverables", {
@@ -1459,6 +1450,26 @@ const AddGymBranchService = () => {
                 ) : category === "wellness" ? (
                   ////////////////////////////////////////////////////////////////wellness code///////////////////////////////////////////////////////////////
                   <>
+                    <Grid item xs={12} sm={6}>
+                      Package Details<br></br>
+                      <label>01 month</label>
+                      <input type="text" placeholder='price' value={priceOneMonth}
+                          onChange={(e) => setpriceOneMonth(e.target.value)}/>
+                      <label>03 month</label>
+                      <input type="text" placeholder='price' value={priceThreeMonth}
+                          onChange={(e) => setpriceThreeMonth(e.target.value)}/>
+                      <label>06 month</label>
+                      <input type="text" placeholder='price' value={priceSixMonth}
+                          onChange={(e) => setpriceSixMonth(e.target.value)}/>
+                      <label>12 month</label>
+                      <input type="text" placeholder='price' value={priceTwelveMonth}
+                          onChange={(e) => setpriceTwelveMonth(e.target.value)}/>
+                    </Grid>
+                    {/* TimeSlot */}
+                    <Multiselect  
+                            onSelect={handleSlot} 
+                            value={slotDuration}
+                                 showArrow options={slotArray} isObject={false} />
                     <Grid item xs={12} sm={15}>
                       {/* <TextField
                         {...register("Deliverables", {
@@ -1540,10 +1551,10 @@ const AddGymBranchService = () => {
                         </FormGroup>
                       </LocalizationProvider>
                     </Grid> */}
-                    <Grid item xs={12} sm={6}>
+                    {/* <Grid item xs={12} sm={6}>
                       Price
                       <LocalizationProvider dateAdapter={AdapterDayjs}>
-                        <Stack spacing={3}>
+                        <Stack spacing={3}> */}
                           {/* <DesktopDatePicker
                             label="Book Date"
                             inputFormat="MM/DD/YYYY"
@@ -1558,7 +1569,7 @@ const AddGymBranchService = () => {
                             onChange={WellnessBookTimeChange}
                             renderInput={(params) => <TextField {...params} />}
                           /> */}
-                          <TextField
+                          {/* <TextField
                             inputProps={{
                               inputMode: "numeric",
                               pattern: "[0-9]*",
@@ -1579,9 +1590,9 @@ const AddGymBranchService = () => {
                           {errors.wellnessbookprice && (
                             <p style={{ color: "red" }}>price is required</p>
                           )}
-                        </Stack>
-                      </LocalizationProvider>
-                    </Grid>
+                        </Stack> */}
+                      {/* </LocalizationProvider>
+                    </Grid> */}
 
                     {/* <Grid item xs={12} sm={6}>
                       <LocalizationProvider dateAdapter={AdapterDayjs}>
