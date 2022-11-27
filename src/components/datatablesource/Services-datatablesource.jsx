@@ -42,11 +42,11 @@ export const userColumns = [
       headerName: "Description",
       width: 230,
     },
-    {
-      field: "price",
-      headerName: "Price",
-      width: 100,
-    },
+    // {
+    //   field: "price",
+    //   headerName: "Price",
+    //   width: 100,
+    // },
     {
       field: "date",
       headerName: "Date",
@@ -97,11 +97,11 @@ widht:"230"
     headerName:"Branch Phone Number",
     widht:"230"
   },
-  {
-    field:"slotTime",
-    headerName:"Slot Timing",
-    width:"500"
-  },
+  // {
+  //   field:"slotTime",
+  //   headerName:"Slot Timing",
+  //   width:"500"
+  // },
   // {
   //   field:"closing_branchTiming",
   //   headerName:"Closing Branch Timing",

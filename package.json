@@ -42,7 +42,6 @@
     "heroku-postbuild": "npm run build"
   },
 
-
   
   "eslintConfig": {},
   "browserslist": {

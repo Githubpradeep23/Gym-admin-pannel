@@ -662,10 +662,20 @@ const AddGymBranchService = () => {
           setWellnessBookprice("")
           setwelnesschecked("")
           setwelnessfeechecked("")
+
+          document.getElementById("branch").selectedIndex = 0;
+          document.getElementById("one-month").value = "";
+          document.getElementById("three-month").value = "";
+          document.getElementById("six-month").value = "";
+          document.getElementById("tweleve-month").value = "";
+          document.getElementById("managerNumber").value = "";
+          
+
+
         })
         .catch(function (error) {
           console.log(error);
-          window.alert("error");
+          // window.alert("error");
         });
     } else window.alert("Please input all required fields!");
   };
@@ -922,7 +932,7 @@ const AddGymBranchService = () => {
                           branchInfo?.map((x, key) => {
                             return (
                               <option
-                                // onClick={console.log("lund")}
+                              key={key}
                                 value={x._id}
                               >
                                 {x.branchName}
@@ -934,20 +944,20 @@ const AddGymBranchService = () => {
                         <p style={{ color: "red" }}> Branch is required</p>
                       )}
                     </Grid>
-
+                   
                     <Grid item xs={12} sm={6}>
                       Package Details<br></br>
                       <label>01 month</label>
-                      <input type="text" placeholder='price' value={priceOneMonth}
+                      <input type="text" id="one-month" placeholder='price' value={priceOneMonth}
                           onChange={(e) => setpriceOneMonth(e.target.value)}/>
                       <label>03 month</label>
-                      <input type="text" placeholder='price' value={priceThreeMonth}
+                      <input type="text" id="three-month" placeholder='price' value={priceThreeMonth}
                           onChange={(e) => setpriceThreeMonth(e.target.value)}/>
                       <label>06 month</label>
-                      <input type="text" placeholder='price' value={priceSixMonth}
+                      <input type="text" id="six-month" placeholder='price' value={priceSixMonth}
                           onChange={(e) => setpriceSixMonth(e.target.value)}/>
                       <label>12 month</label>
-                      <input type="text" placeholder='price' value={priceTwelveMonth}
+                      <input type="text" id="tweleve-month" placeholder='price' value={priceTwelveMonth}
                           onChange={(e) => setpriceTwelveMonth(e.target.value)}/>
                     </Grid>
 
@@ -1134,6 +1144,8 @@ const AddGymBranchService = () => {
                  formats={AddGymBranchService.formats}
                  onChange={handleBodefitness}
                  value={bodyfitness}
+                 style={{width:'542px'}}
+                 id="text-area"
                  />
                                 <LocalizationProvider
                                   dateAdapter={AdapterDayjs}
@@ -1375,7 +1387,7 @@ const AddGymBranchService = () => {
                       modules={AddGymBranchService.modules}
                       formats={AddGymBranchService.formats}
                       onChange={handleBodacademyy}
-                      value={bodyacademyy}
+                      value={bodyacademyy} style={{width:'542px'}}
                       />
                     </Grid>
                     <Grid item xs={12} sm={15}>
@@ -1399,7 +1411,7 @@ const AddGymBranchService = () => {
                       modules={AddGymBranchService.modules}
                       formats={AddGymBranchService.formats}
                       onChange={handleBodacademy}
-                      value={bodyacademy}
+                      value={bodyacademy} style={{width:'542px'}}
                       />
                     </Grid>
                     {/* <Grid item xs={12} sm={6}>
@@ -1493,7 +1505,7 @@ const AddGymBranchService = () => {
                    modules={AddGymBranchService.modules}
                    formats={AddGymBranchService.formats}
                    onChange={handleBodyD}
-                   value={bodyD}
+                   value={bodyD} style={{width:'542px'}}
                    />
                     </Grid>
                     <Grid item xs={12} sm={15}>
@@ -1505,7 +1517,7 @@ const AddGymBranchService = () => {
                    modules={AddGymBranchService.modules}
                    formats={AddGymBranchService.formats}
                    onChange={handleBody}
-                   value={body}
+                   value={body} style={{width:'542px'}}
                    />
                     </Grid>
                     {/* <Grid item xs={12} sm={6}>
