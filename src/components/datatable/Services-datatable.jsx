@@ -25,9 +25,9 @@ const ServiceDatatable = () => {
     //  setUser(res.data.Services)  
     //  const modifiedData = res.data.Services
     // 8 October changes start
-     console.log("responce->",res.data.getAllGymService)
-     setUser(res.data.getAllGymService)  
-     const modifiedData = res.data.getAllGymService
+     console.log("responce->",res.data.dat)
+     setUser(res.data.data)  
+     const modifiedData = res.data.data
     // 8 October changes end
     
      
@@ -45,7 +45,7 @@ const ServiceDatatable = () => {
           branchCode:current.branch_id.length>0 ?current.branch_id[0].branchCode:'',
           branchCity:current.branch_id.length>0 ?current.branch_id[0].branchCity:'',
           managerName:current.branch_id.length>0 ?current.branch_id[0].managerName:'',
-          manager_Phone_Number:current.branch_id.length>0 ?current.branch_id[0].manager_Phone_Number:'',
+          branchPhoneNumber:current.branch_id.length>0 ?current.branch_id[0].branchPhoneNumber:'',
           location:current.branch_id.length>0 ?current.branch_id[0].location:'',
           // slo:current.slotTime,
           bannerImage:current.bannerImage,

@@ -1,7 +1,7 @@
 import { width } from "@mui/system";
 
 export const userColumns = [
-    { field: "id", headerName: "ID", width: 250 },
+    // { field: "id", headerName: "ID", width: 250 },
     {
       field: "image",
       headerName: "image",
@@ -47,11 +47,11 @@ export const userColumns = [
     //   headerName: "Price",
     //   width: 100,
     // },
-    {
-      field: "date",
-      headerName: "Date",
-      width: 150,
-    },
+    // {
+    //   field: "date",
+    //   headerName: "Date",
+    //   width: 150,
+    // },
     {
       field: "category",
       headerName: "Category",
@@ -62,23 +62,23 @@ field:"delievrables",
 headerName:"Deliverables",
 width:"230"
   },
+//   {
+//     field:"consultationDate",
+//     headerName:"Consultation Date",
+//     width:"230"
+//   },
+//   {
+// field:"consultationTime",
+// headerName:"Consultation Time",
+// widht:"230"
+//   },
+  // {
+  //   field:"managerName",
+  //   headerName:"Manager Name",
+  //   widht:"230"
+  // },
   {
-    field:"consultationDate",
-    headerName:"Consultation Date",
-    width:"230"
-  },
-  {
-field:"consultationTime",
-headerName:"Consultation Time",
-widht:"230"
-  },
-  {
-    field:"managerName",
-    headerName:"Manager Name",
-    widht:"230"
-  },
-  {
-    field:"manager_Phone_Number",
+    field:"manager_contact_no",
     headerName:"Manager Phone Number",
     widht:"230"
   },

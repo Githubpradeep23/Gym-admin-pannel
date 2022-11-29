@@ -103,7 +103,7 @@ const EditServices = () => {
         setpriceThreeMonth(routeLocation.state.gym.priceThreeMonth)
         setpriceSixMonth(routeLocation.state.gym.priceSixMonth)
         setpriceTwelveMonth(routeLocation.state.gym.priceTwelveMonth)
-        setManagerNumber(routeLocation.state.gym.manager_Phone_Number)
+        setManagerNumber(routeLocation.state.gym.manager_contact_no)
 
         setbodyfitness(routeLocation.state.gym.description)
         setimage(routeLocation.state.gym.image)
