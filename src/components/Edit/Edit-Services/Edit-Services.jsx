@@ -682,7 +682,6 @@ const EditServices = () => {
 
     const onSubmit = async (event) => {
         event.preventDefault();
-        alert('hu')
         if (category === "fitness") {
             console.log("checking for api run");
             runFitnessApi();
