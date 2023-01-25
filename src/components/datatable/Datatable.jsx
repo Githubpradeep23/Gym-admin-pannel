@@ -31,7 +31,7 @@ const Datatable = () => {
   const [phone, setPhone] = useState([])
 
   const  getDate  =async()=>{
-    let res = await axios.get("http://localhost:8080/api/v1/getAllUsers");
+    let res = await axios.get("http://ec2-35-76-120-158.ap-northeast-1.compute.amazonaws.com:8080/api/v1/getAllUsers");
     console.log("responce->", res?.data?.getAllUsers?.map((x) => x?.profilePicture?.url))
     setUser(res.data.getAllUsers)
     const modifiedData = res.data.getAllUsers
@@ -60,7 +60,7 @@ const Datatable = () => {
 
     var config = {
       method: "delete",
-      url: "http://localhost:8080/api/v1/deleteUser",
+      url: "http://ec2-35-76-120-158.ap-northeast-1.compute.amazonaws.com:8080/api/v1/deleteUser",
       headers: {
         "Content-Type": "application/json",
       },

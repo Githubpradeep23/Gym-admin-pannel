@@ -271,7 +271,7 @@ const EditServices = () => {
             console.log({data: JSON.stringify(data)});
             let config = {
                 method: 'put',
-                url: 'http://localhost:8080/api/v1/updateGymSevice',
+                url: 'http://ec2-35-76-120-158.ap-northeast-1.compute.amazonaws.com:8080/api/v1/updateGymSevice',
                 data: data,
             };
             axios(config)
@@ -320,7 +320,7 @@ const EditServices = () => {
 
             let config = {
                 method: 'put',
-                url: 'http://localhost:8080/api/v1/updateGymSevice',
+                url: 'http://ec2-35-76-120-158.ap-northeast-1.compute.amazonaws.com:8080/api/v1/updateGymSevice',
                 data: data,
             };
             axios(config)
@@ -413,7 +413,7 @@ const EditServices = () => {
 
             let config = {
                 method: 'put',
-                url: 'http://localhost:8080/api/v1/updateGymSevice',
+                url: 'http://ec2-35-76-120-158.ap-northeast-1.compute.amazonaws.com:8080/api/v1/updateGymSevice',
                 data: data,
             };
             axios(config)
@@ -470,7 +470,7 @@ const EditServices = () => {
 
             let config = {
                 method: 'put',
-                url: 'http://localhost:8080/api/v1/updateGymSevice',
+                url: 'http://ec2-35-76-120-158.ap-northeast-1.compute.amazonaws.com:8080/api/v1/updateGymSevice',
                 data: data,
             };
             axios(config)
@@ -569,7 +569,7 @@ const EditServices = () => {
 
             let config = {
                 method: 'put',
-                url: 'http://localhost:8080/api/v1/updateGymSevice',
+                url: 'http://ec2-35-76-120-158.ap-northeast-1.compute.amazonaws.com:8080/api/v1/updateGymSevice',
                 data: data,
                 
             };
@@ -641,7 +641,7 @@ const EditServices = () => {
 
             let config = {
                 method: 'put',
-                url: 'http://localhost:8080/api/v1/updateGymSevice',
+                url: 'http://ec2-35-76-120-158.ap-northeast-1.compute.amazonaws.com:8080/api/v1/updateGymSevice',
                 data: data,
             };
             axios(config)
@@ -722,7 +722,7 @@ const EditServices = () => {
 
     const getBranches = async () => {
         let res = await axios.get(
-            "http://localhost:8080/api/v1/getAllGymBranch"
+            "http://ec2-35-76-120-158.ap-northeast-1.compute.amazonaws.com:8080/api/v1/getAllGymBranch"
         );
 
         console.log("responce=============->", res.data.getAllGymBranch);

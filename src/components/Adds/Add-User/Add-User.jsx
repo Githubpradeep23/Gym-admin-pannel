@@ -101,7 +101,7 @@ const AddUser = () => {
 console.log()          
           var config = {
             method: 'post',
-            url: 'http://localhost:8080/api/v1/addNewUser',
+            url: 'http://ec2-35-76-120-158.ap-northeast-1.compute.amazonaws.com:8080/api/v1/addNewUser',
             headers: { 
               'Content-Type': 'application/json'
             },
