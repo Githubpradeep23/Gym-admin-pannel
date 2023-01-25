@@ -21,7 +21,7 @@ const Coupan = () => {
   const getdata = async () => {
 
 
-    let res = await axios.get("https://gymapibackend.herokuapp.com/api/v1/getAllCopuan");
+    let res = await axios.get("http://localhost:8080/api/v1/getAllCopuan");
     console.log("responce->", res.data.getAllCopuan)
     setUser(res.data.getAllCopuan)
     const modifiedData = res.data.getAllCopuan
@@ -61,7 +61,7 @@ const Coupan = () => {
 
     var config = {
       method: 'delete',
-      url: 'https://gymapibackend.herokuapp.com/api/v1/deleteCopuan',
+      url: 'http://localhost:8080/api/v1/deleteCopuan',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -141,13 +141,19 @@ const Coupan = () => {
     <div className="datatable">
       <div className="datatableTitle">
 
-        Coupan
+        Coupon
 
         <Link to="/add-coupan" className="link">
-          Add New Coupan
+          Add New Coupon
         </Link>
       </div>
-      <DataGrid
+      <DataGrid sx={{
+        '& .MuiDataGrid-row .MuiDataGrid-cell': {
+            "white-space": "normal !important",
+            "word-wrap": "break-word !important",
+            "margin-top": 10
+          },
+        }}
         className="datagrid"
         rows={username}
         columns={userColumns.concat(actionColumn)}

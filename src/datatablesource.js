@@ -1,5 +1,4 @@
 export const userColumns = [
-  { field: "id", headerName: "ID", width: 250 },
   // {
   //   field: "profilePicture",
   //   headerName: "profilePicture",
@@ -15,11 +14,11 @@ export const userColumns = [
   {
     field: "firstName",
     headerName: "firstName",
-  width: 200,
+    width: 200,
   //  width:"100%"
   },
   {
-    field: "date",
+    field: "Date",
     headerName: "Date",
     width: 150,
   },

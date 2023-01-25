@@ -74,7 +74,7 @@ const EditUser = ({ route }) => {
     setfirstName(routeLocation.state.gym.firstName);
     setemail(routeLocation.state.gym.email);
     setImage(routeLocation.state.gym.Image);
-    setDate(routeLocation.state.gym.date);
+    setDate(routeLocation.state.gym.Date);
     setlastName(routeLocation.state.gym.lastName);
     setgender(routeLocation.state.gym.gender);
   }, []);
@@ -105,13 +105,13 @@ const EditUser = ({ route }) => {
     console.log("data dek loo =>", data)
 
     const res = await axios.put(
-      "https://gymapibackend.herokuapp.com/api/v1/editUser",
+      "http://localhost:8080/api/v1/editUser",
       data
     );
     console.log("responce",res);
     if (res.status === 200) {
       window.alert("success")
-      // navigate("/users");
+      navigate("/users");
     } else{
       window.alert("fail")
 
@@ -191,7 +191,7 @@ const EditUser = ({ route }) => {
 
                 <Grid item xs={12} sm={6}>
                   <select
-                    {...register("gender", { required: true })}
+                    // {...register("gender", { required: true })}
                     id="gender"
                     className="form-select"
                     value={gender}
@@ -317,10 +317,10 @@ const EditUser = ({ route }) => {
                     <input
                       hidden
                       accept="image/*"
-                      {...register("Image", { required: true })}
+                      // {...register("Image", { required: true })}
                       multiple
                       type="file"
-                      //  value={bannerImage}
+                      value={Image}
                       onChange={(e) => setImage(e.target.files[0])}
                     />
                   </Button>

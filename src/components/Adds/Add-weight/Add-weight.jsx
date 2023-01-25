@@ -35,7 +35,7 @@ const AddWeight = () => {
       
         console.log("weight =>", weight)
        
-        let userLogin = await axios.post("https://gymapibackend.herokuapp.com/api/v1/addWeight", {
+        let userLogin = await axios.post("http://localhost:8080/api/v1/addWeight", {
      
             weight,
     

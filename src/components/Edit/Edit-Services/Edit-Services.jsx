@@ -70,6 +70,7 @@ const EditServices = () => {
 
     const [slotDuration, setSlotDuration] = React.useState("");
     const [priceOneMonth, setpriceOneMonth] = React.useState("");
+    const [priceTwoMonth, setpriceTwoMonth] = React.useState("");
     const [priceThreeMonth, setpriceThreeMonth] = React.useState("");
     const [priceSixMonth, setpriceSixMonth] = React.useState("");
     const [priceTwelveMonth, setpriceTwelveMonth] = React.useState("");
@@ -83,6 +84,8 @@ const EditServices = () => {
 
     const [bodyfitness, setbodyfitness] = useState("");
 
+    const [coachName, setcoachName] = useState("");
+    const [coachNumber, setcoachNumber] = useState("");
 
     const [Id, setIds] = useState("")
     const params = new URLSearchParams(window.location.search)
@@ -100,16 +103,18 @@ const EditServices = () => {
         setcategory(routeLocation.state.gym.category)
         setBranch(routeLocation.state.gym.branch_id.length>0 ?routeLocation.state.gym.branch_id[0]._id:'')
         setpriceOneMonth(routeLocation.state.gym.priceOneMonth)
+        setpriceTwoMonth(routeLocation.state.gym.priceTwoMonth)
         setpriceThreeMonth(routeLocation.state.gym.priceThreeMonth)
         setpriceSixMonth(routeLocation.state.gym.priceSixMonth)
         setpriceTwelveMonth(routeLocation.state.gym.priceTwelveMonth)
         setManagerNumber(routeLocation.state.gym.manager_contact_no)
-
+        setcoachNumber(routeLocation.state.gym.manager_contact_no)
+        setcoachName(routeLocation.state.gym.manager_name)
         setbodyfitness(routeLocation.state.gym.description)
         setimage(routeLocation.state.gym.image)
         setSlotDuration(routeLocation.state.gym.slotTime)
         // setBodyD
-
+        setDeliverables(routeLocation.state.gym.delievrables)
         
 
         
@@ -191,8 +196,6 @@ const EditServices = () => {
     const [academydate, setAcademydate] = useState("");
     const [academytime, setAcademytime] = useState("");
     const [academyprice, setacademyprice] = useState("");
-    const [coachName, setcoachName] = useState("");
-    const [coachNumber, setcoachNumber] = useState("");
 
     const [wellnessdate, setwellnessdate] = useState("");
     const [booktime, setbooktime] = useState("");
@@ -240,34 +243,35 @@ const EditServices = () => {
         if (
             title != "" &&
             image != "" &&
-            body != "" &&
-            bodyD != ""
+            description != "" &&
+            Deliverables != ""
         ) {
             console.log("You ran Wellness api");
             console.log("title-->", title);
             console.log("image-->", image);
-            console.log("description-->", body);
-            console.log("deliverables -->", bodyD);
+            console.log("description-->", description);
+            console.log("deliverables -->", Deliverables);
             console.log("consultation time-->", booktime);
             console.log("price-->", wellnessbookprice);
 
             let data = new FormData();
             data.append('id', Id);
             data.append("title", title);
-            data.append("description", body);
+            data.append("description", description);
             data.append("category", category);
             data.append("image", image);
-            data.append("delievrables", bodyD);
+            data.append("delievrables", Deliverables);
             data.append("slotTime", slotDuration);
             data.append("priceOneMonth", priceOneMonth);
+            data.append("priceTwoMonth", priceTwoMonth);
             data.append("priceThreeMonth", priceThreeMonth);
             data.append("priceSixMonth", priceSixMonth);
             data.append("priceTwelveMonth", priceTwelveMonth);
 
-
+            console.log({data: JSON.stringify(data)});
             let config = {
                 method: 'put',
-                url: 'https://gymapibackend.herokuapp.com/api/v1/updateGymSevice',
+                url: 'http://localhost:8080/api/v1/updateGymSevice',
                 data: data,
             };
             axios(config)
@@ -309,13 +313,14 @@ const EditServices = () => {
             data.append("delievrables", bodyD);
             data.append("slotTime", slotDuration);
             data.append("priceOneMonth", priceOneMonth);
+            data.append("priceTwoMonth", priceTwoMonth);
             data.append("priceThreeMonth", priceThreeMonth);
             data.append("priceSixMonth", priceSixMonth);
             data.append("priceTwelveMonth", priceTwelveMonth);
 
             let config = {
                 method: 'put',
-                url: 'https://gymapibackend.herokuapp.com/api/v1/updateGymSevice',
+                url: 'http://localhost:8080/api/v1/updateGymSevice',
                 data: data,
             };
             axios(config)
@@ -329,6 +334,7 @@ const EditServices = () => {
                     setDemoDate("")
                     setManagerNumber("")
                     setdescription("")
+                    setDeliverables("")
                     setChooseBranch("")
                     setChoosePrice("")
                     setChooseDuration("")
@@ -400,13 +406,14 @@ const EditServices = () => {
             data.append("contact_no", coachNumber);
             data.append("slotTime", slotDuration);
             data.append("priceOneMonth", priceOneMonth);
+            data.append("priceTwoMonth", priceTwoMonth);
             data.append("priceThreeMonth", priceThreeMonth);
             data.append("priceSixMonth", priceSixMonth);
             data.append("priceTwelveMonth", priceTwelveMonth);
 
             let config = {
                 method: 'put',
-                url: 'https://gymapibackend.herokuapp.com/api/v1/updateGymSevice',
+                url: 'http://localhost:8080/api/v1/updateGymSevice',
                 data: data,
             };
             axios(config)
@@ -456,13 +463,14 @@ const EditServices = () => {
             data.append("contact_no", coachNumber);
             data.append("slotTime", slotDuration);
             data.append("priceOneMonth", priceOneMonth);
+            data.append("priceTwoMonth", priceTwoMonth);
             data.append("priceThreeMonth", priceThreeMonth);
             data.append("priceSixMonth", priceSixMonth);
             data.append("priceTwelveMonth", priceTwelveMonth);
 
             let config = {
                 method: 'put',
-                url: 'https://gymapibackend.herokuapp.com/api/v1/updateGymSevice',
+                url: 'http://localhost:8080/api/v1/updateGymSevice',
                 data: data,
             };
             axios(config)
@@ -552,6 +560,7 @@ const EditServices = () => {
             data.append("manager_contact_no", managerNumber);
             data.append("slotTime", slotDuration);
             data.append("priceOneMonth", priceOneMonth);
+            data.append("priceTwoMonth", priceTwoMonth);
             data.append("priceThreeMonth", priceThreeMonth);
             data.append("priceSixMonth", priceSixMonth);
             data.append("priceTwelveMonth", priceTwelveMonth);
@@ -560,7 +569,7 @@ const EditServices = () => {
 
             let config = {
                 method: 'put',
-                url: 'https://gymapibackend.herokuapp.com/api/v1/updateGymSevice',
+                url: 'http://localhost:8080/api/v1/updateGymSevice',
                 data: data,
                 
             };
@@ -624,6 +633,7 @@ const EditServices = () => {
             data.append("manager_contact_no", managerNumber);
             data.append("slotTime", slotDuration);
             data.append("priceOneMonth", priceOneMonth);
+            data.append("priceTwoMonth", priceTwoMonth);
             data.append("priceThreeMonth", priceThreeMonth);
             data.append("priceSixMonth", priceSixMonth);
             data.append("priceTwelveMonth", priceTwelveMonth);
@@ -631,7 +641,7 @@ const EditServices = () => {
 
             let config = {
                 method: 'put',
-                url: 'https://gymapibackend.herokuapp.com/api/v1/updateGymSevice',
+                url: 'http://localhost:8080/api/v1/updateGymSevice',
                 data: data,
             };
             axios(config)
@@ -665,6 +675,7 @@ const EditServices = () => {
 
                     document.getElementById("branch").selectedIndex = 0;
                     document.getElementById("one-month").value = "";
+                    document.getElementById("two-month").value = "";
                     document.getElementById("three-month").value = "";
                     document.getElementById("six-month").value = "";
                     document.getElementById("tweleve-month").value = "";
@@ -711,7 +722,7 @@ const EditServices = () => {
 
     const getBranches = async () => {
         let res = await axios.get(
-            "https://gymapibackend.herokuapp.com/api/v1/getAllGymBranch"
+            "http://localhost:8080/api/v1/getAllGymBranch"
         );
 
         console.log("responce=============->", res.data.getAllGymBranch);
@@ -809,12 +820,12 @@ const EditServices = () => {
     const [body, setBody] = useState("");
     const handleBody = (e) => {
         console.log(e);
-        setBody(e);
+        setdescription(e);
     }
     const [bodyD, setBodyD] = useState("");
     const handleBodyD = (e) => {
         console.log(e);
-        setBodyD(e);
+        setDeliverables(e);
     }
     const [bodyacademy, setbodyacademy] = useState("");
     const handleBodacademy = (e) => {
@@ -882,6 +893,7 @@ const EditServices = () => {
                                         id="category"
                                         className="form-select"
                                         value={category}
+                                        disabled="true"
                                         onChange={(e) => {
                                             setcategory(e.target.value);
                                             // DEMO();
@@ -935,19 +947,34 @@ const EditServices = () => {
                                         </Grid>
 
                                         <Grid item xs={12} sm={6}>
-                                            Package Details<br></br>
-                                            <label>01 month</label>
-                                            <input type="text" id="one-month" placeholder='price' value={priceOneMonth}
-                                                onChange={(e) => setpriceOneMonth(e.target.value)} />
-                                            <label>03 month</label>
-                                            <input type="text" id="three-month" placeholder='price' value={priceThreeMonth}
-                                                onChange={(e) => setpriceThreeMonth(e.target.value)} />
-                                            <label>06 month</label>
-                                            <input type="text" id="six-month" placeholder='price' value={priceSixMonth}
-                                                onChange={(e) => setpriceSixMonth(e.target.value)} />
-                                            <label>12 month</label>
-                                            <input type="text" id="tweleve-month" placeholder='price' value={priceTwelveMonth}
-                                                onChange={(e) => setpriceTwelveMonth(e.target.value)} />
+                                            <Grid item>
+                                                Package Details<br></br>
+                                            </Grid>
+                                            <Grid item>
+                                                <label>01 month</label>
+                                                <input type="text" id="one-month" placeholder='price' value={priceOneMonth}
+                                                    onChange={(e) => setpriceOneMonth(e.target.value)} />
+                                            </Grid>
+                                            <Grid item>
+                                                <label>02 month</label>
+                                                <input type="text" id="two-month" placeholder='price' value={priceTwoMonth}
+                                                    onChange={(e) => setpriceTwoMonth(e.target.value)} />
+                                            </Grid>
+                                            <Grid item>
+                                                <label>03 month</label>
+                                                <input type="text" id="three-month" placeholder='price' value={priceThreeMonth}
+                                                    onChange={(e) => setpriceThreeMonth(e.target.value)} />
+                                            </Grid>
+                                            <Grid item>
+                                                <label>06 month</label>
+                                                <input type="text" id="six-month" placeholder='price' value={priceSixMonth}
+                                                    onChange={(e) => setpriceSixMonth(e.target.value)} />
+                                            </Grid>
+                                            <Grid item>
+                                                <label>12 month</label>
+                                                <input type="text" id="tweleve-month" placeholder='price' value={priceTwelveMonth}
+                                                    onChange={(e) => setpriceTwelveMonth(e.target.value)} />
+                                            </Grid>
                                         </Grid>
 
 
@@ -1025,19 +1052,34 @@ const EditServices = () => {
                                     <>
 
                                         <Grid item xs={12} sm={6}>
-                                            Package Details<br></br>
-                                            <label>01 month</label>
-                                            <input type="text" placeholder='price' value={priceOneMonth}
-                                                onChange={(e) => setpriceOneMonth(e.target.value)} />
-                                            <label>03 month</label>
-                                            <input type="text" placeholder='price' value={priceThreeMonth}
-                                                onChange={(e) => setpriceThreeMonth(e.target.value)} />
-                                            <label>06 month</label>
-                                            <input type="text" placeholder='price' value={priceSixMonth}
-                                                onChange={(e) => setpriceSixMonth(e.target.value)} />
-                                            <label>12 month</label>
-                                            <input type="text" placeholder='price' value={priceTwelveMonth}
-                                                onChange={(e) => setpriceTwelveMonth(e.target.value)} />
+                                            <Grid item>
+                                                Package Details<br></br>
+                                            </Grid>
+                                            <Grid item>
+                                                <label>01 month </label>
+                                                <input type="text" placeholder='price' value={priceOneMonth}
+                                                    onChange={(e) => setpriceOneMonth(e.target.value)} />
+                                            </Grid>
+                                            <Grid item>
+                                                <label>02 month </label>
+                                                <input type="text" placeholder='price' value={priceTwoMonth}
+                                                    onChange={(e) => setpriceTwoMonth(e.target.value)} />
+                                            </Grid>
+                                            <Grid item>
+                                                <label>03 month </label>
+                                                <input type="text" placeholder='price' value={priceThreeMonth}
+                                                    onChange={(e) => setpriceThreeMonth(e.target.value)} />
+                                            </Grid>
+                                            <Grid item>
+                                                <label>06 month </label>
+                                                <input type="text" placeholder='price' value={priceSixMonth}
+                                                    onChange={(e) => setpriceSixMonth(e.target.value)} />
+                                            </Grid>
+                                            <Grid item>
+                                                <label>12 month </label>
+                                                <input type="text" placeholder='price' value={priceTwelveMonth}
+                                                    onChange={(e) => setpriceTwelveMonth(e.target.value)} />
+                                            </Grid>
                                         </Grid>
                                         <Multiselect
                                             onSelect={handleSlot}
@@ -1116,19 +1158,34 @@ const EditServices = () => {
                                     ////////////////////////////////////////////////////////////////wellness code///////////////////////////////////////////////////////////////
                                     <>
                                         <Grid item xs={12} sm={6}>
-                                            Package Details<br></br>
-                                            <label>01 month</label>
-                                            <input type="text" placeholder='price' value={priceOneMonth}
-                                                onChange={(e) => setpriceOneMonth(e.target.value)} />
-                                            <label>03 month</label>
-                                            <input type="text" placeholder='price' value={priceThreeMonth}
-                                                onChange={(e) => setpriceThreeMonth(e.target.value)} />
-                                            <label>06 month</label>
-                                            <input type="text" placeholder='price' value={priceSixMonth}
-                                                onChange={(e) => setpriceSixMonth(e.target.value)} />
-                                            <label>12 month</label>
-                                            <input type="text" placeholder='price' value={priceTwelveMonth}
-                                                onChange={(e) => setpriceTwelveMonth(e.target.value)} />
+                                            <Grid item>
+                                                Package Details<br></br>
+                                            </Grid>
+                                            <Grid item>
+                                                <label>01 month</label>
+                                                <input type="text" placeholder='price' value={priceOneMonth}
+                                                    onChange={(e) => setpriceOneMonth(e.target.value)} />
+                                            </Grid>
+                                            <Grid item>
+                                                <label>02 month</label>
+                                                <input type="text" placeholder='price' value={priceTwoMonth}
+                                                    onChange={(e) => setpriceTwoMonth(e.target.value)} />
+                                            </Grid>
+                                            <Grid item>
+                                                <label>03 month</label>
+                                                <input type="text" placeholder='price' value={priceThreeMonth}
+                                                    onChange={(e) => setpriceThreeMonth(e.target.value)} />
+                                            </Grid>
+                                            <Grid item>
+                                                <label>06 month</label>
+                                                <input type="text" placeholder='price' value={priceSixMonth}
+                                                    onChange={(e) => setpriceSixMonth(e.target.value)} />
+                                            </Grid>
+                                            <Grid item>
+                                                <label>12 month</label>
+                                                <input type="text" placeholder='price' value={priceTwelveMonth}
+                                                    onChange={(e) => setpriceTwelveMonth(e.target.value)} />
+                                            </Grid>
                                         </Grid>
                                         {/* TimeSlot */}
                                         <Multiselect
@@ -1143,7 +1200,7 @@ const EditServices = () => {
                                                 modules={EditServices.modules}
                                                 formats={EditServices.formats}
                                                 onChange={handleBodyD}
-                                                value={bodyD} style={{ width: '542px' }}
+                                                value={Deliverables} style={{ width: '542px' }}
                                             />
                                         </Grid>
                                         <Grid item xs={12} sm={15}>
@@ -1155,7 +1212,7 @@ const EditServices = () => {
                                                 modules={EditServices.modules}
                                                 formats={EditServices.formats}
                                                 onChange={handleBody}
-                                                value={body} style={{ width: '542px' }}
+                                                value={description} style={{ width: '542px' }}
                                             />
                                         </Grid>
 

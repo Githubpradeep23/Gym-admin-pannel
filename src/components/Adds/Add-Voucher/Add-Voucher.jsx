@@ -67,7 +67,7 @@ const AddVoucher = () => {
           
           var config = {
             method: 'post',
-            url: 'https://gymapibackend.herokuapp.com/api/v1/addCopuan',
+            url: 'http://localhost:8080/api/v1/addCopuan',
             headers: { 
               'Content-Type': 'application/json'
             },
@@ -211,7 +211,7 @@ const [packageDurationhour , setPackageDurationHour] =useState()
                             <AddCircleOutlineIcon />
                         </Avatar>
                         <Typography component="h1" variant="h5">
-                            Add Coupan
+                            Add Coupon
                         </Typography>
 
                         <Box
@@ -315,7 +315,7 @@ const [packageDurationhour , setPackageDurationHour] =useState()
                                 // onClick={handleSubmit}
 
                                 >
-                                    Add Coupan
+                                    Add Coupon
 
                                 </Button>
                             </Grid>

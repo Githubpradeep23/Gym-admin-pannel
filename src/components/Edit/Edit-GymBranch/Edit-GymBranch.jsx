@@ -20,13 +20,16 @@ import dayjs from 'dayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-
+import { useForm } from "react-hook-form";
 
 
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 const theme = createTheme();
 const EditGymBranch = ({ route }) => {
+    const {
+        register,
+    } = useForm();
     // const [opening_branchTiming, setopening_branchTiming] = useState(dayjs())
     // const [closing_branchTiming, setclosing_branchTiming] = useState(dayjs())
 
@@ -48,7 +51,8 @@ const EditGymBranch = ({ route }) => {
     const [location, setLocation] = useState("")
     const [managerName, setmanagerName] = useState("");
     const [manager_Phone_Number, setmanager_Phone_Number] = useState("");
-    const [Id, setIds] = useState("")
+    const [Id, setIds] = useState("");
+    const [Image, setimage] = useState("");
     const params = new URLSearchParams(window.location.search)
     for (const param of params) {
         console.log(param)
@@ -66,33 +70,29 @@ const EditGymBranch = ({ route }) => {
         setLocation(routeLocation.state.gym.location)
         setmanagerName(routeLocation.state.gym.managerName)
         setmanager_Phone_Number(routeLocation.state.gym.manager_Phone_Number)
+        setimage(routeLocation.state.gym.image)
     }, [])
 
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        // console.log("Login submit click");
-        // console.log("User =>", branchName)
-        // console.log("branchAddress =>", branchAddress)
-        // console.log("branchPhoneNumber =>", branchPhoneNumber)
-        // console.log("branchCity =>", branchCity)
 
-        var data = JSON.stringify({
-            "id": Id,
-            "name": branchName,
-            "address": branchAddress,
-            "city": branchCity,
-            "phoneNumber": branchPhoneNumber,
-            "branchCode": branchCode,
-            "location": location,
-            "managerName": managerName,
-            "manager_Phone_Number": manager_Phone_Number,
-            // "opening_branchTiming":opening_branchTiming,
-            // "closing_branchTiming": closing_branchTiming,
-        });
+        console.log("image =>", Image)
+        let data = new FormData();
+        data.append('id', Id);
+        data.append('name', branchName);
+        data.append('address', branchAddress);
+        data.append('city', branchCity);
+        data.append('phoneNumber', branchPhoneNumber);
+        data.append('branchCode', branchCode);
+        data.append('location', location);
+        data.append('managerName', managerName);
+        data.append('manager_Phone_Number', manager_Phone_Number);
+        let image = typeof Image === 'string' || Image instanceof String ? null : Image;
+        data.append('image', image);
         var config = {
             method: 'put',
-            url: 'https://gymapibackend.herokuapp.com/api/v1/updateGymBranch',
+            url: 'http://localhost:8080/api/v1/updateGymBranch',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -329,7 +329,25 @@ const EditGymBranch = ({ route }) => {
                                 />
 
                             </Grid>
-
+                            <Grid item xs={12} sm={6} mt={3}>
+                                <Button variant="contained" component="label">
+                                    Upload Image
+                                    <input
+                                        hidden
+                                        accept="image/*"
+                                        {...register("image", { required: false })}
+                                        multiple
+                                        type="file"
+                                        //  value={image}
+                                        onChange={(e) => {
+                                            return setimage(e.target.files[0])
+                                        }}
+                                    />
+                                </Button>
+                                {/* {errors.image && (
+                                    <p style={{ color: "red" }}> image is required</p>
+                                )} */}
+                            </Grid>
                             <Button
                                 // type="submit"
                                 fullWidth

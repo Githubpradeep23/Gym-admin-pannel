@@ -19,7 +19,7 @@ const BannersDatatable = () => {
 
   const getdata = async () => {
     let res = await axios.get(
-      "https://gymapibackend.herokuapp.com/api/v1/getAllBanner"
+      "http://localhost:8080/api/v1/getAllBanner"
     );
     console.log("responce->", res.data.getAllBanner.bannerImage);
     setUser(res.data.getAllBanner);
@@ -41,7 +41,7 @@ const BannersDatatable = () => {
   const getBannerByCategory = async () => {
     try {
       const res = await axios.post(
-        "https://gymapibackend.herokuapp.com/api/v1/getBannerByCategory",
+        "http://localhost:8080/api/v1/getBannerByCategory",
         {
           category,
         }
@@ -77,7 +77,7 @@ const BannersDatatable = () => {
 
     var config = {
       method: "delete",
-      url: "https://gymapibackend.herokuapp.com/api/v1/deleteBanner",
+      url: "http://localhost:8080/api/v1/deleteBanner",
       headers: {
         "Content-Type": "application/json",
       },
@@ -172,7 +172,13 @@ const BannersDatatable = () => {
           Add New Banner
         </Link>
       </div>
-      <DataGrid
+      <DataGrid sx={{
+        '& .MuiDataGrid-row .MuiDataGrid-cell': {
+            "white-space": "normal !important",
+            "word-wrap": "break-word !important",
+            "margin-top": 10
+          },
+        }}
         className="datagrid"
         rows={username}
         columns={userColumns.concat(actionColumn)}

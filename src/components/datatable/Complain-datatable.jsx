@@ -14,10 +14,10 @@ const Complains = () => {
   const [ids, setIds] = useState([])
   const [username, setUsername] = useState([])
   const [isdelete, setIsDelete] = useState(false);
-
+  const [updateStatus, setUpdateStatus] = useState(false);
 
   useEffect(async () => {
-    let res = await axios.get("https://gymapibackend.herokuapp.com/api/v1/getAllComplains");
+    let res = await axios.get("http://localhost:8080/api/v1/getAllComplains");
     console.log("responce->", res.data.getAllComplain)
     const modifiedData = res.data.getAllComplain
       .reduce(
@@ -29,15 +29,38 @@ const Complains = () => {
             id: current._id,
 
             username:current.user_id.length>0 ?current.user_id[0].firstName+' '+ current.user_id[0].lastName:'',
-            createdAt: new Date(current.createdAt).toLocaleString()
-
-
+            createdAt: new Date(current.createdAt).toLocaleString(),
+            phoneNumber: current.user_id.length>0 ? current.user_id[0].number : '',
+            status: current.status ? 'DONE' : 'PENDING'
           }
         ], []
       )
-    setUsername(modifiedData)
-  }, [isdelete])
+    setUsername(modifiedData);
+    setUpdateStatus(false)
 
+  }, [isdelete, updateStatus])
+
+  const handleUpdateStatus = (id) => {
+    var data = JSON.stringify({
+      "id": id
+    });
+    var config = {
+      method: 'put',
+      url: 'http://localhost:8080/api/v1/updateComplainStatus',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data : data
+    };
+    axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+      setUpdateStatus(true);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  };
 
   const handleDelete = (id) => {
     // setData(data.filter((item) => item.id !== id));
@@ -48,7 +71,7 @@ const Complains = () => {
     
     var config = {
       method: 'delete',
-      url: 'https://gymapibackend.herokuapp.com/api/v1/deleteComplain',
+      url: 'http://localhost:8080/api/v1/deleteComplain',
       headers: { 
         'Content-Type': 'application/json'
       },
@@ -58,7 +81,7 @@ const Complains = () => {
     axios(config)
     .then(function (response) {
       console.log(JSON.stringify(response.data));
-      setIsDelete(true)
+      setIsDelete(true);
     })
     .catch(function (error) {
       console.log(error);
@@ -81,6 +104,12 @@ const Complains = () => {
               onClick={() => handleDelete(params.row.id)}
             >
               Delete
+            </div>
+            <div
+              className="deleteButton"
+              onClick={() => handleUpdateStatus(params.row.id)}
+            >
+              Update Status
             </div>
           </div>
         );
@@ -118,12 +147,19 @@ const Complains = () => {
        </Link>
               */}.
       </div>
-      <DataGrid
+      <DataGrid sx={{
+        '& .MuiDataGrid-row .MuiDataGrid-cell': {
+            "white-space": "normal !important",
+            "word-wrap": "break-word !important",
+            "margin-top": 10
+          },
+        }}
         className="datagrid"
         rows={username}
         columns={userColumns.concat(actionColumn)}
         pageSize={9}
         rowsPerPageOptions={[9]}
+        allowColumnResizing={true}
         // checkboxSelection
       />
     </div>

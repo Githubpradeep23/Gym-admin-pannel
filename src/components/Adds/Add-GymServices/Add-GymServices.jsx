@@ -89,6 +89,7 @@ const AddGymBranchService = () => {
 
   const [slotDuration, setSlotDuration] = React.useState("");
   const [priceOneMonth, setpriceOneMonth] = React.useState("");
+  const [priceTwoMonth, setpriceTwoMonth] = React.useState("");
   const [priceThreeMonth, setpriceThreeMonth] = React.useState("");
   const [priceSixMonth, setpriceSixMonth] = React.useState("");
   const [priceTwelveMonth, setpriceTwelveMonth] = React.useState("");
@@ -99,23 +100,6 @@ const AddGymBranchService = () => {
   const [managerNumber, setManagerNumber] = useState("");
   const [managertime1, setManagerTime1] = React.useState("");
   const [managertime2, setManagerTime2] = React.useState("");
-
-
-//   <Grid item xs={12} sm={6}>
-//   Package Details<br></br>
-//   <label>01 month</label>
-//   <input type="text" placeholder='price' value={priceOneMonth}
-//       onChange={(e) => setpriceOneMonth(e.target.value)}/>
-//   <label>03 month</label>
-//   <input type="text" placeholder='price' value={priceThreeMonth}
-//       onChange={(e) => setpriceThreeMonth(e.target.value)}/>
-//   <label>06 month</label>
-//   <input type="text" placeholder='price' value={priceSixMonth}
-//       onChange={(e) => setpriceSixMonth(e.target.value)}/>
-//   <label>12 month</label>
-//   <input type="text" placeholder='price' value={priceTwelveMonth}
-//       onChange={(e) => setpriceTwelveMonth(e.target.value)}/>
-// </Grid>
 
   const TimeChange11 = (newValue) => {
     setManagerTime1(newValue);
@@ -190,6 +174,8 @@ const AddGymBranchService = () => {
   const [coachName, setcoachName] = useState("");
   const [coachNumber, setcoachNumber] = useState("");
 
+  const [managerName, setmanagerName] = useState("");
+
   const [wellnessdate, setwellnessdate] = useState("");
   const [booktime, setbooktime] = useState("");
 
@@ -255,6 +241,7 @@ const AddGymBranchService = () => {
       data.append("delievrables", bodyD);
       data.append("slotTime",slotDuration);
       data.append("priceOneMonth", priceOneMonth);
+      data.append("priceTwoMonth", priceTwoMonth);
       data.append("priceThreeMonth", priceThreeMonth);
       data.append("priceSixMonth", priceSixMonth);
       data.append("priceTwelveMonth", priceTwelveMonth);
@@ -262,7 +249,7 @@ const AddGymBranchService = () => {
 
       let config = {
         method: "post",
-        url: "https://gymapibackend.herokuapp.com/api/v1/addGymSevice",
+        url: "http://localhost:8080/api/v1/addGymSevice",
         data: data,
       };
       axios(config)
@@ -303,13 +290,14 @@ const AddGymBranchService = () => {
       data.append("delievrables", bodyD);
       data.append("slotTime",slotDuration);
       data.append("priceOneMonth", priceOneMonth);
+      data.append("priceTwoMonth", priceTwoMonth);
       data.append("priceThreeMonth", priceThreeMonth);
       data.append("priceSixMonth", priceSixMonth);
       data.append("priceTwelveMonth", priceTwelveMonth);
 
       let config = {
         method: "post",
-        url: "https://gymapibackend.herokuapp.com/api/v1/addGymSevice",
+        url: "http://localhost:8080/api/v1/addGymSevice",
         data: data,
       };
       axios(config)
@@ -393,13 +381,14 @@ const AddGymBranchService = () => {
       data.append("contact_no", coachNumber);
       data.append("slotTime",slotDuration);
       data.append("priceOneMonth", priceOneMonth);
+      data.append("priceTwoMonth", priceTwoMonth);
       data.append("priceThreeMonth", priceThreeMonth);
       data.append("priceSixMonth", priceSixMonth);
       data.append("priceTwelveMonth", priceTwelveMonth);
 
       let config = {
         method: "post",
-        url: "https://gymapibackend.herokuapp.com/api/v1/addGymSevice",
+        url: "http://localhost:8080/api/v1/addGymSevice",
         data: data,
       };
       axios(config)
@@ -448,13 +437,14 @@ const AddGymBranchService = () => {
       data.append("contact_no", coachNumber);
       data.append("slotTime",slotDuration);
       data.append("priceOneMonth", priceOneMonth);
+      data.append("priceTwoMonth", priceTwoMonth);
       data.append("priceThreeMonth", priceThreeMonth);
       data.append("priceSixMonth", priceSixMonth);
       data.append("priceTwelveMonth", priceTwelveMonth);
 
       let config = {
         method: "post",
-        url: "https://gymapibackend.herokuapp.com/api/v1/addGymSevice",
+        url: "http://localhost:8080/api/v1/addGymSevice",
         data: data,
       };
       axios(config)
@@ -467,6 +457,7 @@ const AddGymBranchService = () => {
           setprice("")
           setDemoDate("")
           setManagerNumber("")
+          setmanagerName("")
           setdescription("")
           setChooseBranch("")
           setChoosePrice("")
@@ -550,8 +541,10 @@ const AddGymBranchService = () => {
       }
       data.append("packageDuration", packageDuration);
       data.append("manager_contact_no", managerNumber);
+      data.append("manager_name", managerName);
       data.append("slotTime",slotDuration);
       data.append("priceOneMonth", priceOneMonth);
+      data.append("priceTwoMonth", priceTwoMonth);
       data.append("priceThreeMonth", priceThreeMonth);
       data.append("priceSixMonth", priceSixMonth);
       data.append("priceTwelveMonth", priceTwelveMonth);
@@ -560,7 +553,7 @@ const AddGymBranchService = () => {
 
       let config = {
         method: "post",
-        url: "https://gymapibackend.herokuapp.com/api/v1/addGymSevice",
+        url: "http://localhost:8080/api/v1/addGymSevice",
         data: data,
       };
       axios(config)
@@ -622,8 +615,10 @@ const AddGymBranchService = () => {
       }
       data.append("packageDuration", packageDuration);
       data.append("manager_contact_no", managerNumber);
+      data.append("manager_name", managerName);
       data.append("slotTime",slotDuration);
       data.append("priceOneMonth", priceOneMonth);
+      data.append("priceTwoMonth", priceTwoMonth);
       data.append("priceThreeMonth", priceThreeMonth);
       data.append("priceSixMonth", priceSixMonth);
       data.append("priceTwelveMonth", priceTwelveMonth);
@@ -631,7 +626,7 @@ const AddGymBranchService = () => {
 
       let config = {
         method: "post",
-        url: "https://gymapibackend.herokuapp.com/api/v1/addGymSevice",
+        url: "http://localhost:8080/api/v1/addGymSevice",
         data: data,
       };
       axios(config)
@@ -646,6 +641,7 @@ const AddGymBranchService = () => {
           setprice("")
           setDemoDate("")
           setManagerNumber("")
+          setManagerName("")
           setdescription("")
           setChooseBranch("")
           setChoosePrice("")
@@ -665,6 +661,7 @@ const AddGymBranchService = () => {
 
           document.getElementById("branch").selectedIndex = 0;
           document.getElementById("one-month").value = "";
+          document.getElementById("two-month").value = "";
           document.getElementById("three-month").value = "";
           document.getElementById("six-month").value = "";
           document.getElementById("tweleve-month").value = "";
@@ -711,7 +708,7 @@ const AddGymBranchService = () => {
 
   const getBranches = async () => {
     let res = await axios.get(
-      "https://gymapibackend.herokuapp.com/api/v1/getAllGymBranch"
+      "http://localhost:8080/api/v1/getAllGymBranch"
     );
 
     console.log("responce=============->", res.data.getAllGymBranch);
@@ -944,168 +941,63 @@ const AddGymBranchService = () => {
                         <p style={{ color: "red" }}> Branch is required</p>
                       )}
                     </Grid>
-                   
                     <Grid item xs={12} sm={6}>
-                      Package Details<br></br>
-                      <label>01 month</label>
-                      <input type="text" id="one-month" placeholder='price' value={priceOneMonth}
+                      <Grid item>
+                        Package Details<br></br>
+                      </Grid>
+                      <Grid item>
+                        <label>01 month</label>
+                        <input type="text" placeholder='price' value={priceOneMonth}
                           onChange={(e) => setpriceOneMonth(e.target.value)}/>
-                      <label>03 month</label>
-                      <input type="text" id="three-month" placeholder='price' value={priceThreeMonth}
+                      </Grid>
+                      <Grid item>
+                        <label>02 month</label>
+                        <input type="text" placeholder='price' value={priceTwoMonth}
+                          onChange={(e) => setpriceTwoMonth(e.target.value)}/>
+                      </Grid>
+                      <Grid item>
+                        <label>03 month</label>
+                        <input type="text" placeholder='price' value={priceThreeMonth}
                           onChange={(e) => setpriceThreeMonth(e.target.value)}/>
-                      <label>06 month</label>
-                      <input type="text" id="six-month" placeholder='price' value={priceSixMonth}
-                          onChange={(e) => setpriceSixMonth(e.target.value)}/>
-                      <label>12 month</label>
-                      <input type="text" id="tweleve-month" placeholder='price' value={priceTwelveMonth}
-                          onChange={(e) => setpriceTwelveMonth(e.target.value)}/>
+                      </Grid>
+                      <Grid>
+                        <label>06 month</label>
+                        <input type="text" id="six-month" placeholder='price' value={priceSixMonth}
+                            onChange={(e) => setpriceSixMonth(e.target.value)}/>
+                      </Grid>
+                      <Grid>
+                        <label>12 month</label>
+                        <input type="text" id="tweleve-month" placeholder='price' value={priceTwelveMonth}
+                            onChange={(e) => setpriceTwelveMonth(e.target.value)}/>
+                      </Grid>
                     </Grid>
-
-
+                    <Grid item xs={12} sm={6}>
+                      <Grid item xs={12} sm={7}>
+                        <Stack spacing={3}>
+                          <TextField
+                            autoComplete="ManagerName"
+                            name="managerName"
+                            {...register("managerName", { required: false })}
+                            fullWidth
+                            id="managerName"
+                            label="Manager Name"
+                            autoFocus
+                            value={managerName}
+                            onChange={(e) => setmanagerName(e.target.value)}
+                          />
+                        </Stack>
+                      </Grid>
+                    </Grid>
                     {chooseBranch ? (
                       <>
                         <Grid item xs={12} sm={6} mt={-2.5}>
                           {/* Package Details */}
                           <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <Stack spacing={3}>
-                              {/* <select
-                                {...register("packageDuration", {
-                                  required: true,
-                                })}
-                                id="PackageDuration"
-                                className="form-select"
-                                value={packageDuration}
-                                onChange={(e) => {
-                                  setPackageDuration(e.target.value);
-                                  setChooseDuration(true);
-                                }}
-                              >
-                                <option value={""} disabled>
-                                  Duration
-                                </option>
-
-                                {durationArray.map((x) => {
-                                  return <option value={x}>{x}</option>;
-                                })}
-                              </select>
-                              {errors.packageDuration && (
-                                <p style={{ color: "red" }}>
-                                  Package duration is required
-                                </p>
-                              )} */}
-
-                              {/* <DesktopDatePicker
-                                label="Date"
-                                inputFormat="MM/DD/YYYY"
-                                value={packageDate}
-                                onChange={DateChange2}
-                                renderInput={(params) => (
-                                  <TextField {...params} />
-                                )}
-                              />
-                              {errors.packageDate && (
-                                <p style={{ color: "red" }}>
-                                  Package date is required
-                                </p>
-                              )} */}
-                              {/* <TimePicker
-                                label="Time"
-                                value={packageTime}
-                                onChange={TimeChange2}
-                                renderInput={(params) => (
-                                  <TextField {...params} />
-                                )}
-                              />
-                              {errors.packageTime && (
-                                <p style={{ color: "red" }}>
-                                  Package time is required
-                                </p>
-                              )} */}
                             <Multiselect  
                             onSelect={handleSlot} 
                             value={slotDuration}
                                  showArrow options={slotArray} isObject={false} />
-                              {/* <select
-                                {...register("packageDuration", {
-                                  required: true,
-                                })}
-                                id="PackageDuration"
-                                className="form-select"
-                                value={packageDuration}
-                                onChange={(e) => {
-                                  setPackageDuration(e.target.value);
-                                  setChooseDuration(true);
-                                }}
-                              >
-                                <option value={""} disabled>
-                                  Duration
-                                </option>
-
-                                {slotArray.map((x) => {
-                                  return <option value={x}>{x}</option>;
-                                })}
-                              </select> */}
-
-                              {/* <TextField
-                                inputProps={{
-                                  inputMode: "numeric",
-                                  pattern: "[0-9]*",
-                                }}
-                                {...register("price", { required: true })}
-                                fullWidth
-                                id="price"
-                                label="price"
-                                name="price"
-                                autoComplete="price"
-                                value={price}
-                                onChange={(e) => setprice(e.target.value)}
-                              />
-                              {errors.price && (
-                                <p style={{ color: "red" }}>
-                                  price is required
-                                </p>
-                              )} */}
-
-                              {/* <TextField
-                                disabled
-                                id="outlined-disabled"
-                                value={choosePrice}
-                              /> */}
-
-                              {/* <select
-                                {...register("branchTime", { required: true })}
-                                id="branchTime"
-                                className="form-select"
-                                label="branch time"
-                                name="branch time"
-                                value={branchTime}
-                                onChange={(e) => {
-                                  setBranchTime(e.target.value);
-                                }}
-                              >
-                                <option value={""} disabled>
-                                  Choose branch time
-                                </option>
-
-                                {branchInfo.length &&
-                                  branchInfo?.map((x, key) => {
-                                    return (
-                                      <option
-                                        onClick={console.log("Branch Time-->", branchTime)}
-                                        value={x._id}
-                                      >
-                                        {x.opening_branchTiming}-
-                                        {x.closing_branchTiming}
-                                      </option>
-                                    );
-                                  })}
-
-                              </select>
-                              {errors.branchTime && (
-                                <p style={{ color: "red" }}>
-                                  branch time is required
-                                </p>
-                              )} */}
                             </Stack>
 
                             <Stack spacing={3}>
@@ -1223,19 +1115,34 @@ const AddGymBranchService = () => {
                   <>
 
                     <Grid item xs={12} sm={6}>
-                      Package Details<br></br>
-                      <label>01 month</label>
-                      <input type="text" placeholder='price' value={priceOneMonth}
-                          onChange={(e) => setpriceOneMonth(e.target.value)}/>
-                      <label>03 month</label>
-                      <input type="text" placeholder='price' value={priceThreeMonth}
-                          onChange={(e) => setpriceThreeMonth(e.target.value)}/>
-                      <label>06 month</label>
-                      <input type="text" placeholder='price' value={priceSixMonth}
-                          onChange={(e) => setpriceSixMonth(e.target.value)}/>
-                      <label>12 month</label>
-                      <input type="text" placeholder='price' value={priceTwelveMonth}
-                          onChange={(e) => setpriceTwelveMonth(e.target.value)}/>
+                      <Grid item>
+                        Package Details<br></br>
+                      </Grid>
+                      <Grid item>
+                        <label>01 month </label>
+                        <input type="text" placeholder='price' value={priceOneMonth}
+                            onChange={(e) => setpriceOneMonth(e.target.value)}/>
+                      </Grid>
+                      <Grid item>
+                        <label>02 month </label>
+                        <input type="text" placeholder='price' value={priceTwoMonth}
+                            onChange={(e) => setpriceTwoMonth(e.target.value)}/>
+                      </Grid>
+                      <Grid item>
+                        <label>03 month </label>
+                        <input type="text" placeholder='price' value={priceThreeMonth}
+                            onChange={(e) => setpriceThreeMonth(e.target.value)}/>
+                      </Grid>
+                      <Grid item>
+                        <label>06 month </label>
+                        <input type="text" placeholder='price' value={priceSixMonth}
+                            onChange={(e) => setpriceSixMonth(e.target.value)}/>
+                      </Grid>
+                      <Grid item>
+                        <label>12 month </label>
+                        <input type="text" placeholder='price' value={priceTwelveMonth}
+                            onChange={(e) => setpriceTwelveMonth(e.target.value)}/>
+                      </Grid>
                     </Grid>
                      <Multiselect  
                             onSelect={handleSlot} 
@@ -1463,19 +1370,34 @@ const AddGymBranchService = () => {
                   ////////////////////////////////////////////////////////////////wellness code///////////////////////////////////////////////////////////////
                   <>
                     <Grid item xs={12} sm={6}>
-                      Package Details<br></br>
-                      <label>01 month</label>
-                      <input type="text" placeholder='price' value={priceOneMonth}
-                          onChange={(e) => setpriceOneMonth(e.target.value)}/>
-                      <label>03 month</label>
-                      <input type="text" placeholder='price' value={priceThreeMonth}
-                          onChange={(e) => setpriceThreeMonth(e.target.value)}/>
-                      <label>06 month</label>
-                      <input type="text" placeholder='price' value={priceSixMonth}
-                          onChange={(e) => setpriceSixMonth(e.target.value)}/>
-                      <label>12 month</label>
-                      <input type="text" placeholder='price' value={priceTwelveMonth}
-                          onChange={(e) => setpriceTwelveMonth(e.target.value)}/>
+                      <Grid item>
+                        Package Details<br></br>
+                      </Grid>
+                      <Grid item>
+                        <text>01 month </text>
+                        <input type="text" placeholder='price' value={priceOneMonth}
+                            onChange={(e) => setpriceOneMonth(e.target.value)}/>
+                      </Grid>
+                      <Grid item>
+                        <text>02 month </text>
+                        <input type="text" placeholder='price' value={priceTwoMonth}
+                            onChange={(e) => setpriceTwoMonth(e.target.value)}/>
+                      </Grid>
+                      <Grid item>
+                        <text>03 month </text>
+                        <input type="text" placeholder='price' value={priceThreeMonth}
+                            onChange={(e) => setpriceThreeMonth(e.target.value)}/>
+                      </Grid>
+                      <Grid item>
+                        <text>06 month </text>
+                        <input type="text" placeholder='price' value={priceSixMonth}
+                            onChange={(e) => setpriceSixMonth(e.target.value)}/>
+                      </Grid>
+                      <Grid item>
+                        <text>12 month </text>
+                        <input type="text" placeholder='price' value={priceTwelveMonth}
+                            onChange={(e) => setpriceTwelveMonth(e.target.value)}/>
+                      </Grid>
                     </Grid>
                     {/* TimeSlot */}
                     <Multiselect  

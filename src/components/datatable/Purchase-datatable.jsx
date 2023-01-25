@@ -20,23 +20,26 @@ const GymDatatable = () => {
 
   const getdata = async ()=>{
 
-    let res = await axios.get("https://gymapibackend.herokuapp.com/api/v1/getAllPaymentsRecords");
-         let data = res.data.getAllPaymentsRecords.map((doc,index)=>{
-        return ( {
-          
+    let res = await axios.get("http://localhost:8080/api/v1/getAllPaymentsRecords");
+    let data = res.data.getAllPaymentsRecords.map((doc,index)=>{
+        return ({
                _id  : doc._id,
-               voucherID:  doc.voucherID,
-               orderPaymentID : doc["orderDetials"]?.id,
-               amount : doc["orderDetials"]?.amount,
-               amount_due : doc["orderDetials"]?.amount_due,
-               currency : doc["orderDetials"]?.currency,
-               receipt : doc["orderDetials"]?.receipt,
-               status : doc["orderDetials"]?.status,
-               date : new Date(doc["orderDetials"]?.created_at).toISOString()  
+               userName: (doc["userID"] && doc["userID"][0]) ? doc["userID"][0].firstName : '',
+               contact: (doc["userID"] && doc["userID"][0]) ? doc["userID"][0].number : '',
+               mailID: (doc["userID"] && doc["userID"][0]) ? doc["userID"][0].email : '',
+               orderPaymentID : doc["orderDetails"]?.razorpay_payment_id,
+               orderID: doc["orderDetails"]?.razorpay_order_id,
+               amount : doc["price"],
+               duration: doc["duration"],
+               date : new Date(doc["createdAt"]).toISOString(),
+               couponID:  doc.copuan_id && doc.copuan_id[0] ? doc.copuan_id[0]._id : '',
+               copuanTitle: doc.copuan_id && doc.copuan_id[0] ? doc.copuan_id[0].copuanTitle : '',
+               branchName: doc.service_id && doc.service_id[0] ? doc.service_id[0].branch_id[0].branchName : '',
+               location: doc.service_id && doc.service_id[0] ? doc.service_id[0].branch_id[0].location : '',
             })
          })
          console.log("data line --------------------",data)
-     setUser(data)  
+     setUser(data)
      const modifiedData =data.reduce(
        (prev, current) => [
          ...prev,
@@ -65,7 +68,7 @@ const GymDatatable = () => {
     
     var config = {
       method: 'delete',
-      url: 'https://gymapibackend.herokuapp.com/api/v1/deleteGymBranch',
+      url: 'http://localhost:8080/api/v1/deleteGymBranch',
       headers: { 
         'Content-Type': 'application/json'
       },
@@ -84,53 +87,10 @@ const GymDatatable = () => {
 
 
   };
+
   useEffect(() => {
     getdata()
   }, [isdelete])
-  
-
-
-  const actionColumn = [
-    {
-    //   field: "action",
-    //   headerName: "Action",
-    //   width: 200,
-      renderCell: (params) => {
-        return (
-          <div className="cellAction">
-          {/* <div onClick={() => {
-            navigate("/edit-gymbranch", {state: {gym:params.row}})
-          }} className="viewButton">Edit</div>
-            <div
-              className="deleteButton"
-              onClick={() => handleDelete(params.row.id)}
-            >
-              Delete
-            </div> */}
-          </div>
-        );
-      },
-    },
-  ];
-
-
-
-  // const DATA = [
-  //   {
-  //     id: 1,
-  //     username: "lol",
-  //     img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-  //     status: "active",
-  //     email: "1snow@gmail.com",
-  //     age: 35,
-  //   },]
-  // const DATA = [
-  //   {
-  //     id: ids,
-  //     username: username,
-  //     coin: coin,
-  //     number: phone,
-  //   },]
 
   return (
     <div className="datatable">
@@ -141,10 +101,16 @@ const GymDatatable = () => {
           Add New
         </Link> */}
       </div>
-      <DataGrid
+      <DataGrid sx={{
+        '& .MuiDataGrid-row .MuiDataGrid-cell': {
+            "white-space": "normal !important",
+            "word-wrap": "break-word !important",
+            "margin-top": 10
+          },
+        }}
         className="datagrid"
         rows={username}
-        columns={userColumns.concat(actionColumn)}
+        columns={userColumns}
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection

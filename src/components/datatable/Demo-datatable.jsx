@@ -21,7 +21,7 @@ const DemoDatatable = () => {
 
   const getdata = async ()=>{
 
-    let res = await axios.get("https://gymapibackend.herokuapp.com/api/v1/getAllUserBookingDemo");
+    let res = await axios.get("http://localhost:8080/api/v1/getAllUserBookingDemo");
      console.log("responce->",res.data.getAllDemosBookings)
      setUser(res.data.getAllDemosBookings)  
      const modifiedData = res.data.getAllDemosBookings
@@ -31,8 +31,9 @@ const DemoDatatable = () => {
          {
            ...current,
            name: `${current.branchName}`,
-          id: current._id
-          
+          id: current._id,
+          branch_name: (current.service_id.length > 0 && current.service_id[0].branch_id.length > 0) ? current.service_id[0].branch_id[0].branchName : undefined,
+          location: (current.service_id.length > 0 && current.service_id[0].branch_id.length > 0) ? current.service_id[0].branch_id[0].location : undefined
          }
         ],[]
         )
@@ -45,7 +46,7 @@ const DemoDatatable = () => {
   const getBannerByCategory = async () => {
     try {
       const res = await axios.post(
-        "https://gymapibackend.herokuapp.com/api/v1/getBannerByCategory",
+        "http://localhost:8080/api/v1/getBannerByCategory",
         {
           category,
         }
@@ -88,7 +89,7 @@ const DemoDatatable = () => {
     
     var config = {
       method: 'delete',
-      url: 'https://gymapibackend.herokuapp.com/api/v1/deleteGymBranch',
+      url: 'http://localhost:8080/api/v1/deleteGymBranch',
       headers: { 
         'Content-Type': 'application/json'
       },
@@ -191,7 +192,13 @@ const DemoDatatable = () => {
       {/* <Button variant="contained" onClick={AddDemo}>Add Demo</Button> */}
       {/* <Button variant="contained" onClick={UserDemo}>User Demo</Button> */}
       </div>
-      <DataGrid
+      <DataGrid sx={{
+        '& .MuiDataGrid-row .MuiDataGrid-cell': {
+            "white-space": "normal !important",
+            "word-wrap": "break-word !important",
+            "margin-top": 10
+          },
+        }}
         className="datagrid"
         rows={username}
         columns={userColumns.concat(actionColumn)}

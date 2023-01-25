@@ -17,6 +17,8 @@ import { useState, useEffect } from "react";
 import { Alert } from "@mui/material";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import moment from "moment";
+import id from "date-fns/esm/locale/id/index.js";
 
 const theme = createTheme();
 
@@ -31,6 +33,7 @@ const EditCoupan = ({ route }) => {
   const [title, settitle] = useState("");
   const [copuanCode, setCopuanCode] = useState("");
   const [discountpercentage, setDiscountpercentage] = useState("");
+  const [discountAmount, setDiscountAmount] = useState("");
   const [expireAt, setExpireAt] = useState(null);
   const [Id, setIds] = useState("");
   const params = new URLSearchParams(window.location.search);
@@ -42,26 +45,28 @@ const EditCoupan = ({ route }) => {
   useEffect(() => {
     // console.log(routeLocation.state.gym);
     setIds(routeLocation.state.coupan.id);
-
     settitle(routeLocation.state.coupan.copuanTitle);
     setCopuanCode(routeLocation.state.coupan.copuanCode);
-    setDiscountpercentage(routeLocation.state.coupan.discount_percentage);
+    setDiscountpercentage(routeLocation.state.coupan.discount_percentage ?? "");
+    setDiscountAmount(routeLocation.state.coupan.discount_amount ?? "");
     setExpireAt(routeLocation.state.coupan.expireAt);
   }, []);
 
   const onSubmit = async (data) => {
     event.preventDefault();
-    var data = new FormData();
-    data.append("id", Id);
-    data.append("copuanCode", copuanCode);
-    data.append("copuanTitle", title);
-    data.append("discount_percentage", discountpercentage);
-    data.append("expireAt", expireAt);
-
+    var data = JSON.stringify({
+      "id": Id,
+      "copuanCode": copuanCode,
+      "copuanTitle": title,
+      "discount_percentage": discountpercentage,
+      "expireAt": expireAt,
+      "discount_amount": discountAmount
+    });
+    console.log({data});
     var config = {
       method: "put",
-      url: "https://gymapibackend.herokuapp.com/api/v1/updateCopuan",
-      headers: { "Content-Type": "multipart/form-data" },
+      url: "http://localhost:8080/api/v1/updateCopuan",
+      headers: { "Content-Type": "application/json" },
       data: data,
     };
 
@@ -94,7 +99,7 @@ const EditCoupan = ({ route }) => {
               <AddCircleOutlineIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Edit Coupan
+              Edit Coupon
             </Typography>
 
             <Box sx={{ mt: 3 }}>
@@ -105,7 +110,7 @@ const EditCoupan = ({ route }) => {
                     name="title"
                     fullWidth
                     id="title"
-                    label="Coupan Title"
+                    label="Coupon Title"
                     autoFocus
                     value={title}
                     required
@@ -125,35 +130,34 @@ const EditCoupan = ({ route }) => {
                     label="Discount Precentage"
                     autoFocus
                     value={discountpercentage}
-                    required
                     onChange={(e) => setDiscountpercentage(e.target.value)}
-                  // value={student.title}
                   />
-                  {/* {errors.description && (
-                    <p style={{ color: "red" }}> Discritpion is required</p>
-                  )} */}
                 </Grid>
-                {/* setCopuanCode(routeLocation.state.coupan.copuanCode);
-    setDiscountpercentage(routeLocation.state.coupan.discount_percentage);
-    setExpireAt(routeLocation.state.coupan.expireAt); */}
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    autoComplete="given-name"
+                    name="discountAmount"
+                    fullWidth
+                    id="discountAmount"
+                    label="Discount Amount"
+                    autoFocus
+                    value={discountAmount}
+                    onChange={(e) => setDiscountAmount(e.target.value)}
+                  />
+                </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     autoComplete="given-name"
                     name="copuanCode"
                     fullWidth
                     id="copuanCode"
-                    label="Coupan Code"
+                    label="Coupon Code"
                     autoFocus
                     value={copuanCode}
                     required
                     onChange={(e) => setCopuanCode(e.target.value)}
-                  // value={student.title}
                   />
-                  {/* {errors.description && (
-                    <p style={{ color: "red" }}> Discritpion is required</p>
-                  )} */}
                 </Grid>
-
                 <Grid item xs={12} sm={6}>
                   <TextField
                   type="date"
@@ -163,26 +167,22 @@ const EditCoupan = ({ route }) => {
                     id="expireAt"
                     label="Expired At"
                     autoFocus
-                    value={expireAt}
+                    value={moment(expireAt).format("YYYY-MM-DD")}
                     required
-                    onChange={(e) => setExpireAt(e.target.value)}
-                  // value={student.title}
+                    onChange={(e) => {
+                      console.log(`Value changed ${e.target.value}`)
+                      setExpireAt(e.target.value)
+                    }
+                  }
                   />
-                  {/* {errors.description && (
-                    <p style={{ color: "red" }}> Discritpion is required</p>
-                  )} */}
                 </Grid>
-
-
-
                 <Button
                   type="submit"
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2 }}
-                // onClick={handleSubmit}
                 >
-                  Edit Coupan
+                  Edit Coupon
                 </Button>
                 <Grid container justifyContent="flex-end">
                   <Grid item>

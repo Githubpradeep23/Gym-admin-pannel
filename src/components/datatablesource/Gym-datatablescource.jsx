@@ -1,5 +1,4 @@
 export const userColumns = [
-    { field: "id", headerName: "ID", width: 100 },
     {
       field: "branchName",
       headerName: "BranchName",
@@ -43,7 +42,7 @@ export const userColumns = [
     },
    
     {
-      field: "branchCity",
+      field: "location",
       headerName: "BranchCity",
       width: 100,
     },

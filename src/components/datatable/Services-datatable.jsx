@@ -20,13 +20,14 @@ const ServiceDatatable = () => {
 
    
   const getdata = async ()=>{
-    let res = await axios.get("https://gymapibackend.herokuapp.com/api/v1/getAllGymService");
+    let res = await axios.get("http://localhost:8080/api/v1/getAllGymService");
     //  console.log("responce->",res.data.Services)
     //  setUser(res.data.Services)  
     //  const modifiedData = res.data.Services
     // 8 October changes start
      console.log("responce->",res.data.dat)
      setUser(res.data.data)  
+     var updatedDiv = document.createElement("div");
      const modifiedData = res.data.data
     // 8 October changes end
     
@@ -70,7 +71,7 @@ const ServiceDatatable = () => {
     
     var config = {
       method: 'delete',
-      url: 'https://gymapibackend.herokuapp.com/api/v1/deleteGymSevice',
+      url: 'http://localhost:8080/api/v1/deleteGymSevice',
       headers: { 
         'Content-Type': 'application/json'
       },
@@ -146,7 +147,13 @@ const ServiceDatatable = () => {
           Add New
         </Link>
       </div>
-      <DataGrid
+      <DataGrid sx={{
+        '& .MuiDataGrid-row .MuiDataGrid-cell': {
+            "white-space": "normal !important",
+            "word-wrap": "break-word !important",
+            "margin-top": 10
+          },
+        }}
         className="datagrid"
         rows={username}
         columns={userColumns.concat(actionColumn)}

@@ -33,8 +33,7 @@ const AddCoupan = () => {
     const [copuanCode, setCopuanCode] = useState("");
     const [discountpercentage, setDiscountpercentage] = useState("");
     const [expireAt, setExpireAt] = useState(null);
-
-
+    const [discountAmount, setDiscountAmount] = useState("");
 
     const onSubmit = async (data) => {
 
@@ -42,13 +41,13 @@ const AddCoupan = () => {
             "copuanCode": copuanCode,
             "copuanTitle": title,
             "discount_percentage": discountpercentage,
-            "expireAt": expireAt
-
+            "expireAt": expireAt,
+            "discount_amount": discountAmount
         });
 
         var config = {
             method: 'post',
-            url: 'https://gymapibackend.herokuapp.com/api/v1/addCopuan',
+            url: 'http://localhost:8080/api/v1/addCopuan',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -87,7 +86,7 @@ const AddCoupan = () => {
                             <AddCircleOutlineIcon />
                         </Avatar>
                         <Typography component="h1" variant="h5">
-                            Add Coupan
+                            Add Coupon
                         </Typography>
 
                         <Box
@@ -103,7 +102,7 @@ const AddCoupan = () => {
                                         name="title"
                                         fullWidth
                                         id="title"
-                                        label="Coupan Title"
+                                        label="Coupon Title"
                                         autoFocus
                                         required
                                         onChange={(e) => settitle(e.target.value)}
@@ -118,8 +117,19 @@ const AddCoupan = () => {
                                         id="discountpercentage"
                                         label="Discount Precentage"
                                         autoFocus
-                                        required
                                         onChange={(e) => setDiscountpercentage(e.target.value)}
+                                    />
+
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        autoComplete="given-name"
+                                        name="discountAmount"
+                                        fullWidth
+                                        id="discountAmount"
+                                        label="Discount Amount"
+                                        autoFocus
+                                        onChange={(e) => setDiscountAmount(e.target.value)}
                                     />
 
                                 </Grid>
@@ -129,7 +139,7 @@ const AddCoupan = () => {
                                         name="copuanCode"
                                         fullWidth
                                         id="copuanCode"
-                                        label="Coupan Code"
+                                        label="Coupon Code"
                                         autoFocus
                                         required
                                         onChange={(e) => setCopuanCode(e.target.value)}
@@ -146,7 +156,11 @@ const AddCoupan = () => {
                                         label="Expired At"
                                         autoFocus
                                         required
-                                        onChange={(e) => setExpireAt(e.target.value)}
+                                        onChange={(e) => {
+                                            console.log(`Value changed ${e.target.value}`)
+                                            setExpireAt(e.target.value)
+                                        }
+                                    }
                                     />
 
                                 </Grid>
@@ -160,12 +174,12 @@ const AddCoupan = () => {
                                 // onClick={handleSubmit}
 
                                 >
-                                    Add Coupan
+                                    Add Coupon
                                 </Button>
                                 <Grid container justifyContent="flex-end">
                                     <Grid item>
                                         <Link href="/coupan" variant="body2">
-                                            Back to coupans
+                                            Back to coupons
                                         </Link>
                                     </Grid>
                                 </Grid>

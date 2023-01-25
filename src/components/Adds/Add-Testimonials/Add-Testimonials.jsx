@@ -113,7 +113,7 @@ const AddTestimonial = ({ route }) => {
 
     var config = {
       method: "post",
-      url: "https://gymapibackend.herokuapp.com/api/v1/testimonial",
+      url: "http://localhost:8080/api/v1/testimonial",
       headers: { "Content-Type": "multipart/form-data" },
 
       data: data,

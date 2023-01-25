@@ -15,18 +15,18 @@ const Widget = ({ type }) => {
   const [totalEarn, settotalEarn] = useState([])
   const getdata = async () => {
 
-    let res = await axios.get("https://gymapibackend.herokuapp.com/api/v1/getAllPaymentsRecords");
+    let res = await axios.get("http://localhost:8080/api/v1/getAllPaymentsRecords");
     let apiData = res.data.getAllPaymentsRecords;
     let totalOrder = apiData.length
     settotalOrdes(totalOrder)
     console.log("totalOrdes line 18 ", totalOrdes)
 
-    let ress = await axios.get("https://gymapibackend.herokuapp.com/api/v1/getAllUsers");
+    let ress = await axios.get("http://localhost:8080/api/v1/getAllUsers");
     let apiDatas = ress.data.getAllUsers;
     let totalUsers = apiDatas.length
     settotalUser(totalUsers)
     console.log("totalOrdes line 18 ", totalUser)
-    let getAllRecordResponse = await axios.get("https://gymapibackend.herokuapp.com/api/v1/getAllPaymentsRecords");
+    let getAllRecordResponse = await axios.get("http://localhost:8080/api/v1/getAllPaymentsRecords");
     let amountList = getAllRecordResponse?.data?.getAllPaymentsRecords.map((doc, index) => {
       return doc["orderDetials"]?.amount
     })

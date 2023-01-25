@@ -18,7 +18,7 @@ const GymDatatable = () => {
   const [ phone , setPhone] = useState([])
 
   const getdata = async ()=>{
-    let res = await axios.get("https://gymapibackend.herokuapp.com/api/v1/getAllGymBranch");
+    let res = await axios.get("http://localhost:8080/api/v1/getAllGymBranch");
      console.log("responce->",res.data.getAllGymBranch)
      setUser(res.data.getAllGymBranch)  
      const modifiedData = res.data.getAllGymBranch
@@ -50,7 +50,7 @@ const GymDatatable = () => {
     
     var config = {
       method: 'delete',
-      url: 'https://gymapibackend.herokuapp.com/api/v1/deleteGymBranch',
+      url: 'http://localhost:8080/api/v1/deleteGymBranch',
       headers: { 
         'Content-Type': 'application/json'
       },
@@ -126,7 +126,13 @@ const GymDatatable = () => {
           Add New
         </Link>
       </div>
-      <DataGrid
+      <DataGrid sx={{
+        '& .MuiDataGrid-row .MuiDataGrid-cell': {
+            "white-space": "normal !important",
+            "word-wrap": "break-word !important",
+            "margin-top": 10
+          },
+        }}
         className="datagrid"
         rows={username}
         columns={userColumns.concat(actionColumn)}

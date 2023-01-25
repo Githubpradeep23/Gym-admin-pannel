@@ -89,7 +89,7 @@ const ViewUser = ({ route }) => {
 
   //     var config = {
   //         method: 'get',
-  //         url: 'https://gymapibackend.herokuapp.com/api/v1/getAllUsers',
+  //         url: 'http://localhost:8080/api/v1/getAllUsers',
   //         headers: { "Content-Type": "multipart/form-data" },
 
   //         data: data
@@ -154,7 +154,13 @@ const ViewUser = ({ route }) => {
           Back to all Users
         </Link>
       </Grid>
-      <DataGrid
+      <DataGrid sx={{
+        '& .MuiDataGrid-row .MuiDataGrid-cell': {
+            "white-space": "normal !important",
+            "word-wrap": "break-word !important",
+            "margin-top": 10
+          },
+        }}
         className="datagrid"
         rows={Username}
         columns={userColumns.concat(actionColumn)}

@@ -1,10 +1,5 @@
 export const userColumns = [
     {
-      field: "_id",
-      headerName: "ID",
-      width: "150",
-    },
-    {
       field:"copuanTitle",
       headerName:"Coupon Title",
       width:"150"
@@ -15,8 +10,13 @@ export const userColumns = [
       width:"150"
     },
     {
+      field:"discount_amount",
+      headerName:"Discount Amount",
+      width:"150"
+    },
+    {
       field:"copuanCode",
-      headerName:"Copuan Code",
+      headerName:"Copuon Code",
       width:"150"
     },
     {

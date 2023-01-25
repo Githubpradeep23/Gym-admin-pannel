@@ -74,7 +74,7 @@ const Sidebar = () => {
           <Link to="/coupan" style={{ textDecoration: "none" }}>
             <li>
               <OndemandVideoIcon className="icon" />
-              <span>Coupan</span>
+              <span>Coupon</span>
             </li>
           </Link>
           {/* <Link to="/package" style={{ textDecoration: "none" }}>
@@ -111,12 +111,12 @@ const Sidebar = () => {
             </li>
           </Link> */}
         
-          <Link to="/all-gym" style={{ textDecoration: "none" }}>
+          {/* <Link to="/all-gym" style={{ textDecoration: "none" }}>
             <li>
               <SportsGymnasticsIcon className="icon" />
               <span>All Gym</span>
             </li>
-          </Link>
+          </Link> */}
           <p className="title">PURCHASE ORDER</p>
           <Link to="/purchase" style={{ textDecoration: "none" }}>
             <li>

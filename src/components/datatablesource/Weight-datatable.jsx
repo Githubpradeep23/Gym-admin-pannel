@@ -5,6 +5,9 @@ export const userColumns = [
       headerName: "Number",
       width: 100,
     },
+  ];
+  
+  export const userWeightColumns = [
     {
       field: "ht",
       headerName: "Ht",
@@ -54,9 +57,8 @@ export const userColumns = [
       headerName: "from",
       width: 120,
     },
-   
   ];
-  
+
   //temporary data
   export const userRows = [
     {

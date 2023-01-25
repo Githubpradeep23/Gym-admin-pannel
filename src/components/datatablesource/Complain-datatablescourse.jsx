@@ -1,9 +1,14 @@
 export const userColumns = [
-    { field: "id", headerName: "Id", width: 100 },
 
     {
       field: "username",
       headerName: "User Name",
+      width: 180,
+     
+    },
+    {
+      field: "phoneNumber",
+      headerName: "Phone Number",
       width: 180,
      
     },
@@ -13,20 +18,16 @@ export const userColumns = [
       width: 230,
      
     },
-
     {
-      field: "answer",
-      headerName: "Answer",
-      width: 230,
-     
+      field: "status",
+      headerName: "Status",
+      width: 200,
     },
-  
     {
       field: "createdAt",
       headerName: "Date",
       width: 200,
     },
-   
   ];
   
   //temporary data

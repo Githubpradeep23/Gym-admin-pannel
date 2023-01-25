@@ -51,7 +51,7 @@ const AddGymBranch = () => {
     const [location, setlocation] = useState("");
     const [managerName, setmanagerName] = useState("");
     const [manager_Phone_Number, setmanager_Phone_Number] = useState("");
-
+    const [Image, setimage] = useState("");
 
 
 
@@ -65,23 +65,21 @@ const AddGymBranch = () => {
         console.log("branchCode =>", branchCode)
         console.log("branchTiming =>", branchTiming)
         console.log("location =>", location)
-
-
-        var data = JSON.stringify({
-            "name": name,
-            "address": address,
-            "city": city,
-            "phoneNumber": phoneNumber,
-            "branchCode": branchCode,
-            // "opening_branchTiming": opening_branchTiming,
-            // "closing_branchTiming": closing_branchTiming,
-            "location": location,
-            "managerName": managerName,
-            "manager_Phone_Number": manager_Phone_Number
-        });
+        console.log("image-->", Image);
+        var data = new FormData();
+        data.append('name', name);
+        data.append('address', address);
+        data.append('city', city);
+        data.append('phoneNumber', phoneNumber);
+        data.append('branchCode', branchCode);
+        data.append('location', location);
+        data.append('managerName', managerName);
+        data.append('manager_Phone_Number', manager_Phone_Number);
+        let image = typeof Image === 'string' || Image instanceof String ? null : Image;
+        data.append('image', image);
         var config = {
             method: 'post',
-            url: 'https://gymapibackend.herokuapp.com/api/v1/addGymBranch',
+            url: 'http://localhost:8080/api/v1/addGymBranch',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -331,7 +329,20 @@ const AddGymBranch = () => {
                                     {/* {errors.manager_Phone_Number && <p style={{ color: "red" }}> manager_Phone_Number is required</p>} */}
 
                                 </Grid>
-
+                                <Grid item xs={12} sm={6} mt={3}>
+                                    <Button variant="contained" component="label">
+                                        Upload Image
+                                        <input
+                                        hidden
+                                        accept="image/*"
+                                        {...register("image", { required: false })}
+                                        multiple
+                                        type="file"
+                                        //  value={image}
+                                        onChange={(e) => setimage(e.target.files[0])}
+                                        />
+                                    </Button>
+                                </Grid>
 
                                 <Button
                                     type="submit"
