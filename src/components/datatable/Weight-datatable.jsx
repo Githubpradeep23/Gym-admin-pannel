@@ -30,7 +30,7 @@ const WeightDatatableOld = () => {
   const [coin, setCoin] = useState([])
   const [phone, setPhone] = useState([])
   useEffect(async () => {
-    let res = await axios.get("http://ec2-35-76-120-158.ap-northeast-1.compute.amazonaws.com:8080/api/v1/getAllWeight");
+    let res = await axios.get("http://localhost:8080/api/v1/getAllWeight");
     console.log("responce->", res.data.getAllRecords)
     setUser(res.data.getAllRecords)
     const modifiedData = res.data.getAllRecords
@@ -131,7 +131,7 @@ const WeightDatatable = () => {
   const [username, setUsername] = useState([])
 
   useEffect(async () => {
-    let res = await axios.get("http://ec2-35-76-120-158.ap-northeast-1.compute.amazonaws.com:8080/api/v1/getWeightByUser");
+    let res = await axios.get("http://localhost:8080/api/v1/getWeightByUser");
     console.log("response->", res.data.getAllRecords)
     setUsername(res.data.getAllRecords)
   }, [])

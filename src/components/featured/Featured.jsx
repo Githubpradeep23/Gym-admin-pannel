@@ -11,7 +11,7 @@ import axios from "axios";
 const Featured = () => {
   const [totalEarn, settotalEarn] = useState([])
   const getdata = async () => {
-    let getAllRecordResponse = await axios.get("http://ec2-35-76-120-158.ap-northeast-1.compute.amazonaws.com:8080/api/v1/getAllPaymentsRecords");
+    let getAllRecordResponse = await axios.get("http://localhost:8080/api/v1/getAllPaymentsRecords");
     let amountList = getAllRecordResponse?.data?.getAllPaymentsRecords.map((doc, index) => {
       return doc["orderDetials"]?.amount
     })

@@ -52,6 +52,11 @@ import PackageList from "./pages/list/Package/Package";
 
 import EditCoupan from "./components/Edit/Edit-Coupan/EditCoupan";
 import AddCoupan from "./components/Adds/Add-Coupan/AddCoupan";
+// Employee Section
+import EmployeeList from "./pages/list/Employee/Employee";
+import AddEmployee from "./components/Adds/Add-Employee/Add-Employee";
+import EditEmployee from "./components/Edit/Edit-Employee/Edit-Employee";
+
 function App() {
   const { darkMode } = useContext(DarkModeContext);
 
@@ -122,7 +127,10 @@ function App() {
             <Route path="edit-coupan" element={<EditCoupan />} />
             
             <Route path="package" element={<PackageList />} />
-
+            {/* Employee Section */}
+            <Route path="employees" element={<EmployeeList />} />
+            <Route path="employee/new" element={<AddEmployee />} />
+            <Route path="employee/update" element={<EditEmployee />} />
           </Route>
         </Routes>
       </BrowserRouter>

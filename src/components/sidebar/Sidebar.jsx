@@ -59,30 +59,12 @@ const Sidebar = () => {
               <span>Demo</span>
             </li>
           </Link>
-          {/* <Link to="/userdemolist" style={{ textDecoration: "none" }}>
-            <li>
-              <OndemandVideoIcon className="icon" />
-              <span>User Demo</span>
-            </li>
-          </Link> */}
-          {/* <Link to="/voucher" style={{ textDecoration: "none" }}>
-            <li>
-              <OndemandVideoIcon className="icon" />
-              <span>Voucher</span>
-            </li>
-          </Link> */}
           <Link to="/coupan" style={{ textDecoration: "none" }}>
             <li>
               <OndemandVideoIcon className="icon" />
               <span>Coupon</span>
             </li>
           </Link>
-          {/* <Link to="/package" style={{ textDecoration: "none" }}>
-            <li>
-              <OndemandVideoIcon className="icon" />
-              <span> Package </span>
-            </li>
-          </Link> */}
           <p className="title">TRACK & TRANCE SECTION</p>
           <Link to="/weight" style={{ textDecoration: "none" }}>
             <li>
@@ -103,20 +85,6 @@ const Sidebar = () => {
               <span>Gym Branch Services</span>
             </li>
           </Link>
-
-          {/* <Link to="/products" style={{ textDecoration: "none" }}>
-            <li>
-              <SportsGymnasticsIcon className="icon" />
-              <span>Product</span>
-            </li>
-          </Link> */}
-        
-          {/* <Link to="/all-gym" style={{ textDecoration: "none" }}>
-            <li>
-              <SportsGymnasticsIcon className="icon" />
-              <span>All Gym</span>
-            </li>
-          </Link> */}
           <p className="title">PURCHASE ORDER</p>
           <Link to="/purchase" style={{ textDecoration: "none" }}>
             <li>
@@ -132,9 +100,7 @@ const Sidebar = () => {
               <span>Banners</span>
             </li>
           </Link>
-          <p className="title">COMPLAIN</p>
-
-         
+          <p className="title">COMPLAIN</p>  
           <Link to="/complains" style={{ textDecoration: "none" }}>
             <li>
               <HowToRegIcon className="icon" />
@@ -149,49 +115,15 @@ const Sidebar = () => {
               <span>Testimonials</span>
             </li>
           </Link>
-         {/* <p className="title">FAQS</p>
-
-          <Link to="/questions" style={{ textDecoration: "none" }}>
+          <p className="title">Employee</p>
+          <Link to="/employees" style={{ textDecoration: "none" }}>
             <li>
-              <QuizIcon className="icon" />
-              <span>Questions</span>
+              <PersonOutlineIcon className="icon" />
+              <span>Employees</span>
             </li>
           </Link>
-          */} 
-         
-          {/* <li>
-            <LocalShippingIcon className="icon" />
-            <span>Delivery</span>
-          </li> */}
-          {/* <p className="title">USEFUL</p>
+          <p className="title">Logout</p>
           <li>
-            <InsertChartIcon className="icon" />
-            <span>Stats</span>
-          </li>
-          <li>
-            <NotificationsNoneIcon className="icon" />
-            <span>Notifications</span>
-          </li> */}
-          {/* <p className="title">SERVICE</p>
-          <li>
-            <SettingsSystemDaydreamOutlinedIcon className="icon" />
-            <span>System Health</span>
-          </li>
-          <li>
-            <PsychologyOutlinedIcon className="icon" />
-            <span>Logs</span>
-          </li>
-          <li>
-            <SettingsApplicationsIcon className="icon" />
-            <span>Settings</span>
-          </li> */}
-          <p className="title">USER</p>
-          {/* <li>
-            <AccountCircleOutlinedIcon className="icon" />
-            <span>Profile</span>
-          </li> */}
-          <li>
-          
             <Link to="/" style={{ textDecoration: "none" }}>
             <li>
               <ExitToAppIcon className="icon" />
@@ -201,16 +133,6 @@ const Sidebar = () => {
           </li>
         </ul>
       </div>
-      {/* <div className="bottom">
-        <div
-          className="colorOption"
-          onClick={() => dispatch({ type: "LIGHT" })}
-        ></div>
-        <div
-          className="colorOption"
-          onClick={() => dispatch({ type: "DARK" })}
-        ></div>
-      </div> */}
     </div>
   );
 };

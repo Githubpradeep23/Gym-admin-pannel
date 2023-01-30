@@ -66,7 +66,7 @@ const AddDemo = () => {
           
           var config = {
             method: 'post',
-            url: 'http://ec2-35-76-120-158.ap-northeast-1.compute.amazonaws.com:8080/api/v1/addDemo',
+            url: 'http://localhost:8080/api/v1/addDemo',
             headers: { 
               'Content-Type': 'application/json'
             },

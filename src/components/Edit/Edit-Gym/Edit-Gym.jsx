@@ -74,7 +74,7 @@ const EditGym = ({ route }) => {
         });
         var config = {
             method: 'put',
-            url: 'http://ec2-35-76-120-158.ap-northeast-1.compute.amazonaws.com:8080/api/v1/updateGYM',
+            url: 'http://localhost:8080/api/v1/updateGYM',
             headers: {
                 'Content-Type': 'application/json'
             },

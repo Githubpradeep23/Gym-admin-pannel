@@ -79,7 +79,7 @@ const AddGymBranch = () => {
         data.append('image', image);
         var config = {
             method: 'post',
-            url: 'http://ec2-35-76-120-158.ap-northeast-1.compute.amazonaws.com:8080/api/v1/addGymBranch',
+            url: 'http://localhost:8080/api/v1/addGymBranch',
             headers: {
                 'Content-Type': 'application/json'
             },
