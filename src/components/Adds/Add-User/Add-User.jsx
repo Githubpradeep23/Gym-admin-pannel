@@ -48,6 +48,7 @@ const AddUser = () => {
     const [firstName, setfirstName] = useState("");
     const [lastName, setlastName] = useState("");
     const [gender, setgender] = useState("");
+    const [userType, setUserType] = useState("");
     const [DOB, setDOB] = useState("");
     const [email, setEmail] = useState("");
     const [number, setNumber] = useState("");
@@ -65,6 +66,7 @@ const AddUser = () => {
          console.log("firstName =>", firstName)
          console.log("lastName =>", lastName)
          console.log("gender =>", gender)
+         console.log("userType =>", userType)
          console.log("data =>", data)
          console.log("email =>", email)
          console.log("number =>", number)
@@ -77,6 +79,7 @@ const AddUser = () => {
         data.append("firstName", firstName);
         data.append( "lastName",lastName);
         data.append("gender",gender);
+        data.append("userType",userType);
         data.append( "DOB" ,date);
         data.append("email", email);
         data.append("number",number);
@@ -204,6 +207,20 @@ console.log()
                   {errors.gender && (
                     <p style={{ color: "red" }}>gender is required</p>
                   )}
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <select
+                    id="type"
+                    className="form-select"
+                    value={userType}
+                    onChange={(e) => setUserType(e.target.value)}
+                  >
+                    <option value={""} disabled>
+                      Choose Type
+                    </option>
+                    <option value="PERMANENT">Permanent</option>
+                    <option value="TEMPORARY">Temporary</option>
+                  </select>
                 </Grid>
                                
                             <Grid item xs={12} sm={6}>

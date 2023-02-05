@@ -45,6 +45,7 @@ const EditUser = ({ route }) => {
   const [user_Address, setUser_Address] = useState("");
   const [lastName, setlastName] = useState("");
   const [gender, setgender] = useState("");
+  const [userType, setUserType] = useState("");
   const [DOB, setDOB] = useState("");
   const [Image, setImage] = useState(null);
   const [Id, setIds] = useState("");
@@ -77,6 +78,7 @@ const EditUser = ({ route }) => {
     setDate(routeLocation.state.gym.Date);
     setlastName(routeLocation.state.gym.lastName);
     setgender(routeLocation.state.gym.gender);
+    setUserType(routeLocation.state.gym.userType);
   }, []);
 
   const onSubmit = async (data) => {
@@ -95,6 +97,7 @@ const EditUser = ({ route }) => {
     data.append("firstName", firstName);
     data.append("lastName", lastName);
     data.append("gender", gender);
+    data.append("userType", userType);
     data.append("DOB", date);
     data.append("email", email);
     data.append("number", number);
@@ -182,16 +185,11 @@ const EditUser = ({ route }) => {
                     required
                     value={lastName}
                     onChange={(e) => setlastName(e.target.value)}
-                    // value={student.firstName}
                   />
-                  {/* {errors.lastName && (
-                    <p style={{ color: "red" }}> lastName is required</p>
-                  )} */}
                 </Grid>
 
                 <Grid item xs={12} sm={6}>
                   <select
-                    // {...register("gender", { required: true })}
                     id="gender"
                     className="form-select"
                     value={gender}
@@ -207,6 +205,19 @@ const EditUser = ({ route }) => {
                   {errors.gender && (
                     <p style={{ color: "red" }}>Gender is required</p>
                   )}
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <select
+                    id="type"
+                    className="form-select"
+                    value={userType}
+                    onChange={(e) => setUserType(e.target.value)}>
+                    <option value={""} disabled>
+                      Choose Type
+                    </option>
+                    <option value="PERMANENT">Permanent</option>
+                    <option value="TEMPORARY">Temporary</option>
+                  </select>
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <LocalizationProvider dateAdapter={AdapterDayjs}>

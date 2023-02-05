@@ -44,6 +44,11 @@ export const userColumns = [
     width: 100,
   },
   
+  {
+    field: "userType",
+    headerName: "Type",
+    width: 120,
+  }
 ];
 
 //temporary data
