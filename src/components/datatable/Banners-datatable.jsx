@@ -19,7 +19,7 @@ const BannersDatatable = () => {
 
   const getdata = async () => {
     let res = await axios.get(
-      "http://ec2-43-206-107-226.ap-northeast-1.compute.amazonaws.com:8080/api/v1/getAllBanner"
+      "http://localhost:8080/api/v1/getAllBanner"
     );
     console.log("responce->", res.data.getAllBanner.bannerImage);
     setUser(res.data.getAllBanner);
@@ -41,7 +41,7 @@ const BannersDatatable = () => {
   const getBannerByCategory = async () => {
     try {
       const res = await axios.post(
-        "http://ec2-43-206-107-226.ap-northeast-1.compute.amazonaws.com:8080/api/v1/getBannerByCategory",
+        "http://localhost:8080/api/v1/getBannerByCategory",
         {
           category,
         }
@@ -77,7 +77,7 @@ const BannersDatatable = () => {
 
     var config = {
       method: "delete",
-      url: "http://ec2-43-206-107-226.ap-northeast-1.compute.amazonaws.com:8080/api/v1/deleteBanner",
+      url: "http://localhost:8080/api/v1/deleteBanner",
       headers: {
         "Content-Type": "application/json",
       },

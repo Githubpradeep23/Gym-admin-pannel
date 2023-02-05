@@ -21,7 +21,7 @@ const DemoDatatable = () => {
 
   const getdata = async ()=>{
 
-    let res = await axios.get("http://ec2-43-206-107-226.ap-northeast-1.compute.amazonaws.com:8080/api/v1/getAllUserBookingDemo");
+    let res = await axios.get("http://localhost:8080/api/v1/getAllUserBookingDemo");
      console.log("responce->",res.data.getAllDemosBookings)
      setUser(res.data.getAllDemosBookings)  
      const modifiedData = res.data.getAllDemosBookings
@@ -33,7 +33,11 @@ const DemoDatatable = () => {
            name: `${current.branchName}`,
           id: current._id,
           branch_name: (current.service_id.length > 0 && current.service_id[0].branch_id.length > 0) ? current.service_id[0].branch_id[0].branchName : undefined,
-          location: (current.service_id.length > 0 && current.service_id[0].branch_id.length > 0) ? current.service_id[0].branch_id[0].location : undefined
+          location: (current.service_id.length > 0 && current.service_id[0].branch_id.length > 0) ? current.service_id[0].branch_id[0].location : undefined,
+          username: (current.user_id.length > 0 && current.user_id[0].firstName && current.user_id[0].lastName) ? current.user_id[0].firstName + ' ' + current.user_id[0].lastName : undefined,
+          email: (current.user_id.length > 0 && current.user_id[0].email) ? current.user_id[0].email : undefined,
+          number: (current.user_id.length > 0 && current.user_id[0].number) ? current.user_id[0].number : undefined,
+          service: (current.service_id.length > 0 && current.service_id[0].title) ? current.service_id[0].title : undefined,
          }
         ],[]
         )
@@ -46,7 +50,7 @@ const DemoDatatable = () => {
   const getBannerByCategory = async () => {
     try {
       const res = await axios.post(
-        "http://ec2-43-206-107-226.ap-northeast-1.compute.amazonaws.com:8080/api/v1/getBannerByCategory",
+        "http://localhost:8080/api/v1/getBannerByCategory",
         {
           category,
         }
@@ -89,7 +93,7 @@ const DemoDatatable = () => {
     
     var config = {
       method: 'delete',
-      url: 'http://ec2-43-206-107-226.ap-northeast-1.compute.amazonaws.com:8080/api/v1/deleteGymBranch',
+      url: 'http://localhost:8080/api/v1/deleteGymBranch',
       headers: { 
         'Content-Type': 'application/json'
       },

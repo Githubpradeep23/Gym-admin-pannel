@@ -2,11 +2,11 @@ export const userColumns = [
   {
     field: "username",
     headerName: "User",
-    width: 150,
+    width: 170,
   },
   {
-    field: "title",
-    headerName: "Title",
+    field: "email",
+    headerName: "Email",
     width: 150,
   },
   {
@@ -15,13 +15,18 @@ export const userColumns = [
     width: 150,
   },
   {
-    field: "date",
+    field: "Date",
     headerName: "Date",
     width: 150,
   },
   {
     field: "category",
     headerName: "Category",
+    width: 150,
+  },
+  {
+    field: "service",
+    headerName: "Service",
     width: 150,
   },
   {

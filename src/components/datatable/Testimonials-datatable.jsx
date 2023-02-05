@@ -19,7 +19,7 @@ const TestimonialsDatatable = () => {
 
   const getdata= async()=>{
 
-    let res = await axios.get("http://ec2-43-206-107-226.ap-northeast-1.compute.amazonaws.com:8080/api/v1/getAllTestimonial");
+    let res = await axios.get("http://localhost:8080/api/v1/getAllTestimonial");
      console.log("responce->",res.data.getAllTestimonial)
      setUser(res.data.getAllTestimonial)  
      const modifiedData = res.data.getAllTestimonial
@@ -47,7 +47,7 @@ const TestimonialsDatatable = () => {
     
     var config = {
       method: 'delete',
-      url: 'http://ec2-43-206-107-226.ap-northeast-1.compute.amazonaws.com:8080/api/v1/deleteTestimonial',
+      url: 'http://localhost:8080/api/v1/deleteTestimonial',
       headers: { 
         'Content-Type': 'application/json'
       },

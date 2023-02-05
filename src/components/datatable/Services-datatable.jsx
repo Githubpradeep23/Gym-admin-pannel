@@ -20,7 +20,7 @@ const ServiceDatatable = () => {
 
    
   const getdata = async ()=>{
-    let res = await axios.get("http://ec2-43-206-107-226.ap-northeast-1.compute.amazonaws.com:8080/api/v1/getAllGymService");
+    let res = await axios.get("http://localhost:8080/api/v1/getAllGymService");
     //  console.log("responce->",res.data.Services)
     //  setUser(res.data.Services)  
     //  const modifiedData = res.data.Services
@@ -71,7 +71,7 @@ const ServiceDatatable = () => {
     
     var config = {
       method: 'delete',
-      url: 'http://ec2-43-206-107-226.ap-northeast-1.compute.amazonaws.com:8080/api/v1/deleteGymSevice',
+      url: 'http://localhost:8080/api/v1/deleteGymSevice',
       headers: { 
         'Content-Type': 'application/json'
       },
