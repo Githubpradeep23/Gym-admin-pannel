@@ -50,7 +50,7 @@ const EditEmployee = ({ route }) => {
 
     const getBranches = async () => {
         let res = await axios.get(
-          "http://localhost:8080/api/v1/getAllGymBranch"
+          "http://ec2-43-206-107-226.ap-northeast-1.compute.amazonaws.com:8080/api/v1/getAllGymBranch"
         );
     
         console.log("responce=============->", res.data.getAllGymBranch);
@@ -126,7 +126,7 @@ const EditEmployee = ({ route }) => {
         data.append("image",Image);
 
         const res = await axios.put(
-            "http://localhost:8080/api/v1/employee/updateProfile",
+            "http://ec2-43-206-107-226.ap-northeast-1.compute.amazonaws.com:8080/api/v1/employee/updateProfile",
             data
           );
           console.log("responce",res);

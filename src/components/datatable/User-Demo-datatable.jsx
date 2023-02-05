@@ -22,7 +22,7 @@ const UserDemo = () => {
 
   const getdata = async ()=>{
 
-    let res = await axios.get("http://localhost:8080/api/v1/getAllDemosBookings");
+    let res = await axios.get("http://ec2-43-206-107-226.ap-northeast-1.compute.amazonaws.com:8080/api/v1/getAllDemosBookings");
      console.log("responce->",res.data.getAllDemos)
      setUser(res.data.getAllDemos)  
      const modifiedData = res.data.getAllDemos
@@ -59,7 +59,7 @@ const UserDemo = () => {
     
     var config = {
       method: 'delete',
-      url: 'http://localhost:8080/api/v1//deleteDemo',
+      url: 'http://ec2-43-206-107-226.ap-northeast-1.compute.amazonaws.com:8080/api/v1//deleteDemo',
       headers: { 
         'Content-Type': 'application/json'
       },

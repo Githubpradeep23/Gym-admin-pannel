@@ -11,7 +11,7 @@ export default function Feedback() {
     const [feedBackData, setFeedBackData] = useState([]);
 
     useEffect(async () => {
-        let res = await axios.get("http://localhost:8080/api/v1/getAllUsersFeedBack");
+        let res = await axios.get("http://ec2-43-206-107-226.ap-northeast-1.compute.amazonaws.com:8080/api/v1/getAllUsersFeedBack");
         console.log("Api Response line => ", res?.data?.getAllUsersFeedBack)
         setFeedBackData(res?.data?.getAllUsersFeedBack)
     }, [])

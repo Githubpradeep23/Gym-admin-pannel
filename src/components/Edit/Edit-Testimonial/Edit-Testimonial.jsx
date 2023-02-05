@@ -111,7 +111,7 @@ const EditTestimonial = ({ route }) => {
 
         var config = {
             method: 'put',
-            url: 'http://localhost:8080/api/v1/updateTestimonial',
+            url: 'http://ec2-43-206-107-226.ap-northeast-1.compute.amazonaws.com:8080/api/v1/updateTestimonial',
             headers: { "Content-Type": "multipart/form-data" },
 
             data: data

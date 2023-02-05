@@ -66,7 +66,7 @@ const AddQuestion = () => {
 
         var config = {
             method: 'post',
-            url: 'http://localhost:8080/api/v1/addQuestions',
+            url: 'http://ec2-43-206-107-226.ap-northeast-1.compute.amazonaws.com:8080/api/v1/addQuestions',
             headers: {
                 'Content-Type': 'application/json'
             },

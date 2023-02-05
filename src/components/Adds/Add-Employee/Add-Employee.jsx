@@ -37,7 +37,7 @@ const AddEmployee = () => {
     
     const getBranches = async () => {
         let res = await axios.get(
-          "http://localhost:8080/api/v1/getAllGymBranch"
+          "http://ec2-43-206-107-226.ap-northeast-1.compute.amazonaws.com:8080/api/v1/getAllGymBranch"
         );
     
         console.log("responce=============->", res.data.getAllGymBranch);
@@ -95,7 +95,7 @@ const AddEmployee = () => {
         data.append("image",Image);    
         let config = {
         method: 'post',
-        url: 'http://localhost:8080/api/v1/employee/add',
+        url: 'http://ec2-43-206-107-226.ap-northeast-1.compute.amazonaws.com:8080/api/v1/employee/add',
         headers: { 
             'Content-Type': 'application/json'
         },

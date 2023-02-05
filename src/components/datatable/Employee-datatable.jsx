@@ -13,7 +13,7 @@ const Employees = () => {
     const [updateStatus, setUpdateStatus] = useState(false);
 
     useEffect(async () => {
-        let res = await axios.get("http://localhost:8080/api/v1/employee/getAll");
+        let res = await axios.get("http://ec2-43-206-107-226.ap-northeast-1.compute.amazonaws.com:8080/api/v1/employee/getAll");
         const modifiedData = res.data.getAllEmployee
             .reduce(
                 (prev, current) => [
@@ -37,7 +37,7 @@ const Employees = () => {
         });
         var config = {
           method: 'put',
-          url: 'http://localhost:8080/api/v1/employee/updateStatus',
+          url: 'http://ec2-43-206-107-226.ap-northeast-1.compute.amazonaws.com:8080/api/v1/employee/updateStatus',
           headers: { 
             'Content-Type': 'application/json'
           },
@@ -60,7 +60,7 @@ const Employees = () => {
         
         var config = {
           method: 'delete',
-          url: 'http://localhost:8080/api/v1/employee/delete',
+          url: 'http://ec2-43-206-107-226.ap-northeast-1.compute.amazonaws.com:8080/api/v1/employee/delete',
           headers: { 
             'Content-Type': 'application/json'
           },
