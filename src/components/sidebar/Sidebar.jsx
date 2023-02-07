@@ -17,6 +17,7 @@ import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantity
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
+import FollowTheSigns from '@mui/icons-material/FollowTheSigns';
 import ContentPasteSearchIcon from '@mui/icons-material/ContentPasteSearch';
 import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
 import QuizIcon from '@mui/icons-material/Quiz';
@@ -120,6 +121,19 @@ const Sidebar = () => {
             <li>
               <PersonOutlineIcon className="icon" />
               <span>Employees</span>
+            </li>
+          </Link>
+          <p className="title">ToDo</p>
+          <Link to="/followup" style={{ textDecoration: "none" }}>
+            <li>
+              <FollowTheSigns className="icon" />
+              <span>FollowUp</span>
+            </li>
+          </Link>
+          <Link to="/reminder" style={{ textDecoration: "none" }}>
+            <li>
+              <FollowTheSigns className="icon" />
+              <span>RenewalReminder</span>
             </li>
           </Link>
           <p className="title">Logout</p>

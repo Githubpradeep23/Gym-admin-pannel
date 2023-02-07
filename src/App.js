@@ -56,6 +56,9 @@ import AddCoupan from "./components/Adds/Add-Coupan/AddCoupan";
 import EmployeeList from "./pages/list/Employee/Employee";
 import AddEmployee from "./components/Adds/Add-Employee/Add-Employee";
 import EditEmployee from "./components/Edit/Edit-Employee/Edit-Employee";
+// Todo Section
+import FollowUpList from "./pages/list/FollowUp/FollowUp";
+import RenewalReminderList from "./pages/list/Reminder/reminder";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -131,6 +134,9 @@ function App() {
             <Route path="employees" element={<EmployeeList />} />
             <Route path="employee/new" element={<AddEmployee />} />
             <Route path="employee/update" element={<EditEmployee />} />
+            {/* Todo Up Section */}
+            <Route path="followup" element={<FollowUpList />} />
+            <Route path="reminder" element={<RenewalReminderList />} />
           </Route>
         </Routes>
       </BrowserRouter>
