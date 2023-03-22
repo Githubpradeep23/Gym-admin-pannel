@@ -136,6 +136,30 @@ const Sidebar = () => {
               <span>RenewalReminder</span>
             </li>
           </Link>
+          <Link to="/todo/ticketComplaint" style={{ textDecoration: "none" }}>
+            <li>
+              <FollowTheSigns className="icon" />
+              <span>TicketComplaint</span>
+            </li>
+          </Link>
+          <Link to="/todo/absentReminder" style={{ textDecoration: "none" }}>
+            <li>
+              <FollowTheSigns className="icon" />
+              <span>AbsentReminder</span>
+            </li>
+          </Link>
+          <Link to="/todo/balanceReminder" style={{ textDecoration: "none" }}>
+            <li>
+              <FollowTheSigns className="icon" />
+              <span>BalanceReminder</span>
+            </li>
+          </Link>
+          <Link to="/todo/audit" style={{ textDecoration: "none" }}>
+            <li>
+              <FollowTheSigns className="icon" />
+              <span>Audit</span>
+            </li>
+          </Link>
           <p className="title">Logout</p>
           <li>
             <Link to="/" style={{ textDecoration: "none" }}>

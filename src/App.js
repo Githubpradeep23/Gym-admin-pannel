@@ -59,6 +59,10 @@ import EditEmployee from "./components/Edit/Edit-Employee/Edit-Employee";
 // Todo Section
 import FollowUpList from "./pages/list/FollowUp/FollowUp";
 import RenewalReminderList from "./pages/list/Reminder/reminder";
+import TicketComplaintList from "./pages/list/Todo/ticketComplaint";
+import AbsentReminderList from "./pages/list/Todo/absentReminder";
+import BalanceReminderList from "./pages/list/Todo/balanceReminder";
+import TodoAuditList from './pages/list/Todo/audit'
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -137,6 +141,10 @@ function App() {
             {/* Todo Up Section */}
             <Route path="followup" element={<FollowUpList />} />
             <Route path="reminder" element={<RenewalReminderList />} />
+            <Route path="todo/ticketComplaint" element={<TicketComplaintList />} />
+            <Route path="todo/absentReminder" element={<AbsentReminderList />} />
+            <Route path="todo/balanceReminder" element={<BalanceReminderList/>} />
+            <Route path="todo/audit" element={<TodoAuditList/>} />
           </Route>
         </Routes>
       </BrowserRouter>
