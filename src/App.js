@@ -63,6 +63,33 @@ import TicketComplaintList from "./pages/list/Todo/ticketComplaint";
 import AbsentReminderList from "./pages/list/Todo/absentReminder";
 import BalanceReminderList from "./pages/list/Todo/balanceReminder";
 import TodoAuditList from './pages/list/Todo/audit'
+// Trainer Section
+import LeaveTypeList from "./pages/list/Trainer/leaveType";
+import AddLeaveType from "./components/Adds/Add-Trainer/Add-Trainer-LeaveType";
+import TrainerLeavesList from "./pages/list/Trainer/leaves";
+import UpdateTrainerStatus from "./components/Edit/Edit-Trainer/Update-TrainerStatus";
+import ExerciseList from "./pages/list/Trainer/exercise";
+import AddExercise from "./components/Adds/Add-Trainer/Add-Trainer-Exercise";
+import MedicalList from './pages/list/Trainer/medical';
+import AddMedical from "./components/Adds/Add-Trainer/Add-Trainer-Medical";
+import EditMedical from "./components/Edit/Edit-Trainer/Edit-Trainer-Medical";
+// Workout
+import WorkoutList from './pages/list/Trainer/workout';
+import AddWorkout from "./components/Adds/Add-Trainer/Add-Trainer-Workout";
+import EditWorkout from "./components/Edit/Edit-Trainer/Edit-Trainer-Workout";
+// Hr
+import DiscountList from "./pages/list/Hr/discount";
+import AddDiscount from "./components/Adds/Add-Hr/Add-Hr-Discount";
+import UpdateDiscountStatus from './components/Edit/Edit-Hr/Edit-Hr-Discount-Status';
+import ExpenseList from "./pages/list/Hr/expense";
+import AddExpense from "./components/Adds/Add-Hr/Add-Hr-Expense";
+import UpdateExpenseStatus from './components/Edit/Edit-Hr/Edit-Hr-Expense-Status';
+import TelecallerList from "./pages/list/Hr/telecaller";
+import AddTelecaller from "./components/Adds/Add-Hr/Add-Hr-Telecaller";
+// CMS
+import FilterList from './pages/list/Cms/filter';
+import EnquiryList from './pages/list/Cms/enquiry';
+import AddEnquiry from "./components/Adds/Add-Cms/Add-Cms-Enquiry";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -145,6 +172,32 @@ function App() {
             <Route path="todo/absentReminder" element={<AbsentReminderList />} />
             <Route path="todo/balanceReminder" element={<BalanceReminderList/>} />
             <Route path="todo/audit" element={<TodoAuditList/>} />
+            {/* Trainer Section */}
+            <Route path="trainer/leaveType" element={<LeaveTypeList/>} />
+            <Route path="/trainer/leaveType/new" element={<AddLeaveType/>} />
+            <Route path="/trainer/leaves" element={<TrainerLeavesList/>} />
+            <Route path="/trainer/leave/updateStatus" element={<UpdateTrainerStatus/>} />
+            <Route path="trainer/exercise" element={<ExerciseList/>} />
+            <Route path="/trainer/exercise/new" element={<AddExercise/>} />
+            <Route path="trainer/medical" element={<MedicalList/>} />
+            <Route path="/trainer/medical/new" element={<AddMedical/>} />
+            <Route path="/trainer/medical/update" element={<EditMedical/>} />
+            <Route path="trainer/workout" element={<WorkoutList/>} />
+            <Route path="/trainer/workout/new" element={<AddWorkout/>} />
+            <Route path="/trainer/workout/update" element={<EditWorkout/>} />
+            {/* Hr */}
+            <Route path="hr/discount" element={<DiscountList/>} />
+            <Route path="/hr/discount/new" element={<AddDiscount/>} />
+            <Route path="/hr/discount/updateStatus" element={<UpdateDiscountStatus/>} />
+            <Route path="hr/expense" element={<ExpenseList/>} />
+            <Route path="/hr/expense/new" element={<AddExpense/>} />
+            <Route path="/hr/expense/updateStatus" element={<UpdateExpenseStatus/>} />
+            <Route path="hr/telecaller" element={<TelecallerList/>} />
+            <Route path="/hr/telecaller/new" element={<AddTelecaller/>} />
+            {/* Cms */}
+            <Route path="cms/filter" element={<FilterList/>} />
+            <Route path="cms/enquiry" element={<EnquiryList/>} />
+            <Route path="cms/enquiry/new" element={<AddEnquiry/>} />
           </Route>
         </Routes>
       </BrowserRouter>

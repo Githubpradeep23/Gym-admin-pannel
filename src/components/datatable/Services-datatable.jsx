@@ -25,7 +25,7 @@ const ServiceDatatable = () => {
     //  setUser(res.data.Services)  
     //  const modifiedData = res.data.Services
     // 8 October changes start
-     console.log("responce->",res.data.dat)
+     console.log("responce->",res.data.data)
      setUser(res.data.data)  
      var updatedDiv = document.createElement("div");
      const modifiedData = res.data.data

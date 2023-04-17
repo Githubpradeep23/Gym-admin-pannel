@@ -160,6 +160,69 @@ const Sidebar = () => {
               <span>Audit</span>
             </li>
           </Link>
+          <p className="title">Trainer</p>
+          <Link to="/trainer/leaveType" style={{ textDecoration: "none" }}>
+            <li>
+              <FollowTheSigns className="icon" />
+              <span>Leave Type</span>
+            </li>
+          </Link>
+          <Link to="/trainer/leaves" style={{ textDecoration: "none" }}>
+           <li>
+              <FollowTheSigns className="icon" />
+              <span>Leaves</span>
+            </li>
+          </Link>
+          <Link to="/trainer/medical" style={{ textDecoration: "none" }}>
+           <li>
+              <FollowTheSigns className="icon" />
+              <span>Medical</span>
+            </li>
+          </Link>
+          <Link to="/trainer/exercise" style={{ textDecoration: "none" }}>
+           <li>
+              <FollowTheSigns className="icon" />
+              <span>Exercise</span>
+            </li>
+          </Link>
+          <Link to="/trainer/workout" style={{ textDecoration: "none" }}>
+           <li>
+              <FollowTheSigns className="icon" />
+              <span>Workout</span>
+            </li>
+          </Link>
+          <p className="title">HR</p>
+          <Link to="/hr/discount" style={{ textDecoration: "none" }}>
+           <li>
+              <FollowTheSigns className="icon" />
+              <span>Discount</span>
+            </li>
+          </Link>
+          <Link to="/hr/expense" style={{ textDecoration: "none" }}>
+           <li>
+              <FollowTheSigns className="icon" />
+              <span>Expense</span>
+            </li>
+          </Link>
+          <Link to="/hr/telecaller" style={{ textDecoration: "none" }}>
+           <li>
+              <FollowTheSigns className="icon" />
+              <span>Telecaller</span>
+            </li>
+          </Link>
+          <p className="title">CMS</p>
+          <Link to="/cms/filter" style={{ textDecoration: "none" }}>
+           <li>
+              <FollowTheSigns className="icon" />
+              <span>Filters</span>
+            </li>
+          </Link>
+          <Link to="/cms/enquiry" style={{ textDecoration: "none" }}>
+           <li>
+              <FollowTheSigns className="icon" />
+              <span>Enquiry</span>
+            </li>
+          </Link>
           <p className="title">Logout</p>
           <li>
             <Link to="/" style={{ textDecoration: "none" }}>
