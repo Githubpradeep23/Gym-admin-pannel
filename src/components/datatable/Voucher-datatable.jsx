@@ -15,7 +15,7 @@ const VoucherDataTable = () => {
   const [allPayments, setAllPayments] = useState()
 
   const getdata = async () => {
-    const res = await axios.get("http://localhost:8080/api/v1/getAllPaymentsRecords")
+    const res = await axios.get("http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getAllPaymentsRecords")
     setAllPayments(res.data.getAllPaymentsRecords)
   }
 

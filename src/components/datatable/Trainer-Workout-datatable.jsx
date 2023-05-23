@@ -11,7 +11,7 @@ const WorkoutRecords = () => {
     const [isdelete, setIsDelete] = useState(false);
 
     useEffect(async () => {
-        let res = await axios.get("http://localhost:8080/api/v1/trainer/workout/all");
+        let res = await axios.get("http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/trainer/workout/all");
         const modifiedData = res.data.workouts
             .reduce(
                 (prev, current) => [
@@ -56,7 +56,7 @@ const WorkoutRecords = () => {
         
         var config = {
             method: 'delete',
-            url: 'http://localhost:8080/api/v1/trainer/workout/delete',
+            url: 'http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/trainer/workout/delete',
             headers: { 
             'Content-Type': 'application/json'
             },

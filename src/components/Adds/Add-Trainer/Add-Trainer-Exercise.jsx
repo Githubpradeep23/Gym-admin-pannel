@@ -37,7 +37,7 @@ const AddExercise = () => {
         data.append("bodyPart",bodyPart);  
         let config = {
         method: 'post',
-        url: 'http://localhost:8080/api/v1/trainer/exercise/submit',
+        url: 'http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/trainer/exercise/submit',
         headers: { 
             'Content-Type': 'application/json'
         },

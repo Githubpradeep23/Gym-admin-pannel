@@ -74,7 +74,7 @@ const EditServices = ({ route }) => {
 
         var config = {
             method: 'put',
-            url: 'http://localhost:8080/api/v1/updateGymSevice',
+            url: 'http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/updateGymSevice',
             headers: { "Content-Type": "multipart/form-data" },
 
             data: data

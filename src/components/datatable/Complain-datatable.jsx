@@ -17,7 +17,7 @@ const Complains = () => {
   const [updateStatus, setUpdateStatus] = useState(false);
 
   useEffect(async () => {
-    let res = await axios.get("http://localhost:8080/api/v1/getAllComplains");
+    let res = await axios.get("http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getAllComplains");
     console.log("responce->", res.data.getAllComplain)
     const modifiedData = res.data.getAllComplain
       .reduce(
@@ -46,7 +46,7 @@ const Complains = () => {
     });
     var config = {
       method: 'put',
-      url: 'http://localhost:8080/api/v1/updateComplainStatus',
+      url: 'http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/updateComplainStatus',
       headers: { 
         'Content-Type': 'application/json'
       },
@@ -71,7 +71,7 @@ const Complains = () => {
     
     var config = {
       method: 'delete',
-      url: 'http://localhost:8080/api/v1/deleteComplain',
+      url: 'http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/deleteComplain',
       headers: { 
         'Content-Type': 'application/json'
       },

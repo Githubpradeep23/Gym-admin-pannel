@@ -32,7 +32,7 @@ const EditMedical = () => {
 
     const getUsers = async () => {
         let res = await axios.get(
-          "http://localhost:8080/api/v1/getUsers/PERMANENT"
+          "http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getUsers/PERMANENT"
         );
     
         console.log("responce=============->", res.data.users);
@@ -87,7 +87,7 @@ const EditMedical = () => {
         data.append("previousInjury",previousInjury);  
         let config = {
         method: 'put',
-        url: 'http://localhost:8080/api/v1/trainer/medicalRecord',
+        url: 'http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/trainer/medicalRecord',
         headers: { 
             'Content-Type': 'application/json'
         },

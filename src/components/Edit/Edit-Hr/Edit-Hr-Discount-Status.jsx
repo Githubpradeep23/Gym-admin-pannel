@@ -37,7 +37,7 @@ const UpdateHrDiscountStatus = ({ route }) => {
         data.append("status", status);
 
         const res = await axios.put(
-            `http://localhost:8080/api/v1/hr/discount/${discountId}/status`,
+            `http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/hr/discount/${discountId}/status`,
             data
           );
           console.log("responce",res);

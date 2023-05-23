@@ -11,7 +11,7 @@ const RenewalReminder = () => {
     const [isdelete, setIsDelete] = useState(false);
 
     useEffect(async () => {
-        let res = await axios.get("http://localhost:8080/api/v1/todo/reminder");
+        let res = await axios.get("http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/todo/reminder");
         const modifiedData = res.data.renewalReminders
             .reduce(
                 (prev, current) => [
@@ -39,7 +39,7 @@ const RenewalReminder = () => {
         
         var config = {
             method: 'delete',
-            url: 'http://localhost:8080/api/v1/todo/deleteReminder',
+            url: 'http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/todo/deleteReminder',
             headers: { 
             'Content-Type': 'application/json'
             },

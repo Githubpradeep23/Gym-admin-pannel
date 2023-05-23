@@ -29,7 +29,7 @@ const AddTelecaller = () => {
 
     const getGymService = async () => {
         let res = await axios.get(
-          "http://localhost:8080/api/v1/getAllGymService"
+          "http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getAllGymService"
         );
     
         console.log("responce=============->", res.data.data);
@@ -64,7 +64,7 @@ const AddTelecaller = () => {
         data.append("service",gymService);  
         let config = {
         method: 'post',
-        url: 'http://localhost:8080/api/v1/hr/telecaller/submit',
+        url: 'http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/hr/telecaller/submit',
         headers: { 
             'Content-Type': 'application/json'
         },

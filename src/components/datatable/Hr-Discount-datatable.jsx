@@ -11,7 +11,7 @@ const HrDiscount = () => {
     const [isdelete, setIsDelete] = useState(false);
 
     useEffect(async () => {
-        let res = await axios.get("http://localhost:8080/api/v1/hr/discount/all");
+        let res = await axios.get("http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/hr/discount/all");
         const modifiedData = res.data.discounts
             .reduce(
                 (prev, current) => [
@@ -39,7 +39,7 @@ const HrDiscount = () => {
         
         var config = {
             method: 'delete',
-            url: 'http://localhost:8080/api/v1/hr/discount/delete',
+            url: 'http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/hr/discount/delete',
             headers: { 
             'Content-Type': 'application/json'
             },

@@ -11,7 +11,7 @@ const TrainerExercise = () => {
     const [isdelete, setIsDelete] = useState(false);
 
     useEffect(async () => {
-        let res = await axios.get("http://localhost:8080/api/v1/trainer/exercise/all");
+        let res = await axios.get("http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/trainer/exercise/all");
         const modifiedData = res.data.exercises
             .reduce(
                 (prev, current) => [
@@ -32,7 +32,7 @@ const TrainerExercise = () => {
         
         var config = {
             method: 'delete',
-            url: 'http://localhost:8080/api/v1/trainer/exercise/delete',
+            url: 'http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/trainer/exercise/delete',
             headers: { 
             'Content-Type': 'application/json'
             },

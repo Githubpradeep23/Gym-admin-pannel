@@ -90,6 +90,10 @@ import AddTelecaller from "./components/Adds/Add-Hr/Add-Hr-Telecaller";
 import FilterList from './pages/list/Cms/filter';
 import EnquiryList from './pages/list/Cms/enquiry';
 import AddEnquiry from "./components/Adds/Add-Cms/Add-Cms-Enquiry";
+import BillingList from './pages/list/Cms/billing';
+import AddBilling from "./components/Adds/Add-Cms/Add-Cms-Billing";
+import EditBilling from "./components/Edit/Edit-Cms/Edit-Cms-Billing";
+import AttendanceList from "./pages/list/Cms/attendance";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -198,6 +202,10 @@ function App() {
             <Route path="cms/filter" element={<FilterList/>} />
             <Route path="cms/enquiry" element={<EnquiryList/>} />
             <Route path="cms/enquiry/new" element={<AddEnquiry/>} />
+            <Route path="cms/billing" element={<BillingList/>} />
+            <Route path="cms/billing/new" element={<AddBilling/>} />
+            <Route path="/cms/billing/update" element={<EditBilling/>} />
+            <Route path="/cms/attendance" element={<AttendanceList/>} />
           </Route>
         </Routes>
       </BrowserRouter>

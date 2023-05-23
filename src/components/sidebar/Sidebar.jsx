@@ -223,6 +223,18 @@ const Sidebar = () => {
               <span>Enquiry</span>
             </li>
           </Link>
+          <Link to="/cms/billing" style={{ textDecoration: "none" }}>
+           <li>
+              <FollowTheSigns className="icon" />
+              <span>Billing</span>
+            </li>
+          </Link>
+          <Link to="/cms/attendance" style={{ textDecoration: "none" }}>
+           <li>
+              <FollowTheSigns className="icon" />
+              <span>Attendance</span>
+            </li>
+          </Link>
           <p className="title">Logout</p>
           <li>
             <Link to="/" style={{ textDecoration: "none" }}>

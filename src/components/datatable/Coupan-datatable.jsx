@@ -21,7 +21,7 @@ const Coupan = () => {
   const getdata = async () => {
 
 
-    let res = await axios.get("http://localhost:8080/api/v1/getAllCopuan");
+    let res = await axios.get("http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getAllCopuan");
     console.log("responce->", res.data.getAllCopuan)
     setUser(res.data.getAllCopuan)
     const modifiedData = res.data.getAllCopuan
@@ -61,7 +61,7 @@ const Coupan = () => {
 
     var config = {
       method: 'delete',
-      url: 'http://localhost:8080/api/v1/deleteCopuan',
+      url: 'http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/deleteCopuan',
       headers: {
         'Content-Type': 'application/json'
       },

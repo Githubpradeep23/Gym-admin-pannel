@@ -32,7 +32,7 @@ const AddDiscount = () => {
 
     const getUsers = async () => {
         let res = await axios.get(
-          "http://localhost:8080/api/v1/getUsers/ALL"
+          "http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getUsers/ALL"
         );
     
         console.log("responce=============->", res.data.users);
@@ -55,7 +55,7 @@ const AddDiscount = () => {
 
     const getGymService = async () => {
         let res = await axios.get(
-          "http://localhost:8080/api/v1/getAllGymService"
+          "http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getAllGymService"
         );
     
         console.log("responce=============->", res.data.data);
@@ -95,7 +95,7 @@ const AddDiscount = () => {
         data.append("gymService",gymService);  
         let config = {
         method: 'post',
-        url: 'http://localhost:8080/api/v1/hr/discount/submit',
+        url: 'http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/hr/discount/submit',
         headers: { 
             'Content-Type': 'application/json'
         },

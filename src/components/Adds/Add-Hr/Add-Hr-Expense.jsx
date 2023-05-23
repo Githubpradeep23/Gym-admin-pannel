@@ -30,7 +30,7 @@ const AddExpense = () => {
 
     const getEmployees = async () => {
         let res = await axios.get(
-          "http://localhost:8080/api/v1/employee/getAll"
+          "http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/employee/getAll"
         );
     
         console.log("responce=============->", res.data.getAllEmployee);
@@ -68,7 +68,7 @@ const AddExpense = () => {
         data.append("status",status);  
         let config = {
         method: 'post',
-        url: 'http://localhost:8080/api/v1/hr/expense/submit',
+        url: 'http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/hr/expense/submit',
         headers: { 
             'Content-Type': 'application/json'
         },

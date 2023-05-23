@@ -92,7 +92,7 @@ const EditGymBranch = ({ route }) => {
         data.append('image', image);
         var config = {
             method: 'put',
-            url: 'http://localhost:8080/api/v1/updateGymBranch',
+            url: 'http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/updateGymBranch',
             headers: {
                 'Content-Type': 'application/json'
             },

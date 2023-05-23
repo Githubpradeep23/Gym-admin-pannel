@@ -108,7 +108,7 @@ const EditUser = ({ route }) => {
     console.log("data dek loo =>", data)
 
     const res = await axios.put(
-      "http://localhost:8080/api/v1/editUser",
+      "http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/editUser",
       data
     );
     console.log("responce",res);
