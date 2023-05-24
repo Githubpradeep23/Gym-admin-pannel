@@ -35,6 +35,16 @@ export const absentReminderColumns = [
         width: 160,
     },
     {
+        field: "branchName",
+        headerName: "Branch Name",
+        width: 130,
+    },
+    {
+        field: "branchLocation",
+        headerName: "Branch Loc",
+        width: 130,
+    },
+    {
         field: "userName",
         headerName: "User Name",
         width: 160,

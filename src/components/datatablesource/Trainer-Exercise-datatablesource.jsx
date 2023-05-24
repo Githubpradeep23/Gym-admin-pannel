@@ -14,4 +14,14 @@ export const trainerExerciseColumns = [
         headerName: "BodyPart",
         width: 160
     },
+    {
+        field: "branchName",
+        headerName: "Branch Name",
+        width: 130,
+    },
+    {
+        field: "branchLocation",
+        headerName: "Branch Loc",
+        width: 130,
+    },
 ];
