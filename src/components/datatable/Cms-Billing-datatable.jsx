@@ -4,6 +4,7 @@ import { cmsBillingColumns } from "../datatablesource/Cms-Billing-datatablesourc
 import { Link, useNavigate} from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { format } from 'date-fns'
 
 const CmsBilling = () => {
     let navigate = useNavigate()
@@ -26,6 +27,8 @@ const CmsBilling = () => {
                     email: current.user?.email,
                     clientNumber: current.user?.number,
                     userId: current.user?._id,
+                    activeTo: format(new Date(current.activeTo), 'MM/dd/yyyy'),
+                    activeFrom: format(new Date(current.activeFrom), 'MM/dd/yyyy'),
                 }
                 ], []
             )

@@ -4,6 +4,7 @@ import { followupColumns } from "../datatablesource/FollowUp-datatablesource";
 import { Link, useNavigate} from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { format } from 'date-fns'
 
 const FollowUp = () => {
     let navigate = useNavigate()
@@ -21,7 +22,7 @@ const FollowUp = () => {
                     id: current._id,
                     serviceName: current.gymService?.title,
                     category: current.gymService?.category,
-                    dob: new Date(current.dob).toLocaleString(),
+                    dob: format(new Date(current.dob), 'MM/dd/yyyy'),
                     userName: current.userId?.firstName + (current.userId?.lastName ?? ''),
                     email: current.userId?.email,
                     number: current.userId?.number

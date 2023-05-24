@@ -4,6 +4,7 @@ import { cmsFiltersColumns } from "../datatablesource/Cms-Filter-datatablesource
 import { Link, useNavigate} from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { format } from 'date-fns'
 
 const CmsFilter = () => {
     let navigate = useNavigate()
@@ -22,6 +23,21 @@ const CmsFilter = () => {
                     serviceName: current.gymService?.title,
                     category: current.gymService?.category,
                     serviceId: current.gymService?._id,
+                    date: format(new Date(current.date), 'MM/dd/yyyy'),
+                    fit5: current.fit5 ? 'YES' : 'NO',
+                    strong60: current.strong60 ? 'YES' : 'NO',
+                    enquiries: current.enquiries ? 'YES': 'NO',
+                    renewals: current.renewals ? 'YES' : 'NO',
+                    upcomingDemos: current.upcomingDemos ? 'YES' : 'NO',
+                    feeBalance: current.feeBalance ? 'YES' : 'NO',
+                    inactiveClients: current.inactiveClients ? 'YES' : 'NO',
+                    fusions: current.fusions ? 'YES' : 'NO',
+                    demosBooked: current.demosBooked ? 'YES' : 'NO',
+                    newJoining: current.newJoining ? 'YES' : 'NO',
+                    upcomingRenewals: current.upcomingRenewals ? 'YES' : 'NO',
+                    review: current.review ? 'YES' : 'NO',
+                    activeClients: current.activeClients ? 'YES' : 'NO',
+                    fit: current.fit ? 'YES' : 'NO'
                 }
                 ], []
             )

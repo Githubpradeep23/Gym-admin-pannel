@@ -7,7 +7,7 @@ export const ticketComplaintColumns = [
     {
         field: "complaintDetails",
         headerName: "Complaint Details",
-        width: 260,
+        width: 360,
     },
     {
         field: "supportEmployeeName",

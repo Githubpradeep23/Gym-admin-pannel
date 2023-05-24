@@ -4,6 +4,7 @@ import { reminderColumns } from "../datatablesource/Reminder-datatablesource";
 import { Link, useNavigate} from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { format } from 'date-fns'
 
 const RenewalReminder = () => {
     let navigate = useNavigate()
@@ -21,11 +22,13 @@ const RenewalReminder = () => {
                     id: current._id,
                     serviceName: current.gymService?.title,
                     category: current.gymService?.category,
-                    activeTo: new Date(current.activeTo).toLocaleString(),
-                    activeFrom: new Date(current.activeFrom).toLocaleString(),
+                    activeTo: format(new Date(current.activeTo), 'MM/dd/yyyy'),
+                    activeFrom: format(new Date(current.activeFrom), 'MM/dd/yyyy'),
                     userName: current.userId?.firstName + (current.userId?.lastName ?? ''),
                     email: current.userId?.email,
-                    number: current.userId?.number
+                    number: current.userId?.number,
+                    done: current.done ? 'YES' : 'NO',
+                    notDone: current.notDone ? 'YES' : 'NO',
                 }
                 ], []
             )

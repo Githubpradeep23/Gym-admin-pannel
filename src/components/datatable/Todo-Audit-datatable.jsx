@@ -4,6 +4,7 @@ import { auditColumns } from "../datatablesource/Todo-Audit-datatablesource";
 import { Link, useNavigate} from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { format } from 'date-fns'
 
 const Audit = () => {
     let navigate = useNavigate()
@@ -21,6 +22,19 @@ const Audit = () => {
                     id: current._id,
                     serviceName: current.gymService?.title,
                     category: current.gymService?.category,
+                    date: format(new Date(current.date), 'MM/dd/yyyy'),
+                    staffInOut: current.staffInOut ? 'YES' : 'NO',
+                    whatsAppStatus: current.whatsAppStatus ? 'YES' : 'NO',
+                    whatsAppBroadcast: current.whatsAppBroadcast ? 'YES' : 'NO',
+                    hygieneCheck: current.hygieneCheck ? 'YES' : 'NO',
+                    addWhatsAppContact: current.addWhatsAppContact ? 'YES' : 'NO',
+                    airPercentageCheck: current.airPercentageCheck ? 'YES' : 'NO',
+                    turnedOnLights: current.turnedOnLights ? 'YES' : 'NO',
+                    cashHandover: current.cashHandover ? 'YES' : 'NO',
+                    absentSmsCalls: current.absentSmsCalls ? 'YES' : 'NO',
+                    followUpCalls: current.followUpCalls ? 'YES' : 'NO',
+                    turnedOffLights : current.turnedOffLights ? 'YES' : 'NO',
+
                 }
                 ], []
             )
@@ -77,6 +91,11 @@ const Audit = () => {
             '& .MuiDataGrid-row .MuiDataGrid-cell': {
                 "white-space": "normal !important",
                 "word-wrap": "break-word !important",
+              },
+            '& .MuiDataGrid-cell': {
+                lineHeight: '1.03 !important',
+                maxHeight: 'none !important',
+                whiteSpace: 'normal',
               },
             }}
             className="datagrid"

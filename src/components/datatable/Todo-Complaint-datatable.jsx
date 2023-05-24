@@ -112,6 +112,11 @@ const TicketComplaint = () => {
                 "white-space": "normal !important",
                 "word-wrap": "break-word !important",
               },
+              '& .MuiDataGrid-cell': {
+                lineHeight: '1.03 !important',
+                maxHeight: 'none !important',
+                whiteSpace: 'normal',
+              },
             }}
             className="datagrid"
             rows={ticketComplaints}

@@ -4,6 +4,7 @@ import { absentReminderColumns } from "../datatablesource/Todo-Absent-Reminder-d
 import { Link, useNavigate} from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { format } from 'date-fns'
 
 const AbsentReminder = () => {
     let navigate = useNavigate()
@@ -23,7 +24,8 @@ const AbsentReminder = () => {
                     category: current.gymService?.category,
                     userName: current.userId?.firstName + (current.userId?.lastName ?? ''),
                     email: current.userId?.email,
-                    clientNumber: current.userId?.number
+                    clientNumber: current.userId?.number,
+                    date: format(new Date(current.date), 'MM/dd/yyyy'),
                 }
                 ], []
             )
@@ -80,6 +82,11 @@ const AbsentReminder = () => {
             '& .MuiDataGrid-row .MuiDataGrid-cell': {
                 "white-space": "normal !important",
                 "word-wrap": "break-word !important",
+              },
+            '& .MuiDataGrid-cell': {
+                lineHeight: '1.03 !important',
+                maxHeight: 'none !important',
+                whiteSpace: 'normal',
               },
             }}
             className="datagrid"

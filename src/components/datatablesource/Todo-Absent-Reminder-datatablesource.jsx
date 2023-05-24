@@ -15,16 +15,6 @@ export const absentReminderColumns = [
         width: 160
     },
     {
-        field: "done",
-        headerName: "Done",
-        width: 160
-    },
-    {
-        field: "notDone",
-        headerName: "Not Done",
-        width: 160
-    },
-    {
         field: "serviceName",
         headerName: "Gym Service",
         width: 160,
