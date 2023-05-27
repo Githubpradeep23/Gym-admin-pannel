@@ -29,6 +29,8 @@ const RenewalReminder = () => {
                     number: current.userId?.number,
                     done: current.done ? 'YES' : 'NO',
                     notDone: current.notDone ? 'YES' : 'NO',
+                    reminderSMS: current.reminderSMS ? 'YES' : 'NO',
+                    followUpCall: current.followUpCall ? 'YES' : 'NO'
                 }
                 ], []
             )

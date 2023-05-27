@@ -24,16 +24,16 @@ export const reminderColumns = [
         headerName: "FollowUp Call",
         width: 120,
     },
-    {
-        field: "done",
-        headerName: "Done",
-        width: 120,
-    },
-    {
-        field: "notDone",
-        headerName: "Not Done",
-        width: 120,
-    },
+    // {
+    //     field: "done",
+    //     headerName: "Done",
+    //     width: 120,
+    // },
+    // {
+    //     field: "notDone",
+    //     headerName: "Not Done",
+    //     width: 120,
+    // },
     {
         field: "serviceName",
         headerName: "Service Name",
