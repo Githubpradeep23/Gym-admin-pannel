@@ -113,7 +113,7 @@ const AddTestimonial = ({ route }) => {
 
     var config = {
       method: "post",
-      url: "http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/testimonial",
+      url: "http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/testimonial",
       headers: { "Content-Type": "multipart/form-data" },
 
       data: data,

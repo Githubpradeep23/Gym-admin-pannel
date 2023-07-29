@@ -15,18 +15,18 @@ const Widget = ({ type }) => {
   const [totalEarn, settotalEarn] = useState([])
   const getdata = async () => {
 
-    let res = await axios.get("http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getAllPaymentsRecords");
+    let res = await axios.get("http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getAllPaymentsRecords");
     let apiData = res.data.getAllPaymentsRecords;
     let totalOrder = apiData.length
     settotalOrdes(totalOrder)
     console.log("totalOrdes line 18 ", totalOrdes)
 
-    let ress = await axios.get("http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getAllUsers");
+    let ress = await axios.get("http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getAllUsers");
     let apiDatas = ress.data.getAllUsers;
     let totalUsers = apiDatas.length
     settotalUser(totalUsers)
     console.log("totalOrdes line 18 ", totalUser)
-    let getAllRecordResponse = await axios.get("http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getAllPaymentsRecords");
+    let getAllRecordResponse = await axios.get("http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getAllPaymentsRecords");
     let amountList = getAllRecordResponse?.data?.getAllPaymentsRecords.map((doc, index) => {
       return doc["orderDetials"]?.amount
     })

@@ -35,7 +35,7 @@ const AddWeight = () => {
       
         console.log("weight =>", weight)
        
-        let userLogin = await axios.post("http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/addWeight", {
+        let userLogin = await axios.post("http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/addWeight", {
      
             weight,
     

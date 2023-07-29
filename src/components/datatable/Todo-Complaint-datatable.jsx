@@ -12,7 +12,7 @@ const TicketComplaint = () => {
     const [updateStatus, setUpdateStatus] = useState(false);
 
     useEffect(async () => {
-        let res = await axios.get("http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/todo/ticketComplaints");
+        let res = await axios.get("http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/todo/ticketComplaints");
         const modifiedData = res.data.complaintTickets
             .reduce(
                 (prev, current) => [
@@ -41,7 +41,7 @@ const TicketComplaint = () => {
         
         var config = {
             method: 'delete',
-            url: 'http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/todo/ticketComplaints',
+            url: 'http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/todo/ticketComplaints',
             headers: { 
             'Content-Type': 'application/json'
             },
@@ -61,7 +61,7 @@ const TicketComplaint = () => {
     const handleUpdateStatus = (id) => {
         var config = {
           method: 'put',
-          url: `http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/todo/ticketComplaints/${id}/status`,
+          url: `http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/todo/ticketComplaints/${id}/status`,
           headers: { 
             'Content-Type': 'application/json'
           },

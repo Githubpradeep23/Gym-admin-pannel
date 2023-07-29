@@ -30,7 +30,7 @@ const AddEnquiry = () => {
 
     const getUsers = async () => {
         let res = await axios.get(
-          "http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getUsers/ALL"
+          "http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getUsers/ALL"
         );
     
         console.log("responce=============->", res.data.users);
@@ -53,7 +53,7 @@ const AddEnquiry = () => {
 
     const getGymService = async () => {
         let res = await axios.get(
-          "http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getAllGymService"
+          "http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getAllGymService"
         );
     
         console.log("responce=============->", res.data.data);
@@ -89,7 +89,7 @@ const AddEnquiry = () => {
         data.append("gymService",gymService);  
         let config = {
         method: 'post',
-        url: 'http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/cms/enquiry',
+        url: 'http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/cms/enquiry',
         headers: { 
             'Content-Type': 'application/json'
         },

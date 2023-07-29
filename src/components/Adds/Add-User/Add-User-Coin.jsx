@@ -61,7 +61,7 @@ const AddUserCoin = () => {
           
           var config = {
             method: 'post',
-            url: 'http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/addCoin',
+            url: 'http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/addCoin',
             headers: { 
               'Content-Type': 'application/json'
             },
@@ -77,7 +77,7 @@ const AddUserCoin = () => {
             console.log(error);
           });
           
-    //     let userLogin = await axios.post("http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/addNewUser", {
+    //     let userLogin = await axios.post("http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/addNewUser", {
     //         username,
     //         number,
     //         coin,

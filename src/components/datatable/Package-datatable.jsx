@@ -15,7 +15,7 @@ const PackageDataTable = () => {
     const [allPayments, setAllPayments] = useState()
 
     const getdata = async () => {
-        const res = await axios.get("http://ec2-3-27-62-205.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getAllPackageByUser")
+        const res = await axios.get("http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getAllPackageByUser")
         console.log(res.data.allPackages)
         setAllPayments(res.data.allPackages)
     }
