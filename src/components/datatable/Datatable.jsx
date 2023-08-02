@@ -156,14 +156,14 @@ const Datatable = () => {
                   </TableHead>
                   <TableBody>
                     {row.questionireAnswers.map((questionire) => (
-                      <TableRow key={questionire.questionire_id.type}>
+                      <TableRow key={questionire.questionire_id?.type}>
                         <TableCell component="th" scope="row">
-                          {questionire.questionire_id.type}
+                          {questionire.questionire_id?.type}
                         </TableCell>
                         <TableCell>
-                          {questionire.questions_id.text}
+                          {questionire.questions_id?.text}
                         </TableCell>
-                        <TableCell>{questionire.questions_id.type}</TableCell>
+                        <TableCell>{questionire.questions_id?.type}</TableCell>
                         <TableCell>{questionire.answer.map((a,i) => {
                           if(questionire.answer.length - 1 === i) {
                             return a;
