@@ -21,7 +21,7 @@ const DemoDatatable = () => {
 
   const getdata = async ()=>{
 
-    let res = await axios.get("http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getAllUserBookingDemo");
+    let res = await axios.get("http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/getAllUserBookingDemo");
      console.log("responce->",res.data.getAllDemosBookings)
      setUser(res.data.getAllDemosBookings)  
      const modifiedData = res.data.getAllDemosBookings
@@ -50,7 +50,7 @@ const DemoDatatable = () => {
   const getBannerByCategory = async () => {
     try {
       const res = await axios.post(
-        "http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getBannerByCategory",
+        "http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/getBannerByCategory",
         {
           category,
         }
@@ -93,7 +93,7 @@ const DemoDatatable = () => {
     
     var config = {
       method: 'delete',
-      url: 'http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/deleteGymBranch',
+      url: 'http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/deleteGymBranch',
       headers: { 
         'Content-Type': 'application/json'
       },

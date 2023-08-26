@@ -37,7 +37,7 @@ const UpdateHrExpenseStatus = ({ route }) => {
         data.append("status", status);
 
         const res = await axios.put(
-            `http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/hr/expense/${expenseId}/status`,
+            `http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/hr/expense/${expenseId}/status`,
             data
           );
           console.log("responce",res);

@@ -11,7 +11,7 @@ const CmsEnquiry = () => {
     const [isdelete, setIsDelete] = useState(false);
 
     useEffect(async () => {
-        let res = await axios.get("http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/cms/enquiry/all");
+        let res = await axios.get("http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/cms/enquiry/all");
         const modifiedData = res.data.enquiries
             .reduce(
                 (prev, current) => [
@@ -39,7 +39,7 @@ const CmsEnquiry = () => {
         
         var config = {
             method: 'delete',
-            url: 'http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/cms/enquiry',
+            url: 'http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/cms/enquiry',
             headers: { 
             'Content-Type': 'application/json'
             },

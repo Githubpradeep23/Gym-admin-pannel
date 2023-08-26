@@ -20,7 +20,7 @@ const AllGymDatatable = () => {
 const  getdata = async()=>{
 
 
-   let res = await axios.get("http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getAllGYM");
+   let res = await axios.get("http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/getAllGYM");
     console.log("responce->",res.data.getAllGym)
     setUser(res.data.getAllGym)  
     const modifiedData = res.data.getAllGym
@@ -48,7 +48,7 @@ const  getdata = async()=>{
     
     var config = {
       method: 'delete',
-      url: 'http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/deleteGYM',
+      url: 'http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/deleteGYM',
       headers: { 
         'Content-Type': 'application/json'
       },

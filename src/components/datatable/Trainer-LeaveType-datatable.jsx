@@ -11,7 +11,7 @@ const TrainerLeaveType = () => {
     const [isdelete, setIsDelete] = useState(false);
 
     useEffect(async () => {
-        let res = await axios.get("http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/trainer/leaveType/all");
+        let res = await axios.get("http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/trainer/leaveType/all");
         const modifiedData = res.data.leaveTypes
             .reduce(
                 (prev, current) => [
@@ -32,7 +32,7 @@ const TrainerLeaveType = () => {
         
         var config = {
             method: 'delete',
-            url: 'http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/trainer/leaveType/delete',
+            url: 'http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/trainer/leaveType/delete',
             headers: { 
             'Content-Type': 'application/json'
             },

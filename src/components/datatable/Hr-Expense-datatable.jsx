@@ -11,7 +11,7 @@ const HrExpense = () => {
     const [isdelete, setIsDelete] = useState(false);
 
     useEffect(async () => {
-        let res = await axios.get("http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/hr/expense/all");
+        let res = await axios.get("http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/hr/expense/all");
         const modifiedData = res.data.expenses
             .reduce(
                 (prev, current) => [
@@ -36,7 +36,7 @@ const HrExpense = () => {
         
         var config = {
             method: 'delete',
-            url: 'http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/hr/expense/delete',
+            url: 'http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/hr/expense/delete',
             headers: { 
             'Content-Type': 'application/json'
             },

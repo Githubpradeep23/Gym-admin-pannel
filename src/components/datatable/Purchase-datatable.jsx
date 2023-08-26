@@ -20,7 +20,7 @@ const GymDatatable = () => {
 
   const getdata = async ()=>{
 
-    let res = await axios.get("http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getAllPaymentsRecords");
+    let res = await axios.get("http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/getAllPaymentsRecords");
     let data = res.data.getAllPaymentsRecords.map((doc,index)=>{
         return ({
                _id  : doc._id,
@@ -68,7 +68,7 @@ const GymDatatable = () => {
     
     var config = {
       method: 'delete',
-      url: 'http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/deleteGymBranch',
+      url: 'http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/deleteGymBranch',
       headers: { 
         'Content-Type': 'application/json'
       },

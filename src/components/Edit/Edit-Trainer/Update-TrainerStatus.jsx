@@ -24,7 +24,7 @@ const UpdateTrainerStatus = ({ route }) => {
     const [leaveId, setLeaveId] = useState("");
     const getBranches = async () => {
         let res = await axios.get(
-          "http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getAllGymBranch"
+          "http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/getAllGymBranch"
         );
     
         console.log("responce=============->", res.data.getAllGymBranch);
@@ -67,7 +67,7 @@ const UpdateTrainerStatus = ({ route }) => {
         data.append("status", status);
 
         const res = await axios.put(
-            `http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/trainer/leave/${leaveId}/status`,
+            `http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/trainer/leave/${leaveId}/status`,
             data
           );
           console.log("responce",res);

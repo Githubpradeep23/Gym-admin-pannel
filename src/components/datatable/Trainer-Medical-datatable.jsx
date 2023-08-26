@@ -11,7 +11,7 @@ const MedicalRecords = () => {
     const [isdelete, setIsDelete] = useState(false);
 
     useEffect(async () => {
-        let res = await axios.get("http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/trainer/medicalRecord/all");
+        let res = await axios.get("http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/trainer/medicalRecord/all");
         const modifiedData = res.data.medicalRecords
             .reduce(
                 (prev, current) => [
@@ -36,7 +36,7 @@ const MedicalRecords = () => {
         
         var config = {
             method: 'delete',
-            url: 'http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/trainer/medicalRecord/delete',
+            url: 'http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/trainer/medicalRecord/delete',
             headers: { 
             'Content-Type': 'application/json'
             },

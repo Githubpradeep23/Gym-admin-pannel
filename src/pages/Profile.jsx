@@ -20,7 +20,7 @@ const Profile = () => {
     }, []);
 
     const getProfile=async()=>{
-        const res=await axios.get('http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getAdminUserProfile');
+        const res=await axios.get('http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/getAdminUserProfile');
         console.log('data',res)
         setEmail(res.data.AdminData[0].email);
         setName(res.data.AdminData[0].name);
@@ -39,7 +39,7 @@ const Profile = () => {
     
         var config = {
           method: "post",
-          url: "http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/adminUpdateProfile",
+          url: "http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/adminUpdateProfile",
           headers: { "Content-Type": "multipart/form-data" },
           data: data,
         };

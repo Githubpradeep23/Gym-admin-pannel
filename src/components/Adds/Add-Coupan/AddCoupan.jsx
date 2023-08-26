@@ -47,7 +47,7 @@ const AddCoupan = () => {
 
         var config = {
             method: 'post',
-            url: 'http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/addCopuan',
+            url: 'http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/addCopuan',
             headers: {
                 'Content-Type': 'application/json'
             },

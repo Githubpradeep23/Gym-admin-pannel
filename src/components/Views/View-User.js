@@ -89,7 +89,7 @@ const ViewUser = ({ route }) => {
 
   //     var config = {
   //         method: 'get',
-  //         url: 'http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/getAllUsers',
+  //         url: 'http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/getAllUsers',
   //         headers: { "Content-Type": "multipart/form-data" },
 
   //         data: data

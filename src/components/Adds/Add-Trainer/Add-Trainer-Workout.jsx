@@ -46,7 +46,7 @@ const AddWorkout = () => {
 
     const getExercises = async () => {
         let res = await axios.get(
-          "http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/trainer/exercise/all"
+          "http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/trainer/exercise/all"
         );
     
         console.log("responce=============->", res.data.exercises);
@@ -89,7 +89,7 @@ const AddWorkout = () => {
         data.append("numberOfRounds2",numberOfRounds2); 
         let config = {
         method: 'post',
-        url: 'http://ec2-13-211-131-177.ap-southeast-2.compute.amazonaws.com:8080/api/v1/trainer/workout/submit',
+        url: 'http://ec2-13-233-95-74.ap-south-1.compute.amazonaws.com:8080/api/v1/trainer/workout/submit',
         headers: { 
             'Content-Type': 'application/json'
         },
